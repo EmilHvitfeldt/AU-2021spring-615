@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Instructor: Emil Hvitfeldt  
 Time: Wednesday 5:30PM - 8:00PM ET time zone (Washington DC time)  
-Course website: https://emilhvitfeldt.github.io/AU-2021spring-616/index.html  
+Course website: https://emilhvitfeldt.github.io/AU-2021spring-615/index.html  
 Office hours: Sunday 7:00PM - 8:00PM  
 Email: emilh@american.edu  
 Twiter: @Emil_Hvitfeldt  

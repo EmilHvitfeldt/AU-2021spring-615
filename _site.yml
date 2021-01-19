@@ -1,8 +1,8 @@
-name: "stat627"
-title: "Statistical Machine Learning"
+name: "stat615"
+title: "Regression"
 theme: theme.css
 description: |
-  Statistical Machine Learning
+  Regression
 output_dir: "docs"
 include: ["Readings"]
 exclude: ["papers.Rmd"]
