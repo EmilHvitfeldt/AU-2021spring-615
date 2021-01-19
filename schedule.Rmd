@@ -1,0 +1,212 @@
+---
+title: "Schedule"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(glue)
+library(fs)
+library(stringr)
+
+link_generator <- function(name) {
+  function(x) {
+    number <- str_pad(x, 2, "left", "0")
+    
+    if (file_exists(glue("{number}-{name}.Rmd"))) {
+      url <- glue("{number}-{name}.html")
+      return(glue("[{name}]({url})"))
+    } else {
+      return(glue("[{str_to_title(name)} haven't been posted yet]()"))
+    }
+  }
+}
+
+readings <- link_generator("readings")
+labs <- link_generator("labs")
+assignments <- link_generator("assignments")
+```
+
+```{r}
+library(lubridate)
+first_week <- date(c("2021-01-17", "2021-01-23"))
+
+week_days <- function(x) {
+  days <- first_week %m+% days((x - 1) * 7)
+  glue("*{days[1]} to {days[2]}*")
+}
+```
+
+
+# Week 1
+
+`r week_days(1)`
+
+Topics: Introductions, What is Statistical Machine Learning?, R, RStudio
+
+`r readings(1)`
+
+`r labs(1)`
+
+No Assignment this week
+
+# Week 2
+
+`r week_days(2)`
+
+Topics: Linear Regression with one predictor variable
+
+`r readings(2)`
+
+`r labs(2)`
+
+`r assignments(1)`
+
+# Week 3
+
+`r week_days(3)`
+
+Topics: Correlation Analysis
+
+`r readings(3)`
+
+`r labs(3)`
+
+`r assignments(2)`
+
+# Week 4
+
+`r week_days(4)`
+
+Topics: Diagnostics
+
+`r readings(4)`
+
+`r labs(4)`
+
+`r assignments(3)`
+
+# Week 5
+
+`r week_days(5)`
+
+Topics: Matrix approach to Simple linear Regression Analysis
+
+`r readings(5)`
+
+`r labs(5)`
+
+`r assignments(4)`
+
+# Week 6
+
+`r week_days(6)`
+
+Topics: Multiple linear regression
+
+`r readings(6)`
+
+`r labs(6)`
+
+`r assignments(5)`
+
+# Week 7
+
+`r week_days(7)`
+
+Topics: Quantitative and Qualitative predictors
+
+`r readings(7)`
+
+`r labs(7)`
+
+Midterm
+
+# Week 8
+
+`r week_days(8)`
+
+[Wellness Week](https://www.american.edu/provost/communications/november-17-2020.cfm)
+
+Topics: Model Selection
+
+No readings, labs or assignment due to Wellness Week
+
+# Week 9
+
+`r week_days(9)`
+
+Topics: Validation
+
+`r readings(9)`
+
+`r labs(9)`
+
+`r assignments(6)`
+
+# Week 10
+
+`r week_days(10)`
+
+Topics: Diagnostics
+
+`r readings(10)`
+
+`r labs(10)`
+
+`r assignments(7)`
+
+# Week 11
+
+`r week_days(11)`
+
+Topics: Remedial measures
+
+`r readings(11)`
+
+`r labs(11)`
+
+`r assignments(8)`
+
+# Week 12
+
+`r week_days(12)`
+
+Topics: Autocorrelation in time Series data
+
+`r readings(12)`
+
+`r labs(12)`
+
+`r assignments(9)`
+
+# Week 13
+
+`r week_days(13)`
+
+Topics: Nonlinear regression
+
+`r readings(13)`
+
+`r labs(13)`
+
+`r assignments(10)`
+
+# Week 14
+
+`r week_days(14)`
+
+Topics: Logistic regression, poisson regression, Generalized Linear Models
+
+`r readings(14)`
+
+`r labs(14)`
+
+No assignment this week. Time will be dedicated for Final Project

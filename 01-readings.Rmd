@@ -1,0 +1,13 @@
+---
+title: "Readings - week 1"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
+```
+
+Read chapter 1 of "Applied Linear Statistical Models". It doesn't matter if you have the 4th or 5th edition, the first 14 chapters should be the same.
+
+We will not cover everything in chapter 1 in the first week so it is okay if you don't get all the way through it.
+
+We will be using [R](https://cran.r-project.org/) which can be downloaded [here](https://cran.r-project.org/). Additionally, it is also advised to use [RStudio](https://rstudio.com/) which can be downloaded [here](https://rstudio.com/products/rstudio/download/#download), but any [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) will work.
