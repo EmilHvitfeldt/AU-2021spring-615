@@ -1,0 +1,59 @@
+---
+title: "Assignment 1"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*When* $\alpha$ is not given, use the p-value approach to make your conclusions. When it's difficult to conclude, use $\alpha = 0.05$. For two-sample problems, use the F-test to decide which t-test to use.
+
+1. The manufacturer of a certain brand of household light bulbs claims that the bulbs produced by his factory have an average life of at least 2,000 hours. The mean and standard deviation of 20 light bulbs selected from the manufacturer's production process were calculated to be 2,160 and 142 hours, respectively.
+    a. Do the data represent sufficient evidence to support the manufacturer's claim? How can you interpret your answer.
+    b. Construct a 95% confidence interval for the mean lifetime of household light bulbs.
+1. There are two manufacturing processes, old and new, that produce the same product. The defect rate has been measured for 20 days for the old process, and for 14 days for the new process, resulting in the following sample summaries.
+
+    |                     | OLD | NEW |
+    |---------------------|-----|-----|
+    | Average defect rate | 4.7 | 2.3 |
+    | Standard deviation  | 6.8 | 5.0 |
+    
+    The firm is interested in switching to the new process only if it can be demonstrated convincingly that the new process reduces the defect rate. Is there significant evidence of that? Use $\alpha = 5%$; assume that the collected data represent two random samples from Normal distributions. Use the method of testing that is appropriate for this situation.
+1.  An account on server A is more expensive than an account on server B. However, server A is faster. To see if whether it's optimal to go with the faster but more expensive server, a manager needs to know how much faster it is. A certain computer algorithm is executed 30 times on server A and 20 times on server B with the following results,
+
+    |                           | Server A | Server B |
+    |---------------------------|----------|----------|
+    | Sample mean               | 6.7 min  | 7.5 min  |
+    | Sample standard deviation | 0.6 min  | 1.2 min  |
+    
+    a. Is there a significant difference between the two servers?
+    a. Is server A significantly faster?
+    
+    State the null and alternative hypotheses, use the data to select the most appropriate procedure, and conduct the test. What assumptions are we making for this test to be valid?
+    
+1. Data on 522 recent home sales are available [here](data/HOME_SALES.csv). The following variables are included.
+
+    | Column | Variable                                                   |
+    |--------|------------------------------------------------------------|
+    | 1      | Identification number 1–522                                |
+    | 2      | Sales price of residence (×$1000 dollars)                  |
+    | 3      | Finished area of residence (square feet)                   |
+    | 4      | Total number of bedrooms in residence                      |
+    | 5      | Total number of bathrooms in residence                     |
+    | 6      | Air conditioning: present or absent                        |
+    | 7      | Number of cars that garage will hold                       |
+    | 8      | Swimming pool: present or absent                           |
+    | 9      | Year property was originally constructed                   |
+    | 10     | Quality of construction: high, medium, or low              |
+    | 11     | Architectural style. Three styles are coded as 1, 2, and 3 |
+    | 12     | Lot size (square feet)                                     |
+    | 13     | Location near a highway: yes or no                         |
+    
+    Use software to find out if there is significant evidence that:
+    
+    a. The sales price depends on the air conditioner in the house.
+    a. On the average, homes with an air conditioner are more expensive.
+    a. On the average, homes with an air conditioner are larger.
+    a. The sales price depends on the proximity to a highway.
+    a. On the average, homes are cheaper when they are close to a highway.
+    a. On the average, homes are cheaper when they are far from a highway.
