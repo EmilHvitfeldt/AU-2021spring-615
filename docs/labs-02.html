@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Labs</title>
+  <title>Regression: Lab - week 2</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Labs"/>
+  <meta property="og:title" content="Regression: Lab - week 2"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Labs"/>
+  <meta property="twitter:title" content="Regression: Lab - week 2"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Labs"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Lab - week 2"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Labs","authors":[]}
+{"title":"Lab - week 2","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2415,7 +2415,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Labs</h1>
+<h1>Lab - week 2</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2423,8 +2423,25 @@ Assignments
 
 
 <div class="d-article">
-<p>Each lecture will be followed by lab time which is sometimes where we will be using <a href="https://cran.r-project.org/">R</a>.</p>
-<p>Labs are to be turned in on Blackboard. Albs will be available no later than 3 days before class and are due to be turned in on the following Sunday. We will be collectively be talking about the labs and come up with some of the answers. To get full credit for labs the document that is turned in should contain not just the right code to solve the problem but also text explaining what has been done.</p>
+<h3 id="data">Data</h3>
+<p><a href="data/presidents.csv">presidents.csv</a></p>
+<p><a href="data/USpop.csv">USpop.csv</a></p>
+<h2 id="exercise-1">Exercise 1</h2>
+<ol type="a">
+<li>Read in the <code>USpop</code> data</li>
+<li>Create a scatterplot of <code>Year</code> and <code>Population</code> from the <code>USpop</code> data set.</li>
+<li>Fit a linear model to <code>USpop</code> with <code>Population</code> as the response and <code>Year</code> as the predictor.</li>
+<li>Look at the summary of he model. Plot the model against the scatterplot.</li>
+<li>Fit a quadratic regression model.</li>
+<li>Use the model to predict what will happen in year 2030, 2040, and 2050. Is this realistic?</li>
+</ol>
+<h2 id="exercise-2">Exercise 2</h2>
+<ol type="a">
+<li>Read in the <code>presidents</code> data</li>
+<li>Create a scatterplot of <code>actual</code> and <code>expected</code> from the <code>presidents</code> data set.</li>
+<li>Fit a linear model to <code>presidents</code> with <code>actual</code> as the response and <code>expected</code> as the predictor.</li>
+<li>Look at the summary of he model. Plot the model against the scatterplot. How well does the model fit?</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

@@ -1,0 +1,30 @@
+---
+title: "Lab - week 2"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Data
+
+[presidents.csv](data/presidents.csv)
+
+[USpop.csv](data/USpop.csv)
+
+## Exercise 1
+
+a. Read in the `USpop` data
+a. Create a scatterplot of `Year` and `Population` from the `USpop` data set.
+a. Fit a linear model to `USpop` with `Population` as the response and `Year` as the predictor.
+a. Look at the summary of he model. Plot the model against the scatterplot.
+a. Fit a quadratic regression model.
+a. Use the model to predict what will happen in year 2030, 2040, and 2050. Is this realistic?
+
+## Exercise 2
+
+a. Read in the `presidents` data
+a. Create a scatterplot of `actual` and `expected` from the `presidents` data set.
+a. Fit a linear model to `presidents` with `actual` as the response and `expected` as the predictor.
+a. Look at the summary of he model. Plot the model against the scatterplot. How well does the model fit?
+
