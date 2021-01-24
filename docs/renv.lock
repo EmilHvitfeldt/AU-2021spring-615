@@ -190,6 +190,13 @@
       "Repository": "CRAN",
       "Hash": "0d57bc8e27b7ba9e45dba825ebc0de6b"
     },
+    "credentials": {
+      "Package": "credentials",
+      "Version": "1.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a96728288c75a814c900af9da84387be"
+    },
     "curl": {
       "Package": "curl",
       "Version": "4.3",
@@ -237,6 +244,18 @@
       "RemoteRef": "HEAD",
       "RemoteSha": "a8dae5328ddfc0d68742febfbb8c982e52bfa46f",
       "Hash": "2da706c8f4177ad8d698e39bc61620e9"
+    },
+    "distillcourse": {
+      "Package": "distillcourse",
+      "Version": "0.0.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "distillcourse",
+      "RemoteUsername": "emilhvitfeldt",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "0aa42383dcddb7d6c18a98c11587e52644ae456f",
+      "Hash": "394e2d2a4183935b3e661023bfc17f8d"
     },
     "downlit": {
       "Package": "downlit",
@@ -320,12 +339,33 @@
       "Repository": "CRAN",
       "Hash": "4d243a9c10b00589889fe32314ffd902"
     },
+    "gert": {
+      "Package": "gert",
+      "Version": "1.0.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0ebdadbb2b742cd230cb3ec7fdf5898a"
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.3.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "3eb6477d01eb5bbdc03f7d5f70f2733e"
+    },
+    "gh": {
+      "Package": "gh",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "05129b4387282404780d2f8593636388"
+    },
+    "gitcreds": {
+      "Package": "gitcreds",
+      "Version": "0.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "f3aefccc1cc50de6338146b62f115de8"
     },
     "globals": {
       "Package": "globals",
@@ -371,10 +411,10 @@
     },
     "htmltools": {
       "Package": "htmltools",
-      "Version": "0.5.1",
+      "Version": "0.5.1.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "4d5452ff42a254e861282931190d052a"
+      "Hash": "af2c2531e55df5cf230c4b5444fc973c"
     },
     "httpuv": {
       "Package": "httpuv",
@@ -396,6 +436,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "b53abe478cd07312b8e09543f07c95f6"
+    },
+    "ini": {
+      "Package": "ini",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "6154ec2223172bce8162d4153cda21f7"
     },
     "ipred": {
       "Package": "ipred",
@@ -670,6 +717,13 @@
       "Repository": "CRAN",
       "Hash": "97def703420c8ab10d8f0e6c72101e02"
     },
+    "rappdirs": {
+      "Package": "rappdirs",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "8c8298583adbbe76f3c2220eef71bebc"
+    },
     "recipes": {
       "Package": "recipes",
       "Version": "0.1.15",
@@ -700,8 +754,8 @@
       "RemoteRepo": "rlang",
       "RemoteUsername": "r-lib",
       "RemoteRef": "HEAD",
-      "RemoteSha": "f85d43c909281c2cc7619d4b210d636d3975ab6a",
-      "Hash": "30dab159a7ad317f48b9575f03e78477"
+      "RemoteSha": "342a9b1296623ec137290505a136b44a6e84d6d7",
+      "Hash": "508bae68a831e6e96f5dac2bbef707fc"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
@@ -855,12 +909,26 @@
       "Repository": "CRAN",
       "Hash": "f401be434f60d4549bda90b566ff6d3f"
     },
+    "usethis": {
+      "Package": "usethis",
+      "Version": "2.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "133099afbac51dc52948b89b387a9734"
+    },
     "utf8": {
       "Package": "utf8",
       "Version": "1.1.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "4a5081acfb7b81a572e4384a7aaf2af1"
+    },
+    "uuid": {
+      "Package": "uuid",
+      "Version": "0.1-4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e4169eb989a5d03ccb6b628cad1b1b50"
     },
     "vctrs": {
       "Package": "vctrs",
@@ -899,10 +967,10 @@
     },
     "withr": {
       "Package": "withr",
-      "Version": "2.3.0",
+      "Version": "2.4.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "7307d79f58d1885b38c4f4f1a8cb19dd"
+      "Hash": "8e07f30a26bc288326edcfe14883fbac"
     },
     "workflows": {
       "Package": "workflows",
@@ -917,6 +985,18 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "7168ed8f41f3597c6c570477c0d0bf15"
+    },
+    "xaringanExtra": {
+      "Package": "xaringanExtra",
+      "Version": "0.2.4",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "xaringanExtra",
+      "RemoteUsername": "gadenbuie",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "93429efefb268a4df2f43935304a8f781f73ece8",
+      "Hash": "fe407c82772e8ee4ecaccb2552f3b2e3"
     },
     "xfun": {
       "Package": "xfun",
@@ -945,6 +1025,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "e16ed675886deba4b47441672cedfd54"
+    },
+    "zip": {
+      "Package": "zip",
+      "Version": "2.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "3bc8405c637d988801ec5ea88372d0c2"
     }
   }
 }

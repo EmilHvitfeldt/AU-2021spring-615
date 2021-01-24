@@ -1,0 +1,9 @@
+---
+title: "Readings - week 2"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Finish reading chapter 1 of "Applied Linear Statistical Models" if you haven't already. No other reading this week.
