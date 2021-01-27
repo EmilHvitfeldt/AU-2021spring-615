@@ -7,3 +7,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Finish reading chapter 1 of "Applied Linear Statistical Models" if you haven't already. No other reading this week.
+
+## Slides
+
+```{r embed-xaringan, echo=FALSE, eval=TRUE}
+xaringanExtra::embed_xaringan(url = "static/slides/02-week/index.html", ratio = "16:9")
+```
+
+[PDF download](static/slides/02-week/02-week.pdf)

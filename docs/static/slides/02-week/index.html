@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Regression</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emil Hvitfeldt" />
+    <script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# Regression
+## AU STAT-615
+### Emil Hvitfeldt
+### 2021-1-20
+
+---
+
+
+
+
+
+
+# Linear Regression with one Predictor Variable
+
+Definition
+
+&gt; Regression analysis is a statistical methodology that utilizies the relation between two or more quantitative variables so that a response variable can be predictted from the others
+
+response, outcome, dependent variables
+
+predictors, independent variables, features, or variables
+
+---
+
+Examples
+
+&gt; Sales of a product predicted by amount of advertising spent
+
+&gt; Amount of rain predicted by hours of rain
+
+---
+
+# Relationos between variables
+
+- Functional relation
+- Statistical Relation
+
+---
+
+# Functional Relation
+
+Is expression by a mathematical formula
+
+`$$Y = f(X)$$`
+
+where `\(f\)` is a function mapping `\(X\)` to `\(Y\)`.
+
+---
+
+# Functional Relation
+
+.pull-left[
+Case:
+
+Money made (Y) of a product sold at a fixed price and the number of units sold (X)
+
+Price of unit: 2  
+
+The functional relation will be
+
+$$ Y = 4X $$
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-3-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Statistical Relation
+
+We don't have a perfect relation between the variables
+
+In other words, the points will not always fall on the line
+
+The relationship between the response and predictors can strong or weak depending on the case
+
+---
+
+# Statistical Relation
+
+.pull-left[
+Case:
+
+mid year and year end performance for employees
+
+The Statistical relation will be
+
+$$ Y = X + \varepsilon $$
+
+Notice how the relation is not perfect
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-4-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Statistical Relation
+
+.pull-left[
+The scattering of the points represents **variation** in the year end performance that is not associated with the mid year performance
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-5-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Statistical Relation
+
+.pull-left[
+The scattering of the points represents **variation** in the year end performance that is not associated with the mid year performance
+
+And it can be a **small** amount of variation
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-6-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Statistical Relation
+
+.pull-left[
+The scattering of the points represents **variation** in the year end performance that is not associated with the mid year performance
+
+And it can be a **large** amount of variation
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-7-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Sneak peak: More then one predictor variable
+
+Example: Study of short children
+
+.pull-left[
+`\(X_1\)`: Age  
+`\(X_2\)`: Gender
+`\(X_3\)`: Height
+`\(X_4\)`: Weight
+
+`\(Y\)`: Peak plasma growth hormone level
+]
+
+--
+
+.pull-right[
+There is a probability distributioon of Y for each level of `\(X_i\)`
+]
+
+---
+
+# Construction of Regression models
+
+1. Selection of predictor variables (more about this in chapter 9)
+1. Functional form of regression relation
+1. Scope of Model, must be generalizable
+
+---
+
+# Use of regression Analysis
+
+1. Description/Inference
+1. Control
+1. Prediction
+
+---
+
+# Regression and Causality
+
+The existence of a statistical relation between the response variable Y and the predictor X does not imply that Y depends on X
+
+Example:
+
+X: Size of vocabulary
+Y: Writing speed of children
+
+Will show a positive statistical relation
+
+This does not imply that an increase inn covabulary causes a faster writing speed
+
+What is more likely is that a 3rd variable such as "age of child" positively affects both
+
+---
+
+# Regression and Causality
+
+This should not mean that statistical relations never have a causal link, but that we need to spend a little more time with the problem to infer that there is one
+
+---
+
+# Notation
+
+$$ Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i $$
+
+`\(Y_i\)` Value of response variable at the `\(i\)`th observation
+
+`\(\beta_0, \beta_1\)` parameters (1 value each)
+
+`\(X_i\)` Value of response variable at the `\(i\)`th observation
+
+`\(\varepsilon_i\)` Random error at `\(i\)`th observation
+
+`\(\varepsilon\)` is the random error term with mean `\(E\{\varepsilon_i\} = 0\)` and `\(V\{\varepsilon_i\} = \sigma^2\)`
+
+The different error terms are uncorrelated
+
+---
+
+# Notation
+
+$$ Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i $$
+We say that `\(Y\)` denotes a random variable and `\(y\)` denotes a potential value of that random variable
+
+---
+
+# Some observations
+
+1. `\(Y_i\)` is the sum of `\(\beta_0 + \beta_1 X_i\)` which is constant and the random term `\(\varepsilon\)`, hence `\(Y_i\)` is a random variable.
+1. `\(E\{\varepsilon\} = 0\)` then `\(E\{Y_i\} = E\{\beta_0 + \beta_1 X_i + \varepsilon\} = \beta_0 + \beta_1 X_i\)`
+1. `\(V\{Y_i\} = V\{\beta_0 + \beta_1 X_i + \varepsilon\} = V\{\varepsilon_i\} = \sigma^2\)`
+1. `\(Y_i\)` and `\(Y_j\)` are uncorrelated since the error terms are uncorrelated
+
+---
+
+# Example
+
+&gt; Relationship bettween he number of bids requested for contractors during a week and the time required to prepare the bids
+
+Let the regression model be
+
+`$$Y_i = 9.5 + 2.1X_i + \varepsilon_i$$`
+for i representing different weeks
+
+Y: Number of hours required to prepare bids
+
+X: Number of bids prepared in a week
+
+---
+
+# Example
+
+&gt; Relationship bettween he number of bids requested for contractors during a week and the time required to prepare the bids
+
+The regression function for this model is
+
+$$ E\{Y\} = 9.5 + 2.1X $$
+
+If we suppose that the `\(i\)`th week, `\(X_i = 45\)` then we would expect the number of hours spend preparing to be 104. But if the actual number of hours `\(Y_i = 108\)` then the error is `\(\varepsilon_i = 4\)`
+
+`\(\varepsilon_i\)` is the deviation or `\(Y_i\)` from its mean value `\(E\{Y_i\}\)`
+
+---
+
+# Meaning of Regression Parameters
+
+$$ Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i $$
+
+`\(\beta_1\)`: Slope of the regression line. It indicates the change in the mean of the probability distribution of Y per unit increase in X.
+
+`\(\beta_0\)`: `\(Y\)` intercept of regression line. When `\(X = 0\)` gives mean of probability distribution of `\(Y\)`.
+
+---
+
+# Estimation of Regression Function
+
+The data will be used to estimate the parameters of the regression function.
+
+We will think of the observations `\((X, Y)\)` as consisting of the pair of numbers
+
+$$ (X_1, Y_1),  (X_2, Y_2), ..., (X_n, Y_n) $$
+
+---
+
+# Method of least squares
+
+We use the method of least squares (MLS) to effectively estimate `\(\beta_0\)` and `\(\beta_1\)`
+
+---
+
+# Method of least squares
+
+
+
+&lt;img src="index_files/figure-html/unnamed-chunk-9-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Method of least squares
+
+&lt;img src="index_files/figure-html/unnamed-chunk-10-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Method of least squares
+
+&lt;img src="index_files/figure-html/unnamed-chunk-11-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Method of least squares
+
+The error is
+
+$$ Y_i - (\beta_0 + \beta_1 X_i)$$
+
+so we want to minimize
+
+
+$$ Q = \sum\limits_{i=1}^n (Y_i - (\beta_0 + \beta_1 X_i))^2 $$
+This can be done in 2 ways:
+
+- Numerical search procedure
+- Analytical procedures
+
+---
+
+# Method of least squares
+
+Since we have
+
+`$$Q = \sum\limits_{i=1}^n (Y_i - (\beta_0 + \beta_1 X_i))^2$$`
+
+that means that `\(Q\)` is a function of `\(\beta_0\)` and `\(\beta_1\)`. 
+
+To estimate `\(\beta_0\)` and `\(\beta_1\)` we can take the partial derivatives of `\(Q\)` with respect to `\(\beta_0\)` and `\(\beta_1\)`.
+
+---
+
+# Method of least squares
+
+`$$\dfrac{\partial Q}{\partial \beta_0 } = -2 \sum\limits_{i=1}^n (Y_i - \beta_0 - \beta_1 X_i) = 0 \rightarrow \sum\limits_{i=1}^n Y_i - n\beta_0-\beta_1 \sum\limits_{i=1}^n X_i = 0 \quad (1)$$`
+
+`$$\dfrac{\partial Q}{\partial \beta_1 } = -2 \sum\limits_{i=1}^n (Y_i - \beta_0 - \beta_1 X_i) X_i = 0 \rightarrow \sum\limits_{i=1}^n X_i Y_i - \beta_0 \sum\limits_{i=1}^n X_i -\beta_1 \sum\limits_{i=1}^n X_i^2 = 0 \quad (2)$$`
+
+---
+
+# Method of least squares
+
+`$$(1) \rightarrow n\beta_0 = \sum\limits_{i=1}^n Y_i-\beta_1 \sum\limits_{i=1}^n X_i \rightarrow \beta_0 = \sum\limits_{i=1}^n \dfrac{Y_i}{n}-\beta_1 \sum\limits_{i=1}^n \dfrac{X_i}{n}$$`
+
+So `\(b_0 = \bar{Y} = \beta_1 \bar{X}\)`.
+
+---
+
+# Method of least squares
+
+And we will see in chapter 2 that
+
+we can re arrange the terms in `\((2)\)` that
+
+`$$b_1 = \dfrac{\sum(X_i - \bar{X})(Y_i - \bar{Y})}{\sum(X_i - \bar{X})^2}$$`
+
+---
+
+# Properties of Least Squares Estimators
+
+1. **Unbiased property** `\(E\{b_1\} = \beta_1\)` and `\(E\{b_0\} = \beta_0\)`
+1. **Variance** it can be shown that `\(b_0, b_1\)` gives the minimum variance in the group of linnear and unbiased estimators.
+
+These two points are actually part of the the Gauss-Markov theorem
+
+---
+
+# Point estimator of Mean Response
+
+Given `\(b_0\)` and `\(b_1\)` of the parameters in the regression function
+
+`$$E\{Y_i\} = \beta_0 + \beta_1 X_i$$`
+
+We estimate the regression as follows
+
+`$$\hat{Y} = b_0 + b_1 X$$`
+
+Also `\(\hat{Y}\)` is unbiased with minimum variance
+
+Which means that
+
+`$$\hat{Y_i} = b_0 + b_1 X_i, \quad i = 1, ..., n$$`
+
+---
+
+# Residuals
+
+The `\(i\)`th residual is denoetd by `\(e_i\)` and is defined as
+
+`$$e_i = Y_i - \hat{Y}_i$$`
+
+For the regression model 
+
+`$$Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$$`
+
+the residual `\(e_i\)` is defined as
+
+`$$e_i = Y_i - (b_0 + b_1 X_i) = Y_i - b_0 - b_1 X_i$$`
+
+---
+
+# Residuals
+
+`\(\varepsilon_i = Y_i - E\{Y_i\}\)` is the vertical deviation of $Y_i% from the unknown true regression line
+
+`\(e_i = Y_i - \hat{Y_i}\)` is the vertical deviation of `\(Y_i\)` from the fitted value `\(\hat{Y_i}\)` on the estimated regression line and is thus known
+
+Residuals are useful for studying whether a given regression model is appropriate for the data at hand (chapter 3)
+
+---
+
+# Properties of fitted regression line
+
+1. Sum of residuals is zero
+
+`$$\sum\limits_{i=1}^n e_i = 0$$`
+1. The sum of the squred residuals is minimum.
+1. `\(\sum\limits_{i=1}^nY_i = \sum\limits_{i=1}^n\hat{Y}_i\)`
+
+---
+
+# Properties of fitted regression line
+
+1. `\(\sum\limits_{i=1}^nX_ie_i = 0\)`
+1. `\(\sum\limits_{i=1}^n\hat{Y}_ie_i = 0\)`
+1. The regression line goes through `\((\hat{X}, \hat{Y})\)`
+
+---
+
+# Estimationn of Error Terms Variance 
+
+The variance `\(\sigma^2\)` of `\(\varepsilon_i\)` needs to be estimated to obtain an indication of the variability of the probability distribution of `\(Y\)`
+
+The variance of a single population is estimated by sample variance `\(s^2\)`
+
+`$$s^2 = \sum\limits_{i=1}^n\dfrac{(Y_i - \bar{Y})^2}{(n-1)}$$`
+
+---
+
+# Estimationn of Error Terms Variance
+
+Similar to estimators for `\(\sigma^2\)` for the regression model we have
+
+`$$e_i = Y_i = \hat{Y}_i$$`
+since `\(Y_i\)` come fromo different distributions the sum of squares `\(SSE\)` is
+
+`$$SSE = \sum\limits_{i=1}^n (Y_i - \bar{Y})^2 =  \sum\limits_{i=1}^n e_i^2$$`
+
+Now we know that `\(SSE\)` has `\(n-2\)` degrees of freedom.
+
+---
+
+# Estimationn of Error Terms Variance
+
+Two degrees of freedom are lost because both `\(\beta_0\)` and `\(\beta_1\)` need to be estimated in obtaining the estimated means `\(\hat{Y}_i\)`, hence
+
+`$$s^2 = MSE = \dfrac{SSE}{n-2} = \dfrac{\sum\limits_{i=1}^n e_i^2}{n-2}$$`
+
+where `\(MSE\)` = error mean square
+
+It can be shown that `\(E\{s^2\} = E\{MSE\} = \sigma^2\)` of the regression model
+
+`$$Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$$`
+
+---
+
+# Confidence intervals
+
+Let `\(Y_1, Y_2, ..., Y_n\)` be a random sample of `\(n\)` observations from a normal population with mean `\(\mu\)` and standard deviation `\(\sigma\)`.
+
+.pull-left[
+The sample mean is: `\(\bar{Y} = \dfrac{\sum^n_{i=1}Y}{n}\)`
+
+The sample sd is: `\(s = \left[ \dfrac{\sum\limits_{i=1}^n (Y_i - \bar{Y})^2}{n-1} \right]^{1/2}\)`
+]
+
+.pull-right[
+We then get that
+
+`$$\bar{Y} \sim \mu_{\bar{Y}} = \mu \quad \&amp; \quad \sigma_{\bar{y}} = \frac{\sigma}{\sqrt{n}}$$`
+]
+
+---
+
+# Confidence intervals
+
+Thus the estimates standard deviation is `\(s\{\bar{Y}\} = \frac{\sigma}{\sqrt{n}}\)`
+
+We define `\(\dfrac{\bar{Y} - \mu}{s\{\bar{Y}\}}\)` t-distributed with `\(n-1\)` degrees of freedom
+
+The confidence interval for `\(\mu\)` are
+
+`$$\bar{Y} \pm t(1 - \alpha/2, n-1)s\{\bar{Y}\}$$`
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
