@@ -18,7 +18,7 @@ a. Read in the `USpop` data
 a. Create a scatterplot of `Year` and `Population` from the `USpop` data set.
 a. Fit a linear model to `USpop` with `Population` as the response and `Year` as the predictor.
 a. Look at the summary of he model. Plot the model against the scatterplot.
-a. Fit a quadratic regression model.
+a. ~~Fit a quadratic regression model.~~
 a. Use the model to predict what will happen in year 2030, 2040, and 2050. Is this realistic?
 
 ## Exercise 2
