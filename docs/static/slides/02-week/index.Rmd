@@ -69,7 +69,7 @@ library(ggplot2)
 
 Definition
 
-> Regression analysis is a statistical methodology that utilizies the relation between two or more quantitative variables so that a response variable can be predictted from the others
+> Regression analysis is a statistical methodology that utilizes the relation between two or more quantitative variables so that a response variable can be predicted from the others
 
 response, outcome, dependent variables
 
@@ -79,7 +79,7 @@ predictors, independent variables, features, or variables
 
 Examples
 
-> Sales of a product predicted by amount of advertising spent
+> Sales of a product predicted by the amount of advertising spent
 
 > Amount of rain predicted by hours of rain
 
@@ -149,13 +149,13 @@ The relationship between the response and predictors can strong or weak dependin
 .pull-left[
 Case:
 
-mid year and year end performance for employees
+mid-year and year-end performance for employees
 
 The Statistical relation will be
 
 $$ Y = X + \varepsilon $$
 
-Notice how the relation is not perfect
+Notice how the relationship is not perfect
 ]
 
 .pull-right[
@@ -178,7 +178,7 @@ ggplot(dat, aes(x, y)) +
 # Statistical Relation
 
 .pull-left[
-The scattering of the points represents **variation** in the year end performance that is not associated with the mid year performance
+The scattering of the points represents **variation** in the year-end performance that is not associated with the mid-year performance
 ]
 
 .pull-right[
@@ -201,7 +201,7 @@ ggplot(dat, aes(x, y)) +
 # Statistical Relation
 
 .pull-left[
-The scattering of the points represents **variation** in the year end performance that is not associated with the mid year performance
+The scattering of the points represents **variation** in the year-end performance that is not associated with the mid-year performance
 
 And it can be a **small** amount of variation
 ]
@@ -226,7 +226,7 @@ ggplot(dat, aes(x, y)) +
 # Statistical Relation
 
 .pull-left[
-The scattering of the points represents **variation** in the year end performance that is not associated with the mid year performance
+The scattering of the points represents **variation** in the year-end performance that is not associated with the mid-year performance
 
 And it can be a **large** amount of variation
 ]
@@ -248,7 +248,7 @@ ggplot(dat, aes(x, y)) +
 
 ---
 
-# Sneak peak: More then one predictor variable
+# Sneak peek: More than one predictor variable
 
 Example: Study of short children
 
@@ -264,7 +264,7 @@ $Y$: Peak plasma growth hormone level
 --
 
 .pull-right[
-There is a probability distributioon of Y for each level of $X_i$
+There is a probability distribution of Y for each level of $X_i$
 ]
 
 ---
@@ -296,9 +296,9 @@ Y: Writing speed of children
 
 Will show a positive statistical relation
 
-This does not imply that an increase inn covabulary causes a faster writing speed
+This does not imply that an increase in vocabulary causes a faster writing speed
 
-What is more likely is that a 3rd variable such as "age of child" positively affects both
+What is more likely is that a 3rd variable such as "age of the child" positively affects both
 
 ---
 
@@ -344,7 +344,7 @@ We say that $Y$ denotes a random variable and $y$ denotes a potential value of t
 
 # Example
 
-> Relationship bettween he number of bids requested for contractors during a week and the time required to prepare the bids
+> Relationship between the number of bids requested for contractors during a week and the time required to prepare the bids
 
 Let the regression model be
 
@@ -359,13 +359,13 @@ X: Number of bids prepared in a week
 
 # Example
 
-> Relationship bettween he number of bids requested for contractors during a week and the time required to prepare the bids
+> Relationship between the number of bids requested for contractors during a week and the time required to prepare the bids
 
 The regression function for this model is
 
 $$ E\{Y\} = 9.5 + 2.1X $$
 
-If we suppose that the $i$th week, $X_i = 45$ then we would expect the number of hours spend preparing to be 104. But if the actual number of hours $Y_i = 108$ then the error is $\varepsilon_i = 4$
+If we suppose that the $i$th week, $X_i = 45$ then we would expect the number of hours spent preparing to be 104. But if the actual number of hours $Y_i = 108$ then the error is $\varepsilon_i = 4$
 
 $\varepsilon_i$ is the deviation or $Y_i$ from its mean value $E\{Y_i\}$
 
@@ -377,7 +377,7 @@ $$ Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i $$
 
 $\beta_1$: Slope of the regression line. It indicates the change in the mean of the probability distribution of Y per unit increase in X.
 
-$\beta_0$: $Y$ intercept of regression line. When $X = 0$ gives mean of probability distribution of $Y$.
+$\beta_0$: $Y$ intercept of the regression line. When $X = 0$ gives mean of probability distribution of $Y$.
 
 ---
 
@@ -489,7 +489,7 @@ So $b_0 = \bar{Y} = \beta_1 \bar{X}$.
 
 And we will see in chapter 2 that
 
-we can re arrange the terms in $(2)$ that
+we can rearrange the terms in $(2)$ that
 
 $$b_1 = \dfrac{\sum(X_i - \bar{X})(Y_i - \bar{Y})}{\sum(X_i - \bar{X})^2}$$
 
@@ -498,9 +498,9 @@ $$b_1 = \dfrac{\sum(X_i - \bar{X})(Y_i - \bar{Y})}{\sum(X_i - \bar{X})^2}$$
 # Properties of Least Squares Estimators
 
 1. **Unbiased property** $E\{b_1\} = \beta_1$ and $E\{b_0\} = \beta_0$
-1. **Variance** it can be shown that $b_0, b_1$ gives the minimum variance in the group of linnear and unbiased estimators.
+1. **Variance** it can be shown that $b_0, b_1$ gives the minimum variance in the group of linear and unbiased estimators.
 
-These two points are actually part of the the Gauss-Markov theorem
+These two points are part of the Gauss-Markov theorem
 
 ---
 
@@ -524,7 +524,7 @@ $$\hat{Y_i} = b_0 + b_1 X_i, \quad i = 1, ..., n$$
 
 # Residuals
 
-The $i$th residual is denoetd by $e_i$ and is defined as
+The $i$th residual is denoted by $e_i$ and is defined as
 
 $$e_i = Y_i - \hat{Y}_i$$
 
@@ -548,7 +548,7 @@ Residuals are useful for studying whether a given regression model is appropriat
 
 ---
 
-# Properties of fitted regression line
+# Properties of the fitted regression line
 
 1. Sum of residuals is zero
 
@@ -558,7 +558,7 @@ $$\sum\limits_{i=1}^n e_i = 0$$
 
 ---
 
-# Properties of fitted regression line
+# Properties of the fitted regression line
 
 1. $\sum\limits_{i=1}^nX_ie_i = 0$
 1. $\sum\limits_{i=1}^n\hat{Y}_ie_i = 0$
