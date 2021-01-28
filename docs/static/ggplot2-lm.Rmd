@@ -1,0 +1,104 @@
+---
+title: "Adding a regression line on a ggplot2"
+output: 
+  distill::distill_article:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Setup
+
+This short post will show how to add a regression line to a [ggplot2](https://ggplot2.tidyverse.org/) chart. We start by loading in the `USpop` data found in the [second lab](labs-02.html).
+
+```{r, echo=FALSE}
+USpop <- read.csv(here::here("data", "USpop.csv"))
+```
+
+```{r, eval=FALSE}
+USpop <- read.csv("USpop.csv")
+```
+
+Next, we create a simple linear regression model
+
+```{r}
+my_fit <- lm(Population ~ Year, data = USpop)
+
+my_fit
+```
+
+Let us start with a simple scatter chart using ggplot2
+
+```{r}
+library(ggplot2)
+
+ggplot(USpop, aes(Year, Population)) +
+  geom_point()
+```
+
+Adding a regression line to this chart can be done in a couple of different ways.
+
+# Using `geom_smooth()`
+
+The first way is by far the most simple. Using `geom_smooth()` fits a line directly to the data inside ggplot itself, if we specify `method = "lm` and `formula = y ~ x` then we force that line to a simple linear regression. Setting `se = FALSE` hides the confidence intervals.
+
+```{r}
+ggplot(USpop, aes(Year, Population)) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = y ~ x, se = FALSE)
+```
+
+This method while pleasing doesn't answer the question at hand. It doesn't let us add our already fitted model, but instead fits a model itself.
+
+# using `broom::augment()`
+
+You can use the [broom]() package to extract various information from the model fit.
+
+```{r}
+library(broom)
+augment(my_fit)
+```
+
+Using this data along with `geom_line()` allows us to all a fitted line on top of our ggplot
+
+```{r}
+ggplot(USpop, aes(Year, Population)) +
+  geom_point() +
+  geom_line(data = augment(my_fit), 
+            aes(x = Year, y = .fitted))
+```
+
+The main downside to this way is that it does not easily extrapolate outside the range so we zoom out the line doesn't expand
+
+```{r}
+ggplot(USpop, aes(Year, Population)) +
+  geom_point() +
+  geom_line(data = augment(my_fit), 
+            aes(x = Year, y = .fitted)) +
+  lims(x = c(1700, 2100), y = c(-100, 500))
+```
+# `coef()` and `geom_abline()`
+
+Lastly, we can extract the parameters estimates directly with `coef()` and use these to add a single line with `geom_abline()`
+
+```{r}
+my_coef <- coef(my_fit)
+my_coef
+```
+
+```{r}
+ggplot(USpop, aes(Year, Population)) +
+  geom_point() +
+  geom_abline(intercept = my_coef[1], slope = my_coef[2])
+```
+
+Since `geom_abline()` add a line you can zoom out and still see the line
+
+```{r}
+ggplot(USpop, aes(Year, Population)) +
+  geom_point() +
+  geom_abline(intercept = my_coef[1], slope = my_coef[2]) +
+  lims(x = c(1700, 2100), y = c(-100, 500))
+```
