@@ -1,0 +1,35 @@
+---
+title: "How to construct a confidence interval by hand"
+output: distill::distill_article
+---
+
+This post shows how to obtain a confidence interval by hand.
+
+Example: Obtain $95%$ confidence interval for $\mu$ having 
+
+$$n = 10 \qquad \bar{Y} = 20 \qquad s = 4$$
+
+We have that the confidence interval for $\mu$ is 
+
+$$\bar{Y} \pm t(1-\sigma/2;n-1)s\{\bar{Y}\}$$
+
+First we use that $s\{\bar{Y}\} = \dfrac{s}{\sqrt{n}} = \dfrac{4}{\sqrt{10}} = 1.265$
+
+Since we are looking for a $95%$ confidence interval we get that $$
+\begin{align*}
+1-\sigma &= 0.95 \\
+\sigma &= 0.05 \\
+\end{align*}
+$$
+
+So we plug this into the t distribution. The results that either be found in a [lookup book](https://home.ubalt.edu/ntsbarsh/business-stat/StatistialTables.pdf) or by using R `qt(1 - 0.05 / 2, 10 - 1)`
+
+$$t(1 - 0.05/2; 10 -1) = 2.262$$
+
+We now have all we need to calculate everything
+
+$$20 \pm 2.262 \cdot 1.265$$
+
+giving us the confidence interval
+
+$$17.139 \le \mu \le 22.861$$

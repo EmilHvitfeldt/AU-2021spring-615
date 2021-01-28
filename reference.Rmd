@@ -9,3 +9,5 @@ knitr::opts_chunk$set(echo = FALSE)
 Various information links will be posted here as needed.
 
 [Adding a regression line on a ggplot2](static/ggplot2-lm.html)
+
+[How to construct a confidence interval by hand](static/confidence-interval.html)
