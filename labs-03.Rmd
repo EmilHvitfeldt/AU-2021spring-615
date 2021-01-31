@@ -1,0 +1,42 @@
+---
+title: "Lab - week 2"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Data
+
+[HOME_SALES.csv](data/HOME_SALES.csv)
+
+### Exercise 1
+
+Start by downloading and reading in the `HOME_SALES` data with `read.csv()` or `readr::read_csv()`.
+
+a) **A one-sample T-test**
+
+There is a claim that the average price of homes in the region is #300,000. Does the data set support of disprove the claim?
+
+b) **A one-sample, left-tail T-test**
+
+Is the mean price less than $300,000?
+
+c) **A one-sample, right-tail T-test**
+
+Is there any evidence that the mean price is *above* $300,000?
+
+### Exercise 2 - A two-sample T-test
+
+Does the sales price depend on the presence of a pool?
+
+### Exercise 3 - A two-sample F-test of variances
+
+How does the variance of sales prices with presence of a pool relate with the variance of sales prices without presence of a pool
+
+### Exercise 4 - Parallel boxplots
+
+Visualize the boxplots of the two samples using parallel boxplots.
+
+
+
