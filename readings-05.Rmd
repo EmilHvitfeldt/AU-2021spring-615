@@ -1,0 +1,9 @@
+---
+title: "Readings - week 5"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Read chapter 3 of "Applied Linear Statistical Models".

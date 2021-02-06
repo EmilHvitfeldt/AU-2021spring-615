@@ -1,0 +1,9 @@
+---
+title: "Readings - week 9"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Read chapter 7 and chapter 8, section 1 through 3 of "Applied Linear Statistical Models".

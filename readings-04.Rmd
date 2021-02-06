@@ -1,0 +1,9 @@
+---
+title: "Readings - week 4"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Finish reading chapter 2 of "Applied Linear Statistical Models". we will finish the chapter this week.

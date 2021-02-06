@@ -1,0 +1,9 @@
+---
+title: "Readings - week 8"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We are having [Wellness Week](https://www.american.edu/provost/communications/november-17-2020.cfm). There will be no required reading this week. 
