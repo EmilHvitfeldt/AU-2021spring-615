@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Readings - week 14</title>
+  <title>Regression: Lab - week 4</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Readings - week 14"/>
+  <meta property="og:title" content="Regression: Lab - week 4"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Readings - week 14"/>
+  <meta property="twitter:title" content="Regression: Lab - week 4"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 14"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Lab - week 4"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 14","authors":[]}
+{"title":"Lab - week 4","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2431,7 +2431,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 14</h1>
+<h1>Lab - week 4</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2439,7 +2439,18 @@ Assignments
 
 
 <div class="d-article">
-<p>Read chapter 12 of “Applied Linear Statistical Models”. This chapter talk about autocorrelation in time series data.</p>
+<h3 id="data">Data</h3>
+<p><a href="data/HOME_SALES.csv">HOME_SALES.csv</a></p>
+<h3 id="exercise-1">Exercise 1</h3>
+<p>We are using the same data as last week’s lab. Start by reading in the <code>HOME_SALES</code> data with <code>read.csv()</code> or <code>readr::read_csv()</code>.</p>
+<ol type="a">
+<li>Create a scatter plot between the finished area and the sale price.</li>
+<li>Fit a linear regression model with sale price as the response and finished area as the predictor.</li>
+<li>Plot the estimated regression function on top of the scatter plot. Does it appear to fit the data?</li>
+<li>Predict the price for three houses that have the finished area of 2500, 4000, and 6000 square feet.</li>
+<li>Use the <code>summary()</code> function to see the results of the regression analysis. What do you see?</li>
+<li>Perform an Analysis of Variance (ANOVA) of the linear regression fit.</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

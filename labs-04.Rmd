@@ -1,0 +1,22 @@
+---
+title: "Lab - week 4"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Data
+
+[HOME_SALES.csv](data/HOME_SALES.csv)
+
+### Exercise 1
+
+We are using the same data as last week's lab. Start by reading in the `HOME_SALES` data with `read.csv()` or `readr::read_csv()`.
+
+a. Create a scatter plot between the finished area and the sale price.
+a. Fit a linear regression model with sale price as the response and finished area as the predictor.
+c. Plot the estimated regression function on top of the scatter plot. Does it appear to fit the data?
+d. Predict the price for three houses that have the finished area of 2500, 4000, and 6000 square feet.
+e. Use the `summary()` function to see the results of the regression analysis. What do you see?
+f. Perform an Analysis of Variance (ANOVA) of the linear regression fit.
