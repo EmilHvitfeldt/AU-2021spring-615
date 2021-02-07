@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Readings - week 8</title>
+  <title>Regression: Assignment 2</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Readings - week 8"/>
+  <meta property="og:title" content="Regression: Assignment 2"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Readings - week 8"/>
+  <meta property="twitter:title" content="Regression: Assignment 2"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 8"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Assignment 2"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 8","authors":[]}
+{"title":"Assignment 2","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2430,7 +2430,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 8</h1>
+<h1>Assignment 2</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2438,7 +2438,62 @@ Assignments
 
 
 <div class="d-article">
-<p>We are having <a href="https://www.american.edu/provost/communications/november-17-2020.cfm">Wellness Week</a>. There will be no required reading this week.</p>
+<p>All questions are worth 5 points. The number in the the starting parenthesis indicate the corresponding exercise number in “Applied Linear Statistical Models”.</p>
+<ol type="1">
+<li><p>(1.2) The members of a health spa pay annual membership dues of $300 plus a charge of $2 for each visit to the spa. Let Y denote the dollar cost for the year for a member and X the number of visits by the member during the year. Express the relation between X and Y mathematically. Is it a functional relation or a statistical relation (that is, is the relation deterministic or stochastic)?</p></li>
+<li><p>(1.6) Suppose the regression parameters are <span class="math inline">\(\beta_0 = 200\)</span> and <span class="math inline">\(\beta_1 = 5.0\)</span>.</p>
+<ol type="a">
+<li>Plot the regression equation.</li>
+<li>Predict the response for X = 10, 20, and 40.</li>
+<li>Explain the meaning of parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.</li>
+</ol></li>
+<li><p>(1.10) An analyst in a large corporation studied the relation between current annual salary (Y ) and age (X) for the 46 computer programmers presently employed in the company. The analyst concluded that the relation is curvilinear, reaching a maximum at 47 years. Does this imply that the salary for a programmer increases until age 47 and then decreases? Explain.</p></li>
+<li><p>The time it takes to transmit a file always depends on the file size. Suppose you transmitted 30 files, with the average size of 126 Kbytes and the standard deviation of 35 Kbytes. The average transmittance time was 0.04 seconds with the standard deviation of 0.01 seconds. The correlation coefficient between the time and the size was 0.86.</p>
+<p>Based on this data, fit a linear regression model and predict the time it will take to transmit a 400 Kbyte file.</p></li>
+<li><p>At a gas station, 180 drivers were asked to record the mileage of their cars and the number of miles per gallon. The results are summarized in the table.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Sample mean</th>
+<th>Standard deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mileage</td>
+<td>24,598</td>
+<td>14,634</td>
+</tr>
+<tr class="even">
+<td>Miles per gallon</td>
+<td>23.8</td>
+<td>3.4</td>
+</tr>
+</tbody>
+</table>
+<p>The sample correlation coefficient is <span class="math inline">\(r = -0.17\)</span></p>
+<ol type="a">
+<li>Compute the least squares regression line which describes how the number of miles per gallon depends on the mileage.</li>
+<li>What do the obtained slope and intercept mean in this situation?</li>
+<li>You purchase a used car with 35,000 miles on it. Predict the number of miles per gallon.</li>
+</ol></li>
+<li><p>Show that the sample intercept <span class="math inline">\(b_0\)</span> is a linear and unbiased estimator of the population intercept <span class="math inline">\(\beta_0\)</span></p></li>
+<li><p>(1.19) Grade point average. The director of admissions of a small college selected 120 students at random from the new freshman class in a study to determine whether a students grade point average (GPA) at the end of the freshman year (Y) can be predicted from the ACT test score (X). The Full data set is available <a href="data/CH01PR19.txt">here</a>. To read the text file you can use the R function</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>CH01PR19</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='st'>"data/CH01PR19.txt"</span>, 
+                        col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gpa"</span>, <span class='st'>"act"</span><span class='op'>)</span><span class='op'>)</span>
+ </code></pre>
+</div>
+</div>
+<ol type="a">
+<li>Obtain the least squared estimate of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> and state the estimated regression function.</li>
+<li>Plot the estimated regression function and the data. Does the estimated regression function appear to fit the data well?</li>
+<li>Obtain a point estimate of the mean freshman GPA for students with ACT test score X = 30.</li>
+<li>What is the point estimate of the change in the mean response when the entrance test score increases by one point?</li>
+</ol></li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2447,6 +2502,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
