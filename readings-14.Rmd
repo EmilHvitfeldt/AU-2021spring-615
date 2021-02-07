@@ -1,0 +1,10 @@
+---
+title: "Readings - week 14"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Read chapter 12 of "Applied Linear Statistical Models".
+This chapter talk about autocorrelation in time series data.
