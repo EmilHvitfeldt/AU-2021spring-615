@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Inference</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emil Hvitfeldt" />
+    <meta name="date" content="2021-02-10" />
+    <script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# Inference
+## AU STAT-615
+### Emil Hvitfeldt
+### 2021-02-10
+
+---
+
+
+
+
+
+
+`$$\require{color}\definecolor{orange}{rgb}{1, 0.603921568627451, 0.301960784313725}$$`
+`$$\require{color}\definecolor{blue}{rgb}{0.301960784313725, 0.580392156862745, 1}$$`
+`$$\require{color}\definecolor{pink}{rgb}{0.976470588235294, 0.301960784313725, 1}$$`
+
+&lt;script type="text/x-mathjax-config"&gt;
+MathJax.Hub.Config({
+TeX: {
+  Macros: {
+    orange: ["{\\color{orange}{#1}}", 1],
+    blue: ["{\\color{blue}{#1}}", 1],
+    pink: ["{\\color{pink}{#1}}", 1]
+  },
+  loader: {load: ['[tex]/color']},
+  tex: {packages: {'[+]': ['color']}}
+}
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+.orange {color: #FF9A4D;}
+.blue {color: #4D94FF;}
+.pink {color: #F94DFF;}
+&lt;/style&gt;
+
+
+
+# Normal error regression model
+
+For this lecture, we assume that the **normal error regression model** is applicable
+
+`$$Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$$`
+
+where
+
+- `\(\beta_0\)` and `\(\beta_1\)` are parameters
+- `\(X_i\)` are known constants
+- `\(\varepsilon_i\)` are independent `\(N(0, \sigma^2)\)`
+
+---
+
+# Prediction Interval for New Observations
+
+Objective:
+
+Prediction of new observation `\(Y\)` corresponding to a given level `\(X\)` of the predictor variable
+
+The new observation on `\(Y\)` to be predicted is viewed as the result of a new trial independent of the trials on which the regression analysis is based.
+
+---
+
+# Notation
+
+Let `\(X_h\)` be the level of `\(X\)` for new and new observation on `\(Y\)` as `\(Y_{h(new)}\)`
+
+Goal:
+
+Predict an individual outcome drawn from the distribution of `\(Y\)`
+
+---
+
+# Prediction Interval for New Observations
+
+In the previous case, we were estimating `\(E\{Y_h\}\)` by `\(\hat Y_h\)`
+
+Our best guess for a new observation is still `\(\hat Y_h\)`. The estimated mean is still the best prediction we can make
+
+The difference is in the amount of variability
+
+`$$V\{Y_{h(new)} - \hat Y_h\} = V\{Y_{h(new)}\} + V\{\hat Y_h\} = \sigma^2 + \sigma^2 \left[ \dfrac{1}{n} + \dfrac{(X_h - \bar X)^2}{\sum(X_i - \bar X)^2} \right]$$`
+
+---
+
+# Amount of variability
+
+This means that we have
+
+`$$V\{Y_{h(new)} - \hat Y_h\} = \sigma^2 \left[ 1 + \dfrac{1}{n} + \dfrac{(X_h - \bar X)^2}{\sum(X_i - \bar X)^2} \right]$$`
+
+Which we can estimate with `\(\sigma^2 = MSE\)`
+
+`$$V\{Y_{h(new)} - \hat Y_h\} = MSE \left[ 1 + \dfrac{1}{n} + \dfrac{(X_h - \bar X)^2}{\sum(X_i - \bar X)^2} \right]$$`
+
+---
+
+# Mean response at `\(X_h\)`
+
+We want to estimate `\(E\{Y_h\}\)`
+
+The point estimate is `\(\hat Y_h\)` and the variance is
+
+`$$V\{\hat Y_h\} = MSE \left[\dfrac{1}{n} + \dfrac{(X_h - \bar X)^2}{\sum(X_i - \bar X)^2} \right]$$`
+
+The `\(1-alpha\)` percent confidence interval will be
+
+`$$\hat Y_h \pm t\left(1-\dfrac{\alpha}{2};n-2\right) \cdot s\{\hat Y_h\}$$`
+
+---
+
+# New observation at `\(X_h\)`
+
+We want to predict `\(Y{h(new)}\)` drawn from `\(Y\)`
+
+`$$V\{Y_{h(new)} - \hat Y_h\} = V\{Y_{h(new)}\} + V\{\hat Y_h\}$$`
+
+The `\(1-alpha\)` percent confidence interval will be
+
+`$$\hat Y_h \pm t\left(1-\dfrac{\alpha}{2};n-2\right) \cdot s\{Y_{h(new)} - \hat Y_h\}$$`
+
+Note: This will be wider than the mean response CI
+
+IT accounts for both the uncertainty in knowing the value of the population mean + data scattering
+
+---
+
+# Confidence Band for Regression Line
+
+Goal:
+
+Obtain a confidence band for the entire regression line `\(E\{Y\} = \beta_0 + \beta_1X\)`
+
+Why?
+
+It helps us to determine the appropriation of a fitted regression function
+
+---
+
+# Confidence Band for Regression Line
+
+We get
+
+`$$\hat Y_h \pm Ws\{\hat Y_h\}$$`
+
+where `\(W^2 = 2F(1-\alpha; 2, n-2)\)`
+
+---
+
+# Confidence Band for Regression Line
+
+In the case of a simple linear regression, it is equivalent to another test, the F test for the significance of the regression
+
+This equivalence is true only for simple linear regression
+
+---
+
+# Confidence Band for Regression Line
+
+Let's start with `\(Y_i - \bar Y\)` which measures the deviation of an observation from the sample mean
+
+We have that
+
+`$$\blue{Y_i - \bar Y} = \orange{Y_i - \hat Y_i} + \pink{\hat Y_i - \bar Y}$$`
+
+- .blue[Total deviation]
+- .orange[Deviation around fitted regression line]
+- .pink[Deviation of fitted regression value around mean]
+
+---
+
+# Confidence Band for Regression Line
+
+It can be shown that the sums of these squared deviations have the same relationship
+
+`$$\sum(Y_i - \bar Y)^2 = \sum(Y_i - \hat Y_i)^2 + \sum(\hat Y_i - \bar Y)^2$$`
+
+---
+
+# ANOVA Table
+
+We have that `\(p = 2\)`
+
+| Source of variation | Sum of Squared | Degrees of Freedom | Mean Square | F |
+|---|---|---|---|---|
+| Regression | `\(\sum\limits^n_{i=1}(\hat Y_i - \bar Y)^2\)` | `\(p-1\rightarrow1\)` | `\(\dfrac{SSR}{1} = MSR\)` | `\(\dfrac{MSR}{MSE}\)` |
+| Error | `\(\sum\limits^n_{i=1}(Y_i - \hat Y_i)^2\)` | `\(n-p = 0 \rightarrow n-2\)` | `\(MSE = \dfrac{SSE}{n-2}\)` |  |
+| Total | `\(\sum\limits^n_{i=1}(Y_i - \bar Y)^2\)` | `\(n - p + p -1 = n - 1\)` |  |  |
+
+---
+
+# ANOVA Table
+
+Why `\(p-1\)`?
+
+This corresponds to the fact that we specify a line by two points
+
+We will prove this in multiple regression
+
+---
+
+# Significance of the regression test
+
+Idea:
+
+&gt; Comparison of MSR and MSE is useful for testing whether or not `\(\beta_1=0\)`. If MSE and MSE are of the same order of magnitude, this would suggest that `\(\beta_1=0\)`
+
+If MSR is substantially greater than MSE, this would suggest that `\(\beta_1 \ne 0\)`
+
+---
+
+# Significance of the regression test
+
+We note that
+
+`$$E\{MSE\} = \sigma^2$$`
+
+and 
+
+`$$E\{MSR\} = \sigma^2 + \beta_1^2 \sum(X_i - \bar X)^2$$`
+
+if `\(\beta_1 = 0\)` then we get that `\(E\{MSE\} = E\{MSR\}\)`
+
+So it makes sense to compare them by
+
+`$$F^* = \dfrac{MSR}{MSE}$$`
+ 
+---
+
+# Significance of the regression test
+
+We can set up the hypotheses
+
+`$$H_0: \beta_1 = 0 \quad \quad H_\alpha: \beta_1 \ne 0$$`
+
+If `\(F^* \le F(1-\alpha; 1, n-2)\)` when we conclude `\(H_0\)`
+
+If `\(F^* &gt; F(1-\alpha; 1, n-2)\)` when we conclude `\(H_\alpha\)`
+
+Note: `\(F^*\)` is always positive
+
+---
+
+# Example
+
+The time it takes to transmit a file always depends on the file size. Suppose you transmitted 30 files with an average size of 126 Kbytes and a standard deviation of 35 Kbytes. 
+
+The average transmittance time was 0.04 seconds with a standard deviation of 0.01 seconds. The correlation coefficient between the time and size was 0.86. 
+
+--
+
+In other words, we are given that `\(n=30\)`, `\(s\{X\} = 35\)`, `\(s\{Y\} = 0.01\)`, and `\(r = 0.86\)`.
+
+---
+
+# Example
+
+We are given that `\(n=30\)`, `\(s\{X\} = 35\)`, `\(s\{Y\} = 0.01\)`, and `\(r = 0.86\)`
+
+a) Compute the total, regression, and error sum of squares.
+
+`$$SST = \sum\limits^n_{i=1}(Y_i - \bar Y)^2 = (n - 1) \cdot V\{Y\} = 29 \cdot 0.01^2 = 0.0029$$`
+
+---
+
+# Example
+
+We also have that 
+
+`$$r^2 = \dfrac{SSR}{SST}$$`
+
+thus 
+
+`$$SSR = r^2 \cdot SST = 0.86^2 \cdot 0.0029 = 0.00214$$`
+
+and 
+
+`$$SSE = SST - SSR = 0.00076$$`
+
+---
+
+# Example
+
+b) Compute the ANOVA Table
+
+| Sum of squared | DF       | mean sq  | F                         |
+|----------------|----------|----------|---------------------------|
+| SSR            | 1        | 0.00214  | `\(\dfrac{MSR}{MSE} = 79.3\)` |
+| SSE            | `\(n-2=28\)` | 0.000027 |                           |
+| SST            | `\(n-1=29\)` |          |                           |
+
+---
+
+# Example
+
+c) Use the F-statistic to test the significance of our regression model that related transmission time to the size of the file. State `\(H_0\)` and `\(H_1\)` and draw conclusion for `\(1-\alpha = 0.95\)`.
+
+`$$H_0: \beta_1 = 0 \quad \quad H_\alpha: \beta_1 \ne 0$$`
+
+We have `\(F^* = 79.3\)`, and `\(F(1-\alpha; 1, 28) = 4.17\)`
+
+we have that `\(F^* &gt; F(1-\alpha; 1, 28)\)`
+
+so we reject `\(H_0\)`. The slope is significant. There is evidence of a linear relation between `\(X\)` and `\(Y\)`
+
+---
+
+# Example
+
+d) Coefficient of determination
+
+`$$R^2 = \dfrac{SSR}{SST} = 1 - \dfrac{SSE}{SST}$$`
+
+The coefficient of determination is interpreted as the proportion of observed variation in `\(Y\)` that can be explained by the simple linear regression model
+
+Here `\(R^2 = \dfrac{0.00214}{0.0029} = 0.738\)`
+
+It means that `\(73.8\%\)` of the total variation of transmission times is explained solely by the file size
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

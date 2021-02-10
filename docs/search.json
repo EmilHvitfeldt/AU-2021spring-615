@@ -5,35 +5,35 @@
       "title": "Lab 01 - Hello R!",
       "author": [],
       "contents": "\nLearning goals\nGet acquainted with R and RStudio, which we will be using throughout the course to analyze data as well as to learn the statistical concepts discussed in the course.\nAppreciate the value of visualization in exploring the relationship between variables.\nStart using R for building plots and calculating summary statistics.\nTerminology\nWe’ve already thrown around a few new terms, so let’s define them before we proceed.\nR: Name of the programming language we will be using throughout the course.\nRStudio: An integrated development environment for R. In other words, a convenient interface for writing and running R code.\nI like to think of R as the engine of the car, and RStudio is the dashboard.\nStarting slow\nAs the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better programmer. Before we get to that stage, however, you need to build some basic fluency in R. Today we begin with the fundamental building blocks of R and RStudio: the interface, reading in data, and basic commands.\nAnd to make versioning simpler, this is a solo lab. Additionally, we want to make sure everyone gets a significant amount of time at the steering wheel.\nGetting started\nDownload R\nIf you don’t have R installed.\nGo to the CRAN and download R, make sure you get the version that matches your operating system.\nIf you have R installed\nIf you have R installed run the following code\n\n\nR.version\n\n\n               _                           \nplatform       x86_64-apple-darwin17.0     \narch           x86_64                      \nos             darwin17.0                  \nsystem         x86_64, darwin17.0          \nstatus                                     \nmajor          4                           \nminor          0.2                         \nyear           2020                        \nmonth          06                          \nday            22                          \nsvn rev        78730                       \nlanguage       R                           \nversion.string R version 4.0.2 (2020-06-22)\nnickname       Taking Off Again            \n\nThis should tell you what version of R you are currently using. If your R version is lower then 3.6.0 I would strongly recommend updating. In general it is a good idea to update your R version, unless you have a project right now that depend on a specific version of R.\nDownload RStudio\nWe recommend using RStudio as your IDE if you don’t already have it installed. You can go to the RStudio website to download and install the software.\nLaunch RStudio\nYou can also open the RStudio application first and then create a project by going file -> new project...\nCreate a new Rmarkdown file\nfile -> new file -> R markdown...\nHello RStudio!\nRStudio is comprised of four panes.\nOn the bottom left is the Console, this is where you can write code that will be evaluated. Try typing 2 + 2 here and hit enter, what do you get?\nOn the bottom right is the Files pane, as well as other panes that will come handy as we start our analysis.\nIf you click on a file, it will open in the editor, on the top left pane.\nFinally, the top right pane shows your Environment. If you define a variable it would show up there. Try typing x <- 2 in the Console and hit enter, what do you get in the Environment pane?\nPackages\nR is an open-source language, and developers contribute functionality to R via packages. In this lab we will work with three packages: palmerpenguins which contains the dataset, and tidyverse which is a collection of packages for doing data analysis in a “tidy” way.\nLoad these packages by running the following in the Console.\n\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(palmerpenguins)\n\n\n\nIf you haven’t installed these packages yet and R complains, then you can install these packages by running the following command. (Note that R package names are case-sensitive)\n\n\ninstall.packages(c(\"tidyverse\", \"palmerpenguins\"))\n\n\n\nNote that the packages are also loaded with the same commands in your R Markdown document.\nWarm up\nBefore we introduce the data, let’s warm up with some simple exercises.\nThe top portion of your R Markdown file (between the three dashed lines) is called YAML. It stands for “YAML Ain’t Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\nYAML\nOpen the R Markdown (Rmd) file in your project, change the author name to your name, and knit the document.\nData\nThe data frame we will be working with today is called penguins and it’s in the palmerpenguins package.\n\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(palmerpenguins)\n\npenguins\n\n\n\ncount the number of species and islands with dplyr::count()\nVisualize the distribution of body_mass_g with ggplot\n\n\nggplot(penguins, aes(body_mass_g)) +\n  geom_histogram()\n\n\n\nLook at the correlation between body_mass_g and some of the other variables\n\nggplot(penguins, aes(body_mass_g, ___)) +\n  geom_point()\n\nModeling\nFit a linear model using parsnip to model body_mass_g\n\nlm_spec <- linear_reg() %>%\n  set_engine(\"lm\")\n\nlm_fit <- lm_spec %>%\n  fit(___ ~ species + island + bill_length_mm + bill_depth_mm + flipper_length_mm, \n      data = penguins)\n\nlm_fit\n\nGet parameter estimates:\n\n\ntidy(lm_fit)\n\n\n\nFigures\nYou’re done with the data analysis exercises, but we’d like you to do two more things:\n\nResize your figures:\nClick on the gear icon in on top of the R Markdown document, and select “Output Options…” in the dropdown menu. In the pop up dialogue box go to the Figures tab and change the height and width of the figures, and hit OK when done. Then, knit your document and see how you like the new sizes. Change and knit again and again until you’re happy with the figure sizes. Note that these values get saved in the YAML.\n\nYou can also use different figure sizes for different figures. To do so click on the gear icon within the chunk where you want to make a change. Changing the figure sizes added new options to these chunks: fig.width and fig.height. You can change them by defining different values directly in your R Markdown document as well.\n\nChange the look of your report:\nOnce again click on the gear icon in on top of the R Markdown document, and select “Output Options…” in the dropdown menu. In the General tab of the pop up dialogue box try out different syntax highlighting and theme options. Hit OK and knit your document to see how it looks. Play around with these until you’re happy with the look.\nOptional\nIf you have time you can explore the different ways you can add styling to your rmarkdown document.\nHere is a cheatsheet\nand a markdown cheatsheet\nThis set of lab exersixes have been adopted from Mine Çetinkaya-Rundel’s class Introduction to Data Science.\n\n\n\n",
-      "last_modified": "2021-02-06T20:38:54-08:00"
+      "last_modified": "2021-02-09T22:32:57-08:00"
     },
     {
       "path": "01-readings.html",
       "title": "Readings - week 1",
       "author": [],
       "contents": "\nRead chapter 1 of “Applied Linear Statistical Models”. It doesn’t matter if you have the 4th or 5th edition, the first 14 chapters should be the same.\nWe will not cover everything in chapter 1 in the first week so it is okay if you don’t get all the way through it.\nWe will be using R which can be downloaded here. Additionally, it is also advised to use RStudio which can be downloaded here, but any IDE will work.\nSlides\n\n\n\nfitvids('.shareagain', {players: 'iframe'});\n\nPDF download\n\n\n\n",
-      "last_modified": "2021-02-06T20:38:55-08:00"
+      "last_modified": "2021-02-09T22:32:58-08:00"
     },
     {
       "path": "assignments-01.html",
       "title": "Assignment 1",
       "author": [],
       "contents": "\nWhen \\(\\alpha\\) is not given, use the p-value approach to make your conclusions. When it’s difficult to conclude, use \\(\\alpha = 0.05\\). For two-sample problems, use the F-test to decide which t-test to use.\n(8 points) The manufacturer of a certain brand of household light bulbs claims that the bulbs produced by his factory have an average life of at least 2,000 hours. The mean and standard deviation of 20 light bulbs selected from the manufacturer’s production process were calculated to be 2,160 and 142 hours, respectively.\nDo the data represent sufficient evidence to support the manufacturer’s claim? How can you interpret your answer.\nConstruct a 95% confidence interval for the mean lifetime of household light bulbs.\n\n(8 points) There are two manufacturing processes, old and new, that produce the same product. The defect rate has been measured for 20 days for the old process, and for 14 days for the new process, resulting in the following sample summaries.\n\nOLD\nNEW\nAverage defect rate\n4.7\n2.3\nStandard deviation\n6.8\n5.0\nThe firm is interested in switching to the new process only if it can be demonstrated convincingly that the new process reduces the defect rate. Is there significant evidence of that? Use \\(\\alpha = 5%\\); assume that the collected data represent two random samples from Normal distributions. Use the method of testing that is appropriate for this situation.\n(9 points) An account on server A is more expensive than an account on server B. However, server A is faster. To see if whether it’s optimal to go with the faster but more expensive server, a manager needs to know how much faster it is. A certain computer algorithm is executed 30 times on server A and 20 times on server B with the following results,\n\nServer A\nServer B\nSample mean\n6.7 min\n7.5 min\nSample standard deviation\n0.6 min\n1.2 min\nIs there a significant difference between the two servers?\nIs server A significantly faster?\nState the null and alternative hypotheses, use the data to select the most appropriate procedure, and conduct the test. What assumptions are we making for this test to be valid?\n(10 points) Data on 522 recent home sales are available here. The following variables are included.\nColumn\nVariable\n1\nIdentification number 1–522\n2\nSales price of residence (×$1000 dollars)\n3\nFinished area of residence (square feet)\n4\nTotal number of bedrooms in residence\n5\nTotal number of bathrooms in residence\n6\nAir conditioning: present or absent\n7\nNumber of cars that garage will hold\n8\nSwimming pool: present or absent\n9\nYear property was originally constructed\n10\nQuality of construction: high, medium, or low\n11\nArchitectural style. Three styles are coded as 1, 2, and 3\n12\nLot size (square feet)\n13\nLocation near a highway: yes or no\nUse software to find out if there is significant evidence that:\nThe sales price depends on the air conditioner in the house.\nOn the average, homes with an air conditioner are more expensive.\nOn the average, homes with an air conditioner are larger.\nThe sales price depends on the proximity to a highway.\nOn the average, homes are cheaper when they are close to a highway.\nOn the average, homes are cheaper when they are far from a highway.\n\n",
-      "last_modified": "2021-02-06T20:38:55-08:00"
+      "last_modified": "2021-02-09T22:32:58-08:00"
     },
     {
       "path": "assignments-02.html",
       "title": "Assignment 2",
       "author": [],
       "contents": "\nAll questions are worth 5 points. The number in the the starting parenthesis indicate the corresponding exercise number in “Applied Linear Statistical Models”.\n(1.2) The members of a health spa pay annual membership dues of $300 plus a charge of $2 for each visit to the spa. Let Y denote the dollar cost for the year for a member and X the number of visits by the member during the year. Express the relation between X and Y mathematically. Is it a functional relation or a statistical relation (that is, is the relation deterministic or stochastic)?\n(1.6) Suppose the regression parameters are \\(\\beta_0 = 200\\) and \\(\\beta_1 = 5.0\\).\nPlot the regression equation.\nPredict the response for X = 10, 20, and 40.\nExplain the meaning of parameters \\(\\beta_0\\) and \\(\\beta_1\\).\n\n(1.10) An analyst in a large corporation studied the relation between current annual salary (Y ) and age (X) for the 46 computer programmers presently employed in the company. The analyst concluded that the relation is curvilinear, reaching a maximum at 47 years. Does this imply that the salary for a programmer increases until age 47 and then decreases? Explain.\nThe time it takes to transmit a file always depends on the file size. Suppose you transmitted 30 files, with the average size of 126 Kbytes and the standard deviation of 35 Kbytes. The average transmittance time was 0.04 seconds with the standard deviation of 0.01 seconds. The correlation coefficient between the time and the size was 0.86.\nBased on this data, fit a linear regression model and predict the time it will take to transmit a 400 Kbyte file.\nAt a gas station, 180 drivers were asked to record the mileage of their cars and the number of miles per gallon. The results are summarized in the table.\n\nSample mean\nStandard deviation\nMileage\n24,598\n14,634\nMiles per gallon\n23.8\n3.4\nThe sample correlation coefficient is \\(r = -0.17\\)\nCompute the least squares regression line which describes how the number of miles per gallon depends on the mileage.\nWhat do the obtained slope and intercept mean in this situation?\nYou purchase a used car with 35,000 miles on it. Predict the number of miles per gallon.\n\nShow that the sample intercept \\(b_0\\) is a linear and unbiased estimator of the population intercept \\(\\beta_0\\)\n(1.19) Grade point average. The director of admissions of a small college selected 120 students at random from the new freshman class in a study to determine whether a students grade point average (GPA) at the end of the freshman year (Y) can be predicted from the ACT test score (X). The Full data set is available here. To read the text file you can use the R function\n\n\nCH01PR19 <- read.table(\"data/CH01PR19.txt\", \n                        col.names = c(\"gpa\", \"act\"))\n \n\n\nObtain the least squared estimate of \\(\\beta_0\\) and \\(\\beta_1\\) and state the estimated regression function.\nPlot the estimated regression function and the data. Does the estimated regression function appear to fit the data well?\nObtain a point estimate of the mean freshman GPA for students with ACT test score X = 30.\nWhat is the point estimate of the change in the mean response when the entrance test score increases by one point?\n\n\n\n\n",
-      "last_modified": "2021-02-06T20:38:56-08:00"
+      "last_modified": "2021-02-09T22:32:59-08:00"
     },
     {
       "path": "assignments.html",
       "title": "Assignments",
       "author": [],
       "contents": "\nWe will 10 weekly assignments, 1 midterm, and a final project in this class. The placement of these is located in the schedule.\nAssignments are to be turned in on Blackboard. Assignments will be available no later than 3 days before class and are due to be turned in on the following Sunday. Specific times can be found on Blackboard. The assignment will contain a mix of conceptual, technical, and coding exercises.\nThe midterm and final project will follow a different schedule specified on Blackboard.\n\n\n\n",
-      "last_modified": "2021-02-06T20:38:57-08:00"
+      "last_modified": "2021-02-09T22:32:59-08:00"
     },
     {
       "path": "index.html",
@@ -41,154 +41,154 @@
       "description": "American University 615\n",
       "author": [],
       "contents": "\nThis website contains most of the information and material that will be used for one of the sections of the course Regression at American University.\nThe navigation bar contains information about the syllabus, schedule, readings, labs and assignments.\nLicense\nThis online work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International. Visit here for more information about the license.\nColophon\nThis book was written in RStudio using distill. The complete source is available on GitHub. All packages versions are being handled with renv.\n\n\n\n",
-      "last_modified": "2021-02-06T20:38:57-08:00"
+      "last_modified": "2021-02-09T22:33:00-08:00"
     },
     {
       "path": "labs-02.html",
       "title": "Lab - week 2",
       "author": [],
       "contents": "\nData\npresidents.csv\nUSpop.csv\nExercise 1\nRead in the USpop data\nCreate a scatterplot of Year and Population from the USpop data set.\nFit a linear model to USpop with Population as the response and Year as the predictor.\nLook at the summary of he model. Plot the model against the scatterplot.\nFit a quadratic regression model.\nUse the model to predict what will happen in year 2030, 2040, and 2050. Is this realistic?\nExercise 2\nRead in the presidents data\nCreate a scatterplot of actual and expected from the presidents data set.\nFit a linear model to presidents with actual as the response and expected as the predictor.\nLook at the summary of he model. Plot the model against the scatterplot. How well does the model fit?\n\n\n\n",
-      "last_modified": "2021-02-06T20:38:58-08:00"
+      "last_modified": "2021-02-09T22:33:00-08:00"
     },
     {
       "path": "labs-03.html",
       "title": "Lab - week 3",
       "author": [],
       "contents": "\nData\nHOME_SALES.csv\nExercise 1\nStart by downloading and reading in the HOME_SALES data with read.csv() or readr::read_csv().\nA one-sample T-test\nThere is a claim that the average price of homes in the region is #300,000. Does the data set support of disprove the claim?\nA one-sample, left-tail T-test\nIs the mean price less than $300,000?\nA one-sample, right-tail T-test\nIs there any evidence that the mean price is above $300,000?\nExercise 2 - A two-sample T-test\nDoes the sales price depend on the presence of a pool?\nExercise 3 - A two-sample F-test of variances\nHow does the variance of sales prices with presence of a pool relate with the variance of sales prices without presence of a pool\nExercise 4 - Parallel boxplots\nVisualize the boxplots of the two samples using parallel boxplots.\n\n\n\n",
-      "last_modified": "2021-02-06T20:38:59-08:00"
+      "last_modified": "2021-02-09T22:33:01-08:00"
     },
     {
       "path": "labs-04.html",
       "title": "Lab - week 4",
       "author": [],
       "contents": "\nData\nHOME_SALES.csv\nExercise 1\nWe are using the same data as last week’s lab. Start by reading in the HOME_SALES data with read.csv() or readr::read_csv().\nCreate a scatter plot between the finished area and the sale price.\nFit a linear regression model with sale price as the response and finished area as the predictor.\nPlot the estimated regression function on top of the scatter plot. Does it appear to fit the data?\nPredict the price for three houses that have the finished area of 2500, 4000, and 6000 square feet.\nUse the summary() function to see the results of the regression analysis. What do you see?\nPerform an Analysis of Variance (ANOVA) of the linear regression fit.\n\n\n\n",
-      "last_modified": "2021-02-06T20:38:59-08:00"
+      "last_modified": "2021-02-09T22:33:01-08:00"
     },
     {
       "path": "labs.html",
       "title": "Labs",
       "author": [],
       "contents": "\nEach lecture will be followed by lab time which is sometimes where we will be using R.\nLabs are to be turned in on Blackboard. Albs will be available no later than 3 days before class and are due to be turned in on the following Sunday. We will be collectively be talking about the labs and come up with some of the answers. To get full credit for labs the document that is turned in should contain not just the right code to solve the problem but also text explaining what has been done.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:00-08:00"
+      "last_modified": "2021-02-09T22:33:02-08:00"
     },
     {
       "path": "readings-02.html",
       "title": "Readings - week 2",
       "author": [],
       "contents": "\nFinish reading chapter 1 of “Applied Linear Statistical Models” if you haven’t already. No other reading this week.\nSlides\n\n\n\nfitvids('.shareagain', {players: 'iframe'});\n\nPDF download\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:00-08:00"
+      "last_modified": "2021-02-09T22:33:03-08:00"
     },
     {
       "path": "readings-03.html",
       "title": "Readings - week 3",
       "author": [],
       "contents": "\nStart reading chapter 2 of “Applied Linear Statistical Models”. We will try to get at least halfway through the chapter this week.\nSlides\n\n\n\nfitvids('.shareagain', {players: 'iframe'});\n\nPDF download\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:01-08:00"
+      "last_modified": "2021-02-09T22:33:03-08:00"
     },
     {
       "path": "readings-04.html",
       "title": "Readings - week 4",
       "author": [],
-      "contents": "\nFinish reading chapter 2 of “Applied Linear Statistical Models”. we will finish the chapter this week.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:02-08:00"
+      "contents": "\nFinish reading chapter 2 of “Applied Linear Statistical Models”. we will finish the chapter this week.\nSlides\n\n\n\nfitvids('.shareagain', {players: 'iframe'});\n\nPDF download\n\n\n\n",
+      "last_modified": "2021-02-09T22:33:04-08:00"
     },
     {
       "path": "readings-05.html",
       "title": "Readings - week 5",
       "author": [],
       "contents": "\nRead chapter 3 of “Applied Linear Statistical Models”.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:02-08:00"
+      "last_modified": "2021-02-09T22:33:04-08:00"
     },
     {
       "path": "readings-06.html",
       "title": "Readings - week 6",
       "author": [],
       "contents": "\nRead chapter 5 of “Applied Linear Statistical Models”.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:03-08:00"
+      "last_modified": "2021-02-09T22:33:05-08:00"
     },
     {
       "path": "readings-07.html",
       "title": "Readings - week 7",
       "author": [],
       "contents": "\nRead chapter 6 of “Applied Linear Statistical Models”.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:03-08:00"
+      "last_modified": "2021-02-09T22:33:06-08:00"
     },
     {
       "path": "readings-08.html",
       "title": "Readings - week 8",
       "author": [],
       "contents": "\nWe are having Wellness Week. There will be no required reading this week.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:04-08:00"
+      "last_modified": "2021-02-09T22:33:06-08:00"
     },
     {
       "path": "readings-09.html",
       "title": "Readings - week 9",
       "author": [],
       "contents": "\nRead chapter 7 and chapter 8, section 1 through 3 of “Applied Linear Statistical Models”.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:04-08:00"
+      "last_modified": "2021-02-09T22:33:07-08:00"
     },
     {
       "path": "readings-10.html",
       "title": "Readings - week 10",
       "author": [],
       "contents": "\nRead chapter 9 of “Applied Linear Statistical Models”.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:05-08:00"
+      "last_modified": "2021-02-09T22:33:07-08:00"
     },
     {
       "path": "readings-11.html",
       "title": "Readings - week 11",
       "author": [],
       "contents": "\nStart reading chapter 10 of “Applied Linear Statistical Models”.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:06-08:00"
+      "last_modified": "2021-02-09T22:33:08-08:00"
     },
     {
       "path": "readings-12.html",
       "title": "Readings - week 12",
       "author": [],
       "contents": "\nFinish reading chapter 10 of “Applied Linear Statistical Models”.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:06-08:00"
+      "last_modified": "2021-02-09T22:33:08-08:00"
     },
     {
       "path": "readings-13.html",
       "title": "Readings - week 13",
       "author": [],
       "contents": "\nRead chapter 11 of “Applied Linear Statistical Models”. This chapter covers remedial measures for different issues.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:07-08:00"
+      "last_modified": "2021-02-09T22:33:09-08:00"
     },
     {
       "path": "readings-14.html",
       "title": "Readings - week 14",
       "author": [],
       "contents": "\nRead chapter 12 of “Applied Linear Statistical Models”. This chapter talk about autocorrelation in time series data.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:08-08:00"
+      "last_modified": "2021-02-09T22:33:09-08:00"
     },
     {
       "path": "readings.html",
       "title": "Readings",
       "author": [],
       "contents": "\nThe readings for this course will be based on the textbooks listed in the syllabus. Readings will primarily be taken from the main textbook, but will sometimes be other material. Additional optional reading will also be listed for each week for the students who want to dig deeper into the content of the week. Information from the optional reading will not be expected knowledge in the homework and the exams and should be seen as a learning opportunity only.\nReadings will be listed no later than 3 days before class. Reading before class is strongly encouraged to allow you to find the areas you have additional questions about and ask them in class.\nSlides will also be posted here for each week.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:08-08:00"
+      "last_modified": "2021-02-09T22:33:10-08:00"
     },
     {
       "path": "reference.html",
       "title": "Reference",
       "author": [],
       "contents": "\nVarious information links will be posted here as needed.\nAdding a regression line on a ggplot2\nHow to construct a confidence interval by hand\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:09-08:00"
+      "last_modified": "2021-02-09T22:33:10-08:00"
     },
     {
       "path": "schedule.html",
       "title": "Schedule",
       "author": [],
       "contents": "\n\nContents\nWeek 1\nWeek 2\nWeek 3\nWeek 4\nWeek 5\nWeek 6\nWeek 7\nWeek 8\nWeek 9\nWeek 10\nWeek 11\nWeek 12\nWeek 13\nWeek 14\n\n\n\n\n\n\n\nWeek 1\n2021-01-17 to 2021-01-23\nTopics: Introductions, What is Statistical Machine Learning?, R, RStudio\nreadings\nlabs\nNo Assignment this week\nWeek 2\n2021-01-24 to 2021-01-30\nTopics: Linear Regression with one predictor variable\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nAssignments haven’t been posted yet\nWeek 3\n2021-01-31 to 2021-02-06\nTopics: Correlation Analysis\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nAssignments haven’t been posted yet\nWeek 4\n2021-02-07 to 2021-02-13\nTopics: Diagnostics\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nAssignments haven’t been posted yet\nWeek 5\n2021-02-14 to 2021-02-20\nTopics: Matrix approach to Simple linear Regression Analysis\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nAssignments haven’t been posted yet\nWeek 6\n2021-02-21 to 2021-02-27\nTopics: Multiple linear regression\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nAssignments haven’t been posted yet\nWeek 7\n2021-02-28 to 2021-03-06\nTopics: Quantitative and Qualitative predictors\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nMidterm\nWeek 8\n2021-03-07 to 2021-03-13\nWellness Week\nTopics: Model Selection\nNo readings, labs or assignment due to Wellness Week\nWeek 9\n2021-03-14 to 2021-03-20\nTopics: Validation\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nAssignments haven’t been posted yet\nWeek 10\n2021-03-21 to 2021-03-27\nTopics: Diagnostics\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nAssignments haven’t been posted yet\nWeek 11\n2021-03-28 to 2021-04-03\nTopics: Remedial measures\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nAssignments haven’t been posted yet\nWeek 12\n2021-04-04 to 2021-04-10\nTopics: Autocorrelation in time Series data\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nAssignments haven’t been posted yet\nWeek 13\n2021-04-11 to 2021-04-17\nTopics: Nonlinear regression\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nAssignments haven’t been posted yet\nWeek 14\n2021-04-18 to 2021-04-24\nTopics: Logistic regression, poisson regression, Generalized Linear Models\nReadings haven’t been posted yet\nLabs haven’t been posted yet\nNo assignment this week. Time will be dedicated for Final Project\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:10-08:00"
+      "last_modified": "2021-02-09T22:33:12-08:00"
     },
     {
       "path": "syllabus.html",
       "title": "Syllabus",
       "author": [],
       "contents": "\n\nContents\nInstructor\nPre-requisites\nTextbooks\nMain textbook\n\nCourse Plan\nAssignments and grading\nLearning objectives\nOnline help\nSoftware\nLearning during a pandemic\nLauren’s Promise\nSupport Services\nEmergency preparedness\nMathematics & Statistics Tutoring Lab (Don Myers Building)\nAcademic Support and Access Center\nCenter for Diversity & Inclusion (X3651, MGC 201)\nThe Office of Advocacy Services for Interpersonal and Sexual Violence (X7070)\nCounseling Center (x3500)\nReligious Holidays\nAcademic Integrity Code\n\n\nInstructor\nInstructor: Emil Hvitfeldt\nTime: Wednesday 5:30PM - 8:00PM ET time zone (Washington DC time)\nCourse website: https://emilhvitfeldt.github.io/AU-2021spring-615/index.html\nOffice hours: Sunday 7:00PM - 8:00PM\nEmail: emilh@american.edu\nTwiter: @Emil_Hvitfeldt\nE-mail and Slack are the best ways to get in contact with me. I will try to respond to all course-related e-mails and Slack messages within 24 hours (really) but also remember that life can be busy and chaotic for everyone (including me!), so if I don’t respond right away, don’t worry!\nPre-requisites\nSTAT-302, STAT-320, or STAT514/614.\nTextbooks\nMain textbook\nApplied Linear Regression Models, 4th edition, by M. Kutner, C. Nachtsheim, and J. Neter. McGrawHill, 2004 (701 pp). ISBN 0073014664\nApplied Linear Statistical Models, 5th edition, by M. Kutner, C. Nachtsheim, J. Neter, and W. Li. McGraw-Hill, 2004 (1396 pp). ISBN 007310874X\nYou can either buy the 4th or the 5th edition, BUT DO NOT BUY BOTH. Chapters 1-14 are identical in these books. Text only, without a CD, is fine. All textbook data sets are available on our Blackboard course page.\nCourse Plan\nIntroduction to R, notation, motivation, and examples. [1.1-1.2]\nLinear regression: model, estimation, inference, prediction. Regression and correlation. R2. [Chap. 1-2]\nRegression diagnostics: non-normality, nonlinearity, heteroscedasticity [Chap. 3]\nSimultaneous estimation. Other regression models [Chap. 4]\nMultiple regression. Matrix approach (Stat-615). Analysis of variance. Analysis of residuals. Partial correlation and multiple correlation coefficient. [Chap. 5-6]\nModel building. Model selection and validation. Extra sum of squares. [Chap. 7-8]\nRegression diagnostics-II. Influential observations and outliers. Effect of multicollinearity. Robust regression. Ridge regression [Chap. 9-10]\nRegression diagnostics-III. Symptoms and remedies. Transformation of variables. Missing data. Analysis of covariance. Comparison of regression lines. [Chap. 10]\nDummy variables and related methods [Chap. 11]\n(If time permits) Nonlinear relations. Logistic regression. [Chap. 13-14]\nAssignments and grading\nAssignments (35%): During the semester I will assign, collect, and grade assignments. You may receive assistance from other students in the class and me, but your submissions must be composed of your own thoughts, coding, and words. A typical homework will include a few problems to do by hand, to see how things work, and a few realistic problems to do using R. Late submission is accepted at a cost of a 5% deduction for each day, with a maximum deduction of 50%.\nLabs (20%): 30-45 minute labs at the end of each class. Each lab covers the material of the lecture. You will have to submit the solutions of each lab on Blackboard the Sunday after each class.\nMidterm (15%): The midterm covers several chapters of the material and it is take home. You will have three days to complete the exam.\nProject (25%) (20% report 5% presentation): Each student will receive or choose a data set with data description, problem formulation, and instructions. Using sound statistical methods, you will do the necessary modeling and data analysis and write a report summarizing your results and answering specific questions of your project. A 10-minute presentation summarizing the report will be given to the class or submitted on Blackboard.\n90 – 100 % = A\n87 – 90 % = A-\n83 – 87 % = B+\n80 – 83 % = B\n77 – 80 % = B-\n73 – 77 = C+\n70 – 73 % = C\n60 – 70 % = C-\nPlease schedule a meeting with me if you would like to see or discuss your grade at any point during the semester.\nLearning objectives\n(Acknowledgement: Thank you, Professor Jun Lu!)\nThe learning objective of this course is to give you the main concepts and a working knowledge of regression techniques that are routinely used to analyze different types of data. At the end of this course, you are expected to be able to: - Identify studies and data sets where regression can be used to address the questions of interest. - Use software to graphically display regression data. - Propose a regression model to address the research questions in a study. - Understand the principle of the Least Squares Estimation. - Use software to conduct regression analysis. This includes variable selection, parameter estimation, diagnostics, and prediction. - Interpret and summarize the results of regression analysis results in the context of the study. - Understand limitations of the regression analysis. - Design and conduct a study to investigate a research problem using real-world data and regression analysis. - Derive the least squares estimators for linear regression. - Write the linear regression model in matrix form. - Understand matrix derivations for estimation, testing, and model building in multiple linear regression.\nOnline help\nData science and statistical programming can be difficult. Computers are stupid and little errors in your code can cause hours of headache (even if you’ve been doing this stuff for years!).\nFortunately, there are tons of online resources to help you with this. Two of the most important are StackOverflow (a Q&A site with hundreds of thousands of answers to all sorts of programming questions) and RStudio Community (a forum specifically designed for people using RStudio and the tidyverse (i.e. you)).\nIf you use Twitter, post R-related questions, and content with #rstats. The community there is exceptionally generous and helpful.\nSearching for help with R on Google can sometimes be tricky because the program name is, um, a single letter. Google is generally smart enough to figure out what you mean when you search for “r scatterplot,” but if it does struggle, try searching for “rstats” instead (e.g. “rstats scatterplot”).\nAdditionally, we have a class chatroom at Slack where anyone in the class can ask questions and anyone can answer. I will monitor Slack regularly and will respond quickly. Ask questions about the readings, assignments, and project. You’ll likely have similar questions as your peers, and you’ll likely be able to answer other people’s questions too.\nSoftware\nWe will be using R in this class. While not required, it is highly recommended that you use an IDE for R, I recommend https://rstudio.com/products/rstudio/.\nLearning during a pandemic\nLife absolutely sucks right now. None of us is really okay. We’re all just pretending.\nYou most likely know people who have lost their jobs, have tested positive for COVID-19, have been hospitalized, or perhaps have even died. You all have increased (or possibly decreased) work responsibilities and increased family care responsibilities—you might be caring for extra people (young and/or old!) right now, and you are likely facing uncertain job prospects (or have been laid off!).\nI’m fully committed to making sure that you learn everything you were hoping to learn from this class! I will make whatever accommodations I can to help you finish your exercises, do well on your projects, and learn and understand the class material. Under ordinary conditions, I am flexible and lenient with grading and course expectations when students face difficult challenges. Under pandemic conditions, that flexibility and leniency are intensified.\nIf you tell me you’re having trouble, I will not judge you or think less of you. I hope you’ll extend me the same grace.\nYou never owe me personal information about your health (mental or physical). You are always welcome to talk to me about things that you’re going through, though. If I can’t help you, I usually know somebody who can.\nIf you need extra help, or if you need more time with something, or if you feel like you’re behind or not understanding everything, do not suffer in silence! Talk to me! I will work with you. I promise.\nLauren’s Promise\nI will listen and believe you if someone is threatening you.\nLauren McCluskey, a 21-year-old honors student-athlete, was murdered on October 22, 2018, by a man she briefly dated on the University of Utah campus. We must all take action to ensure that this never happens again.\nIf you are in immediate danger, call 911 or AU police (202 885-2527).\nIf you are experiencing sexual assault, domestic violence, or stalking, please report it to me and I will connect you to resources or find appropriate contact information for Counseling Center.\nSupport Services\nEmergency preparedness\nIn the event of an emergency, students should refer to the AU Web site http: //www.american.edu/emergency and the AU information line at (202) 885-1100 for general university-wide information. In case of a prolonged closure of the University, I send updates to you by email and will post all announcements on Blackboard.\nMathematics & Statistics Tutoring Lab (Don Myers Building)\nprovides tutoring in Intermediate Mathematics and Statistics. http://www.american.edu/cas/mathstat/tutoring.cfm\nAcademic Support and Access Center\noffers study skills workshops, individual instruction, tutor referrals, Supplemental Instruction, writing support, and technical and practical support and assistance with accommodations for students with physical, medical, or psychological disabilities. Writing support is also available in the Writing Center, Battelle-Tompkins 228.\nCenter for Diversity & Inclusion (X3651, MGC 201)\nis dedicated to enhancing LGBTQ, Multicultural, First Generation, and Women’s experiences on campus and to advance AU’s commitment to respecting & valuing diversity by serving as a resource and liaison to students, staff, and faculty on issues of equity through education, outreach, and advocacy.\nThe Office of Advocacy Services for Interpersonal and Sexual Violence (X7070)\nprovides free and confidential advocacy services for anyone in the campus community who is impacted by sexual violence (sexual assault, dating or domestic violence, and stalking).\nCounseling Center (x3500)\noffers counseling and consultations regarding personal concerns, self-help information, and connections to off-campus mental health resources. Academic Support and Access Center (x3360) offers study skills workshops, individual instruction, tutor referrals, Supplemental Instruction, writing support, and technical and practical support and assistance with accommodations for students with physical, medical, or psychological disabilities.\nReligious Holidays\nStudents may receive accommodation in the course for the observance of a religious and/or cultural holiday. The student should notify the professor as soon as possible should such a need exist. More information about accommodations for religious and/or cultural holidays can be found at www.american.edu/ocl/kay/request-for-religious-accommodation.cfm.\nAcademic Integrity Code\nPlease be sure that you are familiar with AU’s Academic Integrity Code, as I am required to report any cases of academic dishonesty to the dean of CAS. For your review: http://www.american.edu/academics/ integrity/.\n\n\n\n",
-      "last_modified": "2021-02-06T20:39:10-08:00"
+      "last_modified": "2021-02-09T22:33:12-08:00"
     }
   ],
   "collections": []
