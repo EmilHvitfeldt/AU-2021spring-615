@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Readings - week 9</title>
+  <title>Regression: Assignment 3</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Readings - week 9"/>
+  <meta property="og:title" content="Regression: Assignment 3"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Readings - week 9"/>
+  <meta property="twitter:title" content="Regression: Assignment 3"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 9"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Assignment 3"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 9","authors":[]}
+{"title":"Assignment 3","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2433,7 +2433,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 9</h1>
+<h1>Assignment 3</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2441,8 +2441,66 @@ Assignments
 
 
 <div class="d-article">
-<p>Read chapter 7 and chapter 8, section 1 through 3 of “Applied Linear Statistical Models”.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>All questions are worth 7 points. The number in the the starting parenthesis indicate the corresponding exercise number in “Applied Linear Statistical Models”.</p>
+<ol type="1">
+<li><p>(2.10) For each of the following questions, explain whether a confidence interval for a mean response or a prediction interval for a new observation is appropriate.</p>
+<ol type="a">
+<li>What will be the humidity level in this greenhouse tomorrow when we set the temperature level at <span class="math inline">\(31^oC\)</span>?</li>
+<li>How much do families whose disposable income is $23,500 spend, on the average, for meals away from home?</li>
+<li>How many kilowatt-hours of electricity will be consumed next month by commercial and industrial users in the Twin Cities service area, given that the index of business activity for the area remains at its present level?</li>
+</ol></li>
+<li><p>(2.11) A person asks if there is a difference between the “mean response at <span class="math inline">\(X = x\)</span>” and the “mean of <span class="math inline">\(m\)</span> new observations at <span class="math inline">\(X = x\)</span>”. Reply.</p></li>
+<li><p>(Continued from Assignment 2) The time it takes to transmit a file always depends on the file size. Suppose you transmitted 30 files, with the average size of 126 Kbytes and the standard deviation of 35 Kbytes. The average transmittance time was 0.04 seconds with the standard deviation of 0.01 seconds. The correlation coefficient between the time and the size was 0.86. In the previous homework, we fit a regression model that predicted the time it will take to transmit a 400 Kbyte file. According to this model, the standard deviation of responses is <span class="math inline">\(s = s_y\sqrt{\dfrac{n-1}{n-2}(1-r^2)} = 0.0052\)</span>.</p>
+<ol type="a">
+<li>Construct a 95% confidence interval for the regression slope.</li>
+<li>Based on this interval, is the slope significant at the 5% level?</li>
+<li>State the null and alternative hypotheses in (b). Calculate the test statistic and the p-value.</li>
+<li>When you answered questions (b) and (c), it was correct to conduct a two-sided a two- sided test. However, in this given example, why does it make more sense to consider a one-sided, right-tail alternative?</li>
+</ol></li>
+<li><p>At a gas station, 180 drivers were asked to record the mileage of their cars and the number of miles per gallon. The results are summarized in the table.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Sample mean</th>
+<th>Standard deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mileage</td>
+<td>24,598</td>
+<td>14,634</td>
+</tr>
+<tr class="even">
+<td>Miles per gallon</td>
+<td>23.8</td>
+<td>3.4</td>
+</tr>
+</tbody>
+</table>
+<p>The sample correlation coefficient is <span class="math inline">\(r = -0.17\)</span>. In the previous homework, we fit a regression model that described how the number of miles per gallon depends on the mileage. According to this model, the standard deviation of responses is estimated by <span class="math inline">\(s = s_y\sqrt{\dfrac{n-1}{n-2}(1-r^2)} = 3.36\)</span>.</p>
+<ol type="a">
+<li>You purchase a used car with 35,000 miles on it. Predict the number of miles per gallon. Give a 95% prediction interval for your car and a 95% confidence interval for the average number of miles per gallon of all cars with such a mileage.</li>
+<li>Do the given data present a significant evidence that cars with higher mileage are less economic? Formulate appropriate null hypothesis and alternative and conduct the test.</li>
+</ol></li>
+<li><p>Grade point average, data can be found <a href="data/CH01PR19.txt">here</a>. Same as in assignment 2.</p>
+<ol type="a">
+<li><p>Obtain a 99% confidence interval for <span class="math inline">\(\beta_1\)</span>. Does it include zero? Why might the director of admissions be interested in whether the confidence interval includes zero?</p></li>
+<li><p>Test whether or not a linear association exists between student’s ACT score (X) and GPA at the end of the freshman year (Y). Use a level of significance of 0.01. State the alternatives, decision rule, and conclusion.</p></li>
+<li><p>What is the P-value of your test in part (b)? How does it support the conclusion reached in part (b)?</p></li>
+<li><p>Obtain a 95 percent confidence interval for the mean freshman GPA for students whose ACT test score is 28. Interpret your confidence interval.</p></li>
+<li><p>Mary Jones obtained a score of 28 on the ACT. Predict her freshman GPA using a 95 percent prediction interval. Interpret your prediction interval.</p></li>
+<li><p>On the same graph, plot</p>
+<ul>
+<li>the data</li>
+<li>the least squares regression line for ACT scores</li>
+<li>the 95 percent confidence band for the true regression line for ACT scores between 20 and 30.</li>
+</ul>
+<p>Does the confidence band suggest that the true regression relation has been precisely estimated? Discuss.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div></li>
+</ol></li>
+</ol>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2450,6 +2508,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

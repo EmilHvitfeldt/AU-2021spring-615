@@ -1,0 +1,41 @@
+---
+title: "Lab - week 5"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+Based on **Applied Statistics with R** by David Dalpiaz (https://github.com/daviddalpiaz/appliedstats)
+
+# `cars` Example
+
+We will use the small dataset `cars` which comes with R and it availiable right away
+
+```{r}
+cars
+```
+
+We want too examine the relationship between the speed of a car (`speed`) and its stopping distance (`dist`).
+
+a. Start by creating a scatter plot of `dist` and `speed`. Describe what you see.
+
+```{r, eval=FALSE}
+plot(dist ~ speed, data = cars)
+```
+
+b. Fit a simple linear regression model on `cars` with `dist` as the response variable and `speed` as the predictor variable. Plot it on top of the scatter plot. How does it fit?
+
+```{r, eval=FALSE}
+stop_dist_model <- lm(dist ~ speed, data = cars)
+plot(dist ~ speed, data = cars)
+abline(stop_dist_model)
+```
+
+c. Examine the model fit with `summary()`. Look at the different results from `summary()` using `names()`.
+
+d. Verify the value of the $t$ test statistic for $\b_1$ and the two-sided p-value associated with that test statistic.
+
+e. Use the `confint()` function to obain the confidence interval for $\beta_0$ and $\beta_1$.
+
+f. Verify the calculations that R is performing for the $\beta_1$ interval.
