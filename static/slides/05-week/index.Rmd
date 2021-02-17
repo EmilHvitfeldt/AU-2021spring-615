@@ -1,0 +1,617 @@
+---
+title: "Diagnnostics and Remedial Measures"
+subtitle: "AU STAT-615"
+author: "Emil Hvitfeldt"
+date: "2021-02-17"
+output:
+  xaringan::moon_reader:
+    css: ["theme.css", "default"]
+    lib_dir: libs
+    nature:
+      beforeInit: "macros.js"
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: [center, middle]
+---
+
+```{r include=FALSE}
+library(knitr)
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+lines <- options$output.lines
+if (is.null(lines)) {
+  return(hook_output(x, options))  # pass to default hook
+}
+x <- unlist(strsplit(x, "\n"))
+more <- "..."
+if (length(lines) == 1) {        # first n lines
+  if (length(x) > lines) {
+    # truncate the output, but add ....
+    x <- c(head(x, lines), more)
+  }
+} else {
+  x <- c(more, x[lines], more)
+}
+# paste these lines together
+x <- paste(c(x, ""), collapse = "\n")
+hook_output(x, options)
+})
+knit_hooks$set(output = function(x, options) {
+# this hook is used only when the linewidth option is not NULL
+if (!is.null(n <- options$linewidth)) {
+  x = knitr:::split_lines(x)
+  # any lines wider than n should be wrapped
+  if (any(nchar(x) > n)) x = strwrap(x, width = n)
+  x = paste(x, collapse = '\n')
+}
+hook_output(x, options)
+})
+
+opts_chunk$set(
+echo = TRUE,
+fig.width = 7, 
+fig.align = 'center',
+fig.asp = 0.618, # 1 / phi
+out.width = "700px"
+)
+```
+
+```{r, echo = FALSE, message=FALSE}
+library(sass)
+sass(sass_file("theme.sass"), output = "theme.css")
+library(tibble)
+library(dplyr)
+library(ggplot2)
+```
+
+$$\require{color}\definecolor{orange}{rgb}{1, 0.603921568627451, 0.301960784313725}$$
+$$\require{color}\definecolor{blue}{rgb}{0.301960784313725, 0.580392156862745, 1}$$
+$$\require{color}\definecolor{pink}{rgb}{0.976470588235294, 0.301960784313725, 1}$$
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+TeX: {
+  Macros: {
+    orange: ["{\\color{orange}{#1}}", 1],
+    blue: ["{\\color{blue}{#1}}", 1],
+    pink: ["{\\color{pink}{#1}}", 1]
+  },
+  loader: {load: ['[tex]/color']},
+  tex: {packages: {'[+]': ['color']}}
+}
+});
+</script>
+
+<style>
+.orange {color: #FF9A4D;}
+.blue {color: #4D94FF;}
+.pink {color: #F94DFF;}
+</style>
+
+```{r flair_color, echo=FALSE}
+library(flair)
+orange <- "#FF9A4D"
+blue <- "#4D94FF"
+pink <- "#F94DFF"
+```
+
+# Residuals
+
+Diagnostics for predictor variables will be covered in Chapter 10
+
+Diagnostics for the response variable are usually carried out indirectly through an examination of the residuals
+
+$$e_i = Y_i - \hat Y_i$$
+
+For the unknown true error $\varepsilon_i = Y_i - E\{Y_i\}$ we know that $E\{\varepsilon_i\} = 0$ and $V\{\varepsilon_i\} = \sigma^2$
+
+---
+
+# Idea
+
+If the fitted model is appropriate for the data at hand, the observed values $e_i$ should reflect the properties assumed for $\varepsilon_i$
+
+---
+
+# Properties of Residuals
+
+## Mean
+
+The mean is given by
+
+$$\bar e = \dfrac{\sum e_i}{n} = 0$$
+
+Since this is always true, it provides no information as to whether the true errors $\varepsilon_i$ have expected value $E\{\varepsilon_i\} = 0$ `r emo::ji("sad_but_relieved_face")`
+
+---
+
+# Properties of Residuals
+
+## Variance
+
+The variance is given by
+
+$$s^2 = \dfrac{\sum(e_i - \bar e)^2}{n - 2} = \dfrac{\sum e_i^2}{n - 2}= \dfrac{SSE}{n - 2} = MSE$$
+
+It can be showed that $E\{MSE\}=\sigma^2$ is an unbiased estimator of the variance of the error terms $\sigma^2$
+
+So if the model is appropriate, MSE is, an unbiased estimator of the variance of the error terms $\sigma^2$
+
+---
+
+# Non-independence
+
+The residuals $\varepsilon_i$ are .blue[not] independent random variables because they involve the fitted values $\hat Y_i$ which are based on the same fitted regression function
+
+---
+
+# Departures from model to be studied by residuals
+
+1. The regression function is not linear
+1. The error terms do not have constant variance
+1. The error terms are not independent
+1. The model fits all but one or a few outlier observations
+1. The error terms are not normally distributed
+1. One or several important predictor variables have been omitted from the model
+
+---
+
+# Departures from model to be studied by residuals
+
+1. .blue[The regression function is not linear]
+1. .blue[The error terms do not have constant variance]
+1. .blue[The error terms are not independent]
+1. The model fits all but one or a few outlier observations
+1. .blue[The error terms are not normally distributed]
+1. One or several important predictor variables have been omitted from the model
+
+.blue[L]inearity, .blue[I]ndependence, .blue[N]ormality, .blue[E]qual Variance
+
+---
+
+# Non-linearity of Regression Function
+
+The residual plot against the predictor variable
+
+```{r, echo=FALSE}
+library(ggplot2)
+
+ggplot(data = mtcars, aes(1, 2)) +
+  theme_minimal() +
+  labs(x = "predictor variable", y = "residual")
+```
+
+---
+
+# Non-linearity of Regression Function
+
+Consider we have the following data
+
+```{r, echo=FALSE}
+library(dplyr)
+data_1 <- tibble(
+  x = seq_len(100)
+) %>%
+  mutate(
+    fitted = 0.5 * x,
+    resid = 5 * rnorm(n()),
+    y = fitted + resid
+    ) 
+
+data_1 %>%
+  ggplot(aes(x, y)) +
+  geom_point() +
+  theme_minimal()
+```
+
+---
+
+# Non-linearity of Regression Function
+
+the fitted regression line goes here
+
+```{r, echo=FALSE}
+library(dplyr)
+data_1 <- tibble(
+  x = seq_len(100)
+) %>%
+  mutate(
+    fitted = 0.5 * x,
+    resid = 5 * rnorm(n()),
+    y = fitted + resid
+    ) 
+
+data_1 %>%
+  ggplot(aes(x, y)) +
+  geom_point() +
+  geom_line(aes(x, fitted), color = blue) +
+  theme_minimal()
+```
+
+---
+
+# Non-linearity of Regression Function
+
+And the residuals against the predictor variable looks like this
+
+Perfectly linear
+
+```{r, echo=FALSE}
+library(dplyr)
+data_1 <- tibble(
+  x = seq_len(100)
+) %>%
+  mutate(
+    fitted = 0.5 * x,
+    resid = 5 * rnorm(n()),
+    y = fitted + resid
+    ) 
+
+data_1 %>%
+  ggplot(aes(x, resid)) +
+  geom_point() +
+  geom_line(aes(x, 0), color = blue) +
+  theme_minimal() +
+  ylim(c(-30, 30)) +
+  labs(y = "residuals")
+```
+
+---
+
+# Non-linearity of Regression Function
+
+Consider we have the new following data
+
+```{r, echo=FALSE}
+data_2 <- tibble(
+  x = seq_len(100)
+) %>%
+  mutate(
+    fitted = abs(x-70),
+    fitted = fitted,
+    error = 5 * rnorm(n()),
+    y = fitted + error
+    ) 
+
+broom::augment(lm(y ~ x, data_2)) %>%
+  ggplot(aes(x, y)) +
+  geom_point() +
+  theme_minimal()
+```
+
+---
+
+# Non-linearity of Regression Function
+
+the fitted line would be
+
+```{r, echo=FALSE}
+broom::augment(lm(y ~ x, data_2)) %>%
+  ggplot(aes(x, y)) +
+  geom_point() +
+  geom_line(aes(x, .fitted), color = blue) +
+  theme_minimal()
+```
+
+---
+
+# Non-linearity of Regression Function
+
+And the residuals will look like this. Clearly not linear
+
+```{r, echo=FALSE}
+broom::augment(lm(y ~ x, data_2)) %>%
+  ggplot(aes(x, .resid)) +
+  geom_point() +
+  geom_line(aes(x, 0), color = blue) +
+  theme_minimal() +
+  #ylim(c(-30, 30)) +
+  labs(y = "residuals")
+```
+
+---
+
+# Non-Constancy of the Error Variance
+
+Using residual plots will also enable us to examine whether the variance of the error terms is constant
+
+---
+
+# Non-Constancy of the Error Variance
+
+If we look at this residual plot from earlier. We notice that the spread (variance) of the residuals stay constant throughout the values of X
+
+```{r, echo=FALSE}
+data_1 %>%
+  ggplot(aes(x, resid)) +
+  geom_point() +
+  geom_line(aes(x, 0), color = blue) +
+  geom_abline(slope = 0, intercept = c(-10, 10), color = orange) +
+  theme_minimal() +
+  ylim(c(-30, 30)) +
+  labs(y = "residuals")
+```
+
+---
+
+# Non-Constancy of the Error Variance
+
+If we take this data right here
+
+```{r, echo=FALSE}
+data_3 <- tibble(
+  x = seq_len(100)
+) %>%
+  mutate(
+    fitted = 0.5 * x,
+    fitted = fitted,
+    error = 5 * rnorm(n()) * (20 + x)/ 20,
+    y = fitted + error
+    )
+
+broom::augment(lm(y ~ x, data_3)) %>%
+  ggplot(aes(x, y)) +
+  geom_point() +
+  theme_minimal()
+```
+
+---
+
+# Non-Constancy of the Error Variance
+
+And fit a linear regression line through it
+
+```{r, echo=FALSE}
+broom::augment(lm(y ~ x, data_3)) %>%
+  ggplot(aes(x, y)) +
+  geom_point() +
+  theme_minimal() +
+  geom_line(aes(x, x * 0.5), color = blue)
+```
+
+
+---
+
+# Non-Constancy of the Error Variance
+
+We can take a look at the residuals
+
+```{r, echo=FALSE}
+broom::augment(lm(y ~ x, data_3)) %>%
+  ggplot(aes(x, .resid)) +
+  geom_point() +
+  theme_minimal() +
+  geom_line(aes(x, 0), color = blue)
+```
+
+---
+
+# Non-Constancy of the Error Variance
+
+And we notice the spread of the residuals widens as the values get larger
+
+```{r, echo=FALSE}
+broom::augment(lm(y ~ x, data_3)) %>%
+  ggplot(aes(x, .resid)) +
+  geom_point() +
+  theme_minimal() +
+  geom_line(aes(x, 0), color = blue) +
+  geom_abline(intercept = 5, slope = 0.6, color = orange) +
+  geom_abline(intercept = -5, slope = -0.6, color = orange)
+```
+
+---
+
+# Non-Constancy of the Error Variance
+
+There is no set way the spread of the residuals can be uneven
+
+```{r, echo=FALSE}
+data_4 <- tibble(
+  x = seq_len(100)
+) %>%
+  mutate(
+    fitted = 0.5 * x,
+    fitted = fitted,
+    error = 5 * rnorm(n()) * (50 - x)/ 50,
+    y = fitted + error
+    )
+
+broom::augment(lm(y ~ x, data_4)) %>%
+  ggplot(aes(x, .resid)) +
+  geom_point() +
+  theme_minimal() +
+  geom_line(aes(x, 0), color = blue)
+```
+
+---
+
+# Presence of outliers
+
+We will discuss this more in Chapter 10
+
+A general strategy is to normalize the error by the square root of the MSE
+
+$$\text{Standardized residuals} = \dfrac{e_i}{\sqrt{MSE}} $$
+
+---
+
+# Presence of outliers
+
+If we plot the standardized residuals against the predictor we see that most of the residuals for this 
+
+```{r, echo=FALSE}
+broom::augment(lm(y ~ x, data_1)) %>%
+  ggplot(aes(x, .std.resid)) +
+  geom_point() +
+  theme_minimal() +
+  geom_line(aes(x, 0), color = blue) +
+  labs(y = "Standardized residuals")
+```
+
+---
+
+# Presence of outliers
+
+Here it appears that some of the points could be considered outliers
+
+```{r, echo=FALSE}
+data_5 <- data_1 %>%
+  mutate(y = y + sample(c(rep(0, 98), -25, + 10)))
+
+broom::augment(lm(y ~ x, data_5)) %>%
+  ggplot(aes(x, .std.resid)) +
+  geom_point() +
+  theme_minimal() +
+  geom_line(aes(x, 0), color = blue) +
+  labs(y = "Standardized residuals")
+```
+
+---
+
+# Presence of outliers
+
+Note:
+
+Outliers can affect performance because the sum of the squared deviations minimized
+
+---
+
+# Presence of outliers
+
+You cannot willy-nilly remove outliers
+
+Each outlier removed will by definition improve the fit of the model, but only on the reduced data set
+
+The outliers may carry important information regarding some interactions between predictor variables, or that some important predictors have been excluded from the model
+
+---
+
+# Presence of outliers
+
+A safe rule frequently suggested is to discard an outlier only if there is direct evidence that it represents an error in recording, a miscalculation, etc
+
+---
+
+# Non-independence of Error Terms
+
+Whenever data are obtained in a time sequence or another type of sequences is it good to prepare a sequence plot of the residuals
+
+The purpose of this is to see whether there is a correlation between the error terms that are near each other in sequence
+
+---
+
+# Non-independence of Error Terms
+
+It is important that the errors don't follow a trend along the time axis
+
+```{r, echo=FALSE}
+data_1 %>%
+  ggplot(aes(x, y-25)) +
+  geom_point() +
+  geom_line(aes(x, 0), color = blue) +
+  theme_minimal() +
+  labs(x = "Time", y = "Residuals")
+```
+
+---
+
+# Non-independence of Error Terms
+
+For time variables it can be common to see a cyclical non-independence
+
+```{r, echo=FALSE}
+data_1 %>%
+  ggplot(aes(x, cos(x/8) / 2 + 0.25* rnorm(100))) +
+  geom_point() +
+  geom_line(aes(x, 0), color = blue) +
+  theme_minimal() +
+  labs(x = "Time", y = "Residuals")
+```
+
+---
+
+# Non-independence of Error Terms
+
+In general, you can see quite big fluctuations in the data when we talk about time-dependent data
+
+---
+
+# Non-Normality Of Error Terms
+
+The normality of the error terms can be studied by general graphical methods for 1-dimensional data. Histograms are a good first choice
+
+---
+
+# Non-Normality Of Error Terms
+
+Another way is to use Q-Q plots (normal quantile-quantile plots)
+
+For this type of chart, we plot the sample quantile against the theoretical quantiles
+
+Under the assumption of normal distribution
+
+---
+
+# Non-Normality Of Error Terms
+
+```{r, echo=FALSE}
+example_qq <- function(fun, n = 100, ...) {
+  tibble(y = fun(n, ...)) %>%
+    mutate(x = qnorm(ppoints(n))[order(order(y))]) %>%
+    ggplot(aes(x, y)) +
+    geom_abline(slope = 1, intercept = 0, color = blue) +
+    geom_point() +
+    theme_minimal() +
+    labs(x = "Sample Quantiles", y = "Theoretical Quantiles")
+}
+```
+
+.pull-left[
+A normal Q-Q plot should look something like this
+
+Follow the diagonal fairly close with a couple of deviations at the ends
+]
+
+.pull-right[
+```{r, echo=FALSE, fig.asp=0.8}
+set.seed(1)
+example_qq(rnorm, n = 400) 
+```
+]
+
+---
+
+# Non-Normality Of Error Terms
+
+.pull-left[
+Symptom: ends go under on the left and over on the right
+
+Cause: Symmetrical heavy-tailed
+]
+
+.pull-right[
+```{r, echo=FALSE, fig.asp=0.8}
+set.seed(4)
+example_qq(rcauchy, 50)  
+```
+]
+
+---
+
+# Non-Normality Of Error Terms
+
+.pull-left[
+Symptom: curved
+
+Cause: skewed right
+]
+
+.pull-right[
+```{r, echo=FALSE, fig.asp=0.8}
+set.seed(4)
+example_qq(rchisq, 100, 2)  
+```
+]

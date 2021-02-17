@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Diagnnostics and Remedial Measures</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emil Hvitfeldt" />
+    <meta name="date" content="2021-02-17" />
+    <script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# Diagnnostics and Remedial Measures
+## AU STAT-615
+### Emil Hvitfeldt
+### 2021-02-17
+
+---
+
+
+
+
+
+
+`$$\require{color}\definecolor{orange}{rgb}{1, 0.603921568627451, 0.301960784313725}$$`
+`$$\require{color}\definecolor{blue}{rgb}{0.301960784313725, 0.580392156862745, 1}$$`
+`$$\require{color}\definecolor{pink}{rgb}{0.976470588235294, 0.301960784313725, 1}$$`
+
+&lt;script type="text/x-mathjax-config"&gt;
+MathJax.Hub.Config({
+TeX: {
+  Macros: {
+    orange: ["{\\color{orange}{#1}}", 1],
+    blue: ["{\\color{blue}{#1}}", 1],
+    pink: ["{\\color{pink}{#1}}", 1]
+  },
+  loader: {load: ['[tex]/color']},
+  tex: {packages: {'[+]': ['color']}}
+}
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+.orange {color: #FF9A4D;}
+.blue {color: #4D94FF;}
+.pink {color: #F94DFF;}
+&lt;/style&gt;
+
+
+
+# Residuals
+
+Diagnostics for predictor variables will be covered in Chapter 10
+
+Diagnostics for the response variable are usually carried out indirectly through an examination of the residuals
+
+`$$e_i = Y_i - \hat Y_i$$`
+
+For the unknown true error `\(\varepsilon_i = Y_i - E\{Y_i\}\)` we know that `\(E\{\varepsilon_i\} = 0\)` and `\(V\{\varepsilon_i\} = \sigma^2\)`
+
+---
+
+# Idea
+
+If the fitted model is appropriate for the data at hand, the observed values `\(e_i\)` should reflect the properties assumed for `\(\varepsilon_i\)`
+
+---
+
+# Properties of Residuals
+
+## Mean
+
+The mean is given by
+
+`$$\bar e = \dfrac{\sum e_i}{n} = 0$$`
+
+Since this is always true, it provides no information as to whether the true errors `\(\varepsilon_i\)` have expected value `\(E\{\varepsilon_i\} = 0\)` 😥
+
+---
+
+# Properties of Residuals
+
+## Variance
+
+The variance is given by
+
+`$$s^2 = \dfrac{\sum(e_i - \bar e)^2}{n - 2} = \dfrac{\sum e_i^2}{n - 2}= \dfrac{SSE}{n - 2} = MSE$$`
+
+It can be showed that `\(E\{MSE\}=\sigma^2\)` is an unbiased estimator of the variance of the error terms `\(\sigma^2\)`
+
+So if the model is appropriate, MSE is, an unbiased estimator of the variance of the error terms `\(\sigma^2\)`
+
+---
+
+# Non-independence
+
+The residuals `\(\varepsilon_i\)` are .blue[not] independent random variables because they involve the fitted values `\(\hat Y_i\)` which are based on the same fitted regression function
+
+---
+
+# Departures from model to be studied by residuals
+
+1. The regression function is not linear
+1. The error terms do not have constant variance
+1. The error terms are not independent
+1. The model fits all but one or a few outlier observations
+1. The error terms are not normally distributed
+1. One or several important predictor variables have been omitted from the model
+
+---
+
+# Departures from model to be studied by residuals
+
+1. .blue[The regression function is not linear]
+1. .blue[The error terms do not have constant variance]
+1. .blue[The error terms are not independent]
+1. The model fits all but one or a few outlier observations
+1. .blue[The error terms are not normally distributed]
+1. One or several important predictor variables have been omitted from the model
+
+.blue[L]inearity, .blue[I]ndependence, .blue[N]ormality, .blue[E]qual Variance
+
+---
+
+# Non-linearity of Regression Function
+
+The residual plot against the predictor variable
+
+&lt;img src="index_files/figure-html/unnamed-chunk-3-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-linearity of Regression Function
+
+Consider we have the following data
+
+&lt;img src="index_files/figure-html/unnamed-chunk-4-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-linearity of Regression Function
+
+the fitted regression line goes here
+
+&lt;img src="index_files/figure-html/unnamed-chunk-5-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-linearity of Regression Function
+
+And the residuals against the predictor variable looks like this
+
+Perfectly linear
+
+&lt;img src="index_files/figure-html/unnamed-chunk-6-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-linearity of Regression Function
+
+Consider we have the new following data
+
+&lt;img src="index_files/figure-html/unnamed-chunk-7-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-linearity of Regression Function
+
+the fitted line would be
+
+&lt;img src="index_files/figure-html/unnamed-chunk-8-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-linearity of Regression Function
+
+And the residuals will look like this. Clearly not linear
+
+&lt;img src="index_files/figure-html/unnamed-chunk-9-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-Constancy of the Error Variance
+
+Using residual plots will also enable us to examine whether the variance of the error terms is constant
+
+---
+
+# Non-Constancy of the Error Variance
+
+If we look at this residual plot from earlier. We notice that the spread (variance) of the residuals stay constant throughout the values of X
+
+&lt;img src="index_files/figure-html/unnamed-chunk-10-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-Constancy of the Error Variance
+
+If we take this data right here
+
+&lt;img src="index_files/figure-html/unnamed-chunk-11-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-Constancy of the Error Variance
+
+And fit a linear regression line through it
+
+&lt;img src="index_files/figure-html/unnamed-chunk-12-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Non-Constancy of the Error Variance
+
+We can take a look at the residuals
+
+&lt;img src="index_files/figure-html/unnamed-chunk-13-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-Constancy of the Error Variance
+
+And we notice the spread of the residuals widens as the values get larger
+
+&lt;img src="index_files/figure-html/unnamed-chunk-14-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-Constancy of the Error Variance
+
+There is no set way the spread of the residuals can be uneven
+
+&lt;img src="index_files/figure-html/unnamed-chunk-15-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Presence of outliers
+
+We will discuss this more in Chapter 10
+
+A general strategy is to normalize the error by the square root of the MSE
+
+$$\text{Standardized residuals} = \dfrac{e_i}{\sqrt{MSE}} $$
+
+---
+
+# Presence of outliers
+
+If we plot the standardized residuals against the predictor we see that most of the residuals for this 
+
+&lt;img src="index_files/figure-html/unnamed-chunk-16-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Presence of outliers
+
+Here it appears that some of the points could be considered outliers
+
+&lt;img src="index_files/figure-html/unnamed-chunk-17-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Presence of outliers
+
+Note:
+
+Outliers can affect performance because the sum of the squared deviations minimized
+
+---
+
+# Presence of outliers
+
+You cannot willy-nilly remove outliers
+
+Each outlier removed will by definition improve the fit of the model, but only on the reduced data set
+
+The outliers may carry important information regarding some interactions between predictor variables, or that some important predictors have been excluded from the model
+
+---
+
+# Presence of outliers
+
+A safe rule frequently suggested is to discard an outlier only if there is direct evidence that it represents an error in recording, a miscalculation, etc
+
+---
+
+# Non-independence of Error Terms
+
+Whenever data are obtained in a time sequence or another type of sequences is it good to prepare a sequence plot of the residuals
+
+The purpose of this is to see whether there is a correlation between the error terms that are near each other in sequence
+
+---
+
+# Non-independence of Error Terms
+
+It is important that the errors don't follow a trend along the time axis
+
+&lt;img src="index_files/figure-html/unnamed-chunk-18-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-independence of Error Terms
+
+For time variables it can be common to see a cyclical non-independence
+
+&lt;img src="index_files/figure-html/unnamed-chunk-19-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Non-independence of Error Terms
+
+In general, you can see quite big fluctuations in the data when we talk about time-dependent data
+
+---
+
+# Non-Normality Of Error Terms
+
+The normality of the error terms can be studied by general graphical methods for 1-dimensional data. Histograms are a good first choice
+
+---
+
+# Non-Normality Of Error Terms
+
+Another way is to use Q-Q plots (normal quantile-quantile plots)
+
+For this type of chart, we plot the sample quantile against the theoretical quantiles
+
+Under the assumption of normal distribution
+
+---
+
+# Non-Normality Of Error Terms
+
+
+
+.pull-left[
+A normal Q-Q plot should look something like this
+
+Follow the diagonal fairly close with a couple of deviations at the ends
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-21-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Non-Normality Of Error Terms
+
+.pull-left[
+Symptom: ends go under on the left and over on the right
+
+Cause: Symmetrical heavy-tailed
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-22-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Non-Normality Of Error Terms
+
+.pull-left[
+Symptom: curved
+
+Cause: skewed right
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-23-1.png" width="700px" style="display: block; margin: auto;" /&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
