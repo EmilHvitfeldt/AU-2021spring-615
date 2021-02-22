@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Readings</title>
+  <title>Regression: Assignment 4</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Readings"/>
+  <meta property="og:title" content="Regression: Assignment 4"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Readings"/>
+  <meta property="twitter:title" content="Regression: Assignment 4"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Assignment 4"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings","authors":[]}
+{"title":"Assignment 4","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2435,7 +2435,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings</h1>
+<h1>Assignment 4</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2443,10 +2443,57 @@ Assignments
 
 
 <div class="d-article">
-<p>The readings for this course will be based on the textbooks listed in the <a href="syllabus.html#main-textbook">syllabus</a>. Readings will primarily be taken from the main textbook, but will sometimes be other material. Additional optional reading will also be listed for each week for the students who want to dig deeper into the content of the week. Information from the optional reading will not be expected knowledge in the homework and the exams and should be seen as a learning opportunity only.</p>
-<p>Readings will be listed no later than 3 days before class. Reading before class is strongly encouraged to allow you to find the areas you have additional questions about and ask them in class.</p>
-<p>Slides will also be posted here for each week.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>The number in the the starting parenthesis indicate the corresponding exercise number in “Applied Linear Statistical Models”.</p>
+<ol type="1">
+<li><p>(5 points) <strong>(2.17)</strong> An analyst fitted normal error regression model and conducted an F test of <span class="math inline">\(H_0: \beta_1 = 0\)</span> versus <span class="math inline">\(H_1: \beta1 \neq 0\)</span>. The P-value of the test was 0.033, and the analyst concluded that <span class="math inline">\(\beta1 \neq 0\)</span>. Was the <span class="math inline">\(\alpha\)</span> level used by the analyst greater than or smaller than 0.033? If the <span class="math inline">\(\alpha\)</span> level had been 0.01, what would have been the appropriate conclusion?</p></li>
+<li><p>(6 points) <strong>(2.18)</strong> For conducting statistical tests concerning the parameter <span class="math inline">\(\beta_1\)</span>, why is the t-test more versatile than the F-test?</p></li>
+<li><p>(6 points) <strong>(2.19)</strong> When testing <span class="math inline">\(H_0: \beta_1 = 0\)</span> versus <span class="math inline">\(H_1: \beta1 \neq 0\)</span>, why is the F-test a one-sided test even though <span class="math inline">\(H_1\)</span> includes both cases <span class="math inline">\(\beta_1 &lt; 0\)</span> and <span class="math inline">\(\beta_1 &gt; 0\)</span>?</p></li>
+<li><p>(6 points) (Continued from HW-2,3) The time it takes to transmit a file always depends on the file size. Suppose you transmitted 30 files, with the average size of 126 Kbytes and the standard deviation of 35 Kbytes. The average transmittance time was 0.04 seconds with the standard deviation of 0.01 seconds. The correlation coefficient between the time and the size was 0.86. In the previous homework, we fit a regression model that predicted the time it will take to transmit a 400 Kbyte file.</p>
+<ol type="a">
+<li>Compute the total, regression, and error sums of squares.</li>
+<li>Complete the ANOVA table. Include degrees of freedom, mean squares, and the F- statistic.</li>
+<li>Use this F-statistic to test significance of our regression model that relates transmission time to the size of the file. State H0 and H1, calculate the p-value, and make a conclusion. How does your test statistic and the p-value relate to your results in problem #3c of Homework-3?</li>
+<li>Calculate <span class="math inline">\(R^2\)</span> and explain what it means.</li>
+</ol></li>
+<li><p>(6 points) (Continued from HW-2,3) At a gas station, 180 drivers were asked to record the mileage of their cars and the number of miles per gallon. The results are summarized in the table.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Sample mean</th>
+<th>Standard deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mileage</td>
+<td>24,598</td>
+<td>14,634</td>
+</tr>
+<tr class="even">
+<td>Miles per gallon</td>
+<td>23.8</td>
+<td>3.4</td>
+</tr>
+</tbody>
+</table>
+<p>The sample correlation coefficient is <span class="math inline">\(r = −0.17\)</span>. In the previous homework, we fit a regression model that described how the number of miles per gallon depends on the mileage.</p>
+<ol type="a">
+<li>Complete the ANOVA table. Include sums of squares, degrees of freedom, mean squares, and the F-statistic.</li>
+<li>What statement can be tested using this F-statistic? Calculate the p-value and state a conclusion for this ANOVA F-test.</li>
+<li>From your ANOVA table, estimate the standard deviation of responses, <span class="math inline">\(\sigma = Std(Y_i)\)</span>.</li>
+<li>Calculate <span class="math inline">\(R^2\)</span> and comment on the goodness of fit in this regression problem.</li>
+</ol></li>
+<li><p>(6 points) Grade point average, data can be found <a href="data/CH01PR19.txt">here</a>. Same as in assignment 2 and 3.</p>
+<ol type="a">
+<li>Set up the ANOVA table. Use it to answer questions (b-e).</li>
+<li>What is estimated by MSR in your ANOVA table? by MSE? Under what conditions do MSR and MSE estimate the same quantity?</li>
+<li>Conduct an F-test of whether or not <span class="math inline">\(\beta_1 = 0\)</span>. Control the <span class="math inline">\(\alpha\)</span> level at 0.01. State the alternative and your conclusion.</li>
+<li>How much does the variation of Y reduce when X is introduced into the regression model? What is the relative reduction?</li>
+<li>Obtain the sample correlation coefficient and attach the appropriate sign to it, positive or negative.</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div></li>
+</ol>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2454,6 +2501,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

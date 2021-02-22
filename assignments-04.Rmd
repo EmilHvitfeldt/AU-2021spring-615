@@ -1,0 +1,45 @@
+---
+title: "Assignment 4"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The number in the the starting parenthesis indicate the corresponding exercise number in "Applied Linear Statistical Models".
+
+1. (5 points) **(2.17)** An analyst fitted normal error regression model and conducted an F test of $H_0: \beta_1 = 0$ versus $H_1: \beta1 \neq 0$. The P-value of the test was 0.033, and the analyst concluded that $\beta1 \neq 0$. Was the $\alpha$ level used by the analyst greater than or smaller than 0.033? If the $\alpha$ level had been 0.01, what would have been the appropriate conclusion?
+
+2. (6 points) **(2.18)** For conducting statistical tests concerning the parameter $\beta_1$, why is the t-test more versatile than the F-test?
+
+3. (6 points) **(2.19)** When testing $H_0: \beta_1 = 0$ versus $H_1: \beta1 \neq 0$, why is the F-test a one-sided test even though $H_1$ includes both cases $\beta_1 < 0$ and $\beta_1 > 0$?
+
+4. (6 points) (Continued from HW-2,3) The time it takes to transmit a file always depends on the file size. Suppose you transmitted 30 files, with the average size of 126 Kbytes and the standard deviation of 35 Kbytes. The average transmittance time was 0.04 seconds with the standard deviation of 0.01 seconds. The correlation coefficient between the time and the size was 0.86.
+In the previous homework, we fit a regression model that predicted the time it will take to transmit a 400 Kbyte file.
+    a. Compute the total, regression, and error sums of squares.
+    b. Complete the ANOVA table. Include degrees of freedom, mean squares, and the F- statistic.
+    c. Use this F-statistic to test significance of our regression model that relates transmission time to the size of the file. State H0 and H1, calculate the p-value, and make a conclusion. How does your test statistic and the p-value relate to your results in problem #3c of Homework-3?
+    d. Calculate $R^2$ and explain what it means.
+
+5. (6 points) (Continued from HW-2,3) At a gas station, 180 drivers were asked to record the mileage of
+their cars and the number of miles per gallon. The results are summarized in the table.
+
+    |                  | Sample mean | Standard deviation |
+    |------------------|-------------|--------------------|
+    | Mileage          |      24,598 |             14,634 |
+    | Miles per gallon |        23.8 |                3.4 |
+    
+    The sample correlation coefficient is $r = −0.17$. In the previous homework, we fit a regression model that described how the number of miles per gallon depends on the mileage.
+    
+    a. Complete the ANOVA table. Include sums of squares, degrees of freedom, mean squares, and the F-statistic.
+    b. What statement can be tested using this F-statistic? Calculate the p-value and state a conclusion for this ANOVA F-test.
+    c. From your ANOVA table, estimate the standard deviation of responses, $\sigma = Std(Y_i)$.
+    d. Calculate $R^2$ and comment on the goodness of fit in this regression problem.
+
+6. (6 points) Grade point average, data can be found [here](data/CH01PR19.txt). Same as in assignment 2 and 3.
+    
+    a. Set up the ANOVA table. Use it to answer questions (b-e).
+    b. What is estimated by MSR in your ANOVA table? by MSE? Under what conditions do MSR and MSE estimate the same quantity?
+    c. Conduct an F-test of whether or not $\beta_1 = 0$. Control the $\alpha$ level at 0.01. State the alternative and your conclusion.
+    d. How much does the variation of Y reduce when X is introduced into the regression model? What is the relative reduction?
+    e. Obtain the sample correlation coefficient and attach the appropriate sign to it, positive or negative.
