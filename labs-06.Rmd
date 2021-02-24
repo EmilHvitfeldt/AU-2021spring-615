@@ -1,0 +1,27 @@
+---
+title: "Lab 06"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Data
+
+[CH01PR19.txt](data/CH01PR19.txt)
+
+### Exercise 1
+
+Start by reading in the data.
+
+```{r, eval=FALSE}
+read.table("data/CH01PR19.txt", col.names = c("Y", "X"))
+```
+
+And fit a simple linear regression model with $Y$ as the response and $X$ as the predictor.
+
+a. Look at the regression model with `summary()`, write what you see.
+b. Use the `confint()` function to get the confidence interval of the two parameter estimates. What happens to the width of the interval if we set `level = 0.99`. Explain.
+c. Use the predict function to predict the expected value of $Y$ when $X = 3$. Also obtain the confidence interval and prediction interval.
+d. Extract the regression residuals and confirm that $\sum^n_{i = 1} \varepsilon_i = 0$ and $\sum^n_{i = 1} \left(\varepsilon_i X_i\right) = 0$
+e. Perform an Analysis of Variance (ANOVA). Explain what you see, does it match up with what we saw earlier?
