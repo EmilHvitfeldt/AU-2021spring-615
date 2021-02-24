@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Matrix Approaches to Simple Linear Regression Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emil Hvitfeldt" />
+    <meta name="date" content="2021-02-24" />
+    <script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# Matrix Approaches to Simple Linear Regression Analysis
+## AU STAT-615
+### Emil Hvitfeldt
+### 2021-02-24
+
+---
+
+
+
+
+
+
+`$$\require{color}\definecolor{orange}{rgb}{1, 0.603921568627451, 0.301960784313725}$$`
+`$$\require{color}\definecolor{blue}{rgb}{0.301960784313725, 0.580392156862745, 1}$$`
+`$$\require{color}\definecolor{pink}{rgb}{0.976470588235294, 0.301960784313725, 1}$$`
+
+&lt;script type="text/x-mathjax-config"&gt;
+MathJax.Hub.Config({
+TeX: {
+  Macros: {
+    orange: ["{\\color{orange}{#1}}", 1],
+    blue: ["{\\color{blue}{#1}}", 1],
+    pink: ["{\\color{pink}{#1}}", 1]
+  },
+  loader: {load: ['[tex]/color']},
+  tex: {packages: {'[+]': ['color']}}
+}
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+.orange {color: #FF9A4D;}
+.blue {color: #4D94FF;}
+.pink {color: #F94DFF;}
+&lt;/style&gt;
+
+
+
+# Matrices
+
+Matrix algebra is widely used in Mathematics and Statistics alike
+
+It is more or less required to do multiple linear regression as it allows us to express large systems of equations and data in a compact way
+
+---
+
+# Example
+
+We have 2 variables of data, .blue[income] and .orange[age]
+
+$$
+\blue{
+`\begin{bmatrix}
+16,000\\
+16,000\\
+16,000\\
+\end{bmatrix}`
+}
+\orange{
+`\begin{bmatrix}
+23\\
+47\\
+35\\
+\end{bmatrix}`
+}
+$$
+
+---
+
+# Example
+
+These columns can also be seen as being composed of rows (of observations)
+$$
+`\begin{bmatrix}
+\blue{16,000}\\
+\orange{16,000}\\
+\pink{16,000}\\
+\end{bmatrix}`
+`\begin{bmatrix}
+\blue{23}\\
+\orange{47}\\
+\pink{35}\\
+\end{bmatrix}`
+$$
+
+---
+
+# Notation
+
+Usual notation for a matrix
+
+`$$\mathbf{A} = [a_{ij}] \qquad i = 1, 2; \quad j = 1, 2, 3$$`
+
+`$$\mathbf{A} = \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; a_{13}\\
+a_{21} &amp; a_{22} &amp; a_{23}
+\end{bmatrix}$$`
+
+We call this a 2-by-3 matrix or more generally .blue[n]-by-.orange[m] matrix when the matrix has
+
+- .blue[n rows]
+- .orange[m columns]
+
+---
+
+# Square Matrix
+
+A matrix is called **square** if the number of rows equals the number of columns
+
+`$$\begin{bmatrix}
+a_{11} &amp; a_{12} &amp; a_{13}\\
+a_{21} &amp; a_{22} &amp; a_{23}\\
+a_{31} &amp; a_{32} &amp; a_{33}
+\end{bmatrix}$$`
+
+`$$\begin{bmatrix}
+4 &amp; 7\\
+3 &amp; 9
+\end{bmatrix}$$`
+
+---
+
+# Vector
+
+A vector can be thought of as a matrix with 1 column
+
+A column vector
+
+`$$\mathbf{A} = \begin{bmatrix}
+4\\
+7\\
+10
+\end{bmatrix}$$`
+
+or a row vector
+
+`$$\mathbf{A} = \begin{bmatrix}
+15 &amp; 25 &amp; 50
+\end{bmatrix}$$`
+
+---
+
+
+# Transpose
+
+A transpose of matrix `\(\mathbf{A}\)` is denotes as `\(\mathbf{A}^T\)` or `\(\mathbf{A}'\)`.
+
+`$$\mathbf{A} = \begin{bmatrix}
+4 &amp; 7 \\
+3 &amp; 9 \\
+1 &amp; 2
+\end{bmatrix} 
+\rightarrow 
+\mathbf{A}^T = \begin{bmatrix}
+4 &amp; 3 &amp; 1 \\
+7 &amp; 9 &amp; 2
+\end{bmatrix}$$`
+
+Can be seen as flipping the row and column indices. Or flipping over the diagonal
+
+---
+
+# Equality of matrices
+
+Let `\(\mathbf{A} = \begin{bmatrix}a_{11} &amp; a_{12}\\a_{21} &amp; a_{22}\end{bmatrix}\)` and `\(\mathbf{B} = \begin{bmatrix}b_{11} &amp; b_{12}\\b_{21} &amp; b_{22}\end{bmatrix}\)`
+
+then we say that `\(\mathbf{A} = \mathbf{B}\)` if and only if
+
+`$$a_{11} = b_{11}, \quad a_{12} = b_{12}, \quad a_{21} = b_{21}, \quad a_{22} = b_{22}$$`
+
+---
+
+# Regression Example
+
+In regression analysis on of the basic matrices is `\(\mathbf{Y}\)`, that contains thee `\(n\)` observations on `\(\mathbf{Y}\)`
+
+`$$\mathbf{Y} = \begin{bmatrix}
+Y_1\\
+Y_2\\
+\vdots\\
+Y_n
+\end{bmatrix}$$`
+
+---
+
+# Regression Example
+
+Another basic matrix we use in regression is matrix `\(\mathbf{X}\)`
+
+In simplee linear regression this matrix is
+
+`$$\mathbf{X} = \begin{bmatrix}
+\blue{1} &amp; \orange{Y_1}\\
+\blue{1} &amp; \orange{Y_2}\\
+\blue{\vdots} &amp; \orange{\vdots}\\
+\blue{1} &amp; \orange{Y_n}
+\end{bmatrix}$$`
+
+- .blue[columns of 1s]
+- .orange[n observations of predictor variables]
+
+---
+
+### Matrix addition &amp; Subtraction
+
+Let `\(\mathbf{A} = \begin{bmatrix}1 &amp; 4\\2 &amp; 5\\3 &amp; 6\end{bmatrix}\)` and `\(\mathbf{B} = \begin{bmatrix}1 &amp; 2\\2 &amp; 3\\3 &amp; 4\end{bmatrix}\)`
+
+Then we have that
+
+`$$\mathbf{A} + \mathbf{B} = \begin{bmatrix}
+1 + 1 &amp; 4 + 2\\
+2 + 2 &amp; 5 + 3\\
+3 + 3 &amp; 6 + 4
+\end{bmatrix} = \begin{bmatrix}
+2 &amp; 6\\
+4 &amp; 8\\
+6 &amp; 10
+\end{bmatrix}$$`
+
+and
+
+`$$\mathbf{A} - \mathbf{B} = \begin{bmatrix}
+1 - 1 &amp; 4 - 2\\
+2 - 2 &amp; 5 - 3\\
+3 - 3 &amp; 6 - 4
+\end{bmatrix} = \begin{bmatrix}
+0 &amp; 2\\
+0 &amp; 2\\
+0 &amp; 2
+\end{bmatrix}$$`
+
+---
+
+# Regression example
+
+`$$Y_i = E\{Y_i\} + \varepsilon_i \quad i = 1, ..., n$$`
+
+This can be written in matrix form when
+
+`$$\mathbf{E\{Y_i\}} = \begin{bmatrix}
+E\{Y_1\}\\
+E\{Y_2\}\\
+\vdots\\
+E\{Y_n\}
+\end{bmatrix}, \qquad \boldsymbol\varepsilon = \begin{bmatrix}
+\varepsilon_1\\
+\varepsilon_2\\
+\vdots\\
+\varepsilon_n
+\end{bmatrix}$$`
+
+---
+
+# Regression example
+
+So we get that
+
+`$$\mathbf{Y} = \mathbf{E\{Y_i\}} + \boldsymbol\varepsilon$$`
+
+can written for
+
+`$$\begin{bmatrix}
+Y_1\\
+Y_2\\
+\vdots\\
+Y_n
+\end{bmatrix} = \begin{bmatrix}
+E\{Y_1\}\\
+E\{Y_2\}\\
+\vdots\\
+E\{Y_n\}
+\end{bmatrix} + \begin{bmatrix}
+\varepsilon_1\\
+\varepsilon_2\\
+\vdots\\
+\varepsilon_n
+\end{bmatrix} = \begin{bmatrix}
+E\{Y_1\} + \varepsilon_1\\
+E\{Y_2\} + \varepsilon_2\\
+\vdots\\
+E\{Y_n\} + \varepsilon_n
+\end{bmatrix}$$`
+
+---
+
+# Matrix Multiplication
+
+Matrix by scalar
+
+let `\(\mathbf{A} = \begin{bmatrix}4 &amp; 7\\3 &amp; 9\end{bmatrix}\)`, then
+
+`$$4 \cdot \mathbf{A} = \begin{bmatrix}
+4 \cdot 4 &amp; 4 \cdot 7\\
+4 \cdot 3 &amp; 4 \cdot 9
+\end{bmatrix} = \begin{bmatrix}
+16 &amp; 28\\
+12 &amp; 36
+\end{bmatrix}$$`
+
+In general we have that for a scalar `\(k\)` and matrix `\(\mathbf{A}\)`
+
+`$$k \cdot \mathbf{A} = \mathbf{A} \cdot k$$`
+
+---
+
+# Matrix Multiplication
+
+matrix by matrix
+
+let `\(\mathbf{A} = \begin{bmatrix}2 &amp; 5\\4 &amp; 1\end{bmatrix}\)` and let `\(\mathbf{A} = \begin{bmatrix}4 &amp; 6\\5 &amp; 8\end{bmatrix}\)`
+
+then
+
+`$$\mathbf{A} \cdot \mathbf{B} =  \begin{bmatrix}
+2 &amp; 5\\
+4 &amp; 1
+\end{bmatrix} \cdot  \begin{bmatrix}
+4 &amp; 6\\
+5 &amp; 8
+\end{bmatrix} =  \begin{bmatrix}
+2 \cdot 4 + 5 \cdot 5 &amp; 2 \cdot 6 + 5 \cdot 8\\
+4 \cdot 4 + 1 \cdot 5 &amp; 4 \cdot 6 + 1 \cdot 8
+\end{bmatrix} = \begin{bmatrix}
+33 &amp; 52\\
+21 &amp; 32
+\end{bmatrix}$$`
+
+---
+
+# Matrix Multiplication
+
+matrix by matrix
+
+let `\(\mathbf{A} = \begin{bmatrix}2 &amp; 5\\4 &amp; 1\end{bmatrix}\)` and let `\(\mathbf{A} = \begin{bmatrix}4 &amp; 6\\5 &amp; 8\end{bmatrix}\)`
+
+then
+
+`$$\mathbf{A} \cdot \mathbf{B} =  \begin{bmatrix}
+\blue{2} &amp; \orange{5}\\
+4 &amp; 1
+\end{bmatrix} \cdot  \begin{bmatrix}
+\blue{4} &amp; 6\\
+\orange{5} &amp; 8
+\end{bmatrix} =  \begin{bmatrix}
+\blue{2 \cdot 4} + \orange{5 \cdot 5} &amp; 2 \cdot 6 + 5 \cdot 8\\
+4 \cdot 4 + 1 \cdot 5 &amp; 4 \cdot 6 + 1 \cdot 8
+\end{bmatrix} = \begin{bmatrix}
+33 &amp; 52\\
+21 &amp; 32
+\end{bmatrix}$$`
+
+---
+
+# Matrix Multiplication
+
+matrix by matrix
+
+let `\(\mathbf{A} = \begin{bmatrix}2 &amp; 5\\4 &amp; 1\end{bmatrix}\)` and let `\(\mathbf{A} = \begin{bmatrix}4 &amp; 6\\5 &amp; 8\end{bmatrix}\)`
+
+then
+
+`$$\mathbf{A} \cdot \mathbf{B} =  \begin{bmatrix}
+\blue{2} &amp; \orange{5}\\
+4 &amp; 1
+\end{bmatrix} \cdot  \begin{bmatrix}
+4 &amp; \blue{6}\\
+5 &amp; \orange{8}
+\end{bmatrix} =  \begin{bmatrix}
+2 \cdot 4 + 5 \cdot 5 &amp; \blue{2 \cdot 6} + \orange{5 \cdot 8}\\
+4 \cdot 4 + 1 \cdot 5 &amp; 4 \cdot 6 + 1 \cdot 8
+\end{bmatrix} = \begin{bmatrix}
+33 &amp; 52\\
+21 &amp; 32
+\end{bmatrix}$$`
+
+---
+
+# Matrix Multiplication
+
+matrix by matrix
+
+let `\(\mathbf{A} = \begin{bmatrix}2 &amp; 5\\4 &amp; 1\end{bmatrix}\)` and let `\(\mathbf{A} = \begin{bmatrix}4 &amp; 6\\5 &amp; 8\end{bmatrix}\)`
+
+then
+
+`$$\mathbf{A} \cdot \mathbf{B} =  \begin{bmatrix}
+2 &amp; 5\\
+\blue{4} &amp; \orange{1}
+\end{bmatrix} \cdot  \begin{bmatrix}
+\blue{4} &amp; 6\\
+\orange{5} &amp; 8
+\end{bmatrix} =  \begin{bmatrix}
+2 \cdot 4 + 5 \cdot 5 &amp; 2 \cdot 6 + 5 \cdot 8\\
+\blue{4 \cdot 4} + \orange{1 \cdot 5} &amp; 4 \cdot 6 + 1 \cdot 8
+\end{bmatrix} = \begin{bmatrix}
+33 &amp; 52\\
+21 &amp; 32
+\end{bmatrix}$$`
+
+---
+
+# Matrix Multiplication
+
+matrix by matrix
+
+let `\(\mathbf{A} = \begin{bmatrix}2 &amp; 5\\4 &amp; 1\end{bmatrix}\)` and let `\(\mathbf{A} = \begin{bmatrix}4 &amp; 6\\5 &amp; 8\end{bmatrix}\)`
+
+then
+
+`$$\mathbf{A} \cdot \mathbf{B} =  \begin{bmatrix}
+2 &amp; 5\\
+\blue{4} &amp; \orange{1}
+\end{bmatrix} \cdot  \begin{bmatrix}
+4 &amp; \blue{6}\\
+5 &amp; \orange{8}
+\end{bmatrix} =  \begin{bmatrix}
+2 \cdot 4 + 5 \cdot 5 &amp; 2 \cdot 6 + 5 \cdot 8\\
+4 \cdot 4 + 1 \cdot 5 &amp; \blue{4 \cdot 6} + \orange{1 \cdot 8}
+\end{bmatrix} = \begin{bmatrix}
+33 &amp; 52\\
+21 &amp; 32
+\end{bmatrix}$$`
+
+---
+
+
+# Matrix Multiplication?
+
+Is `\(\mathbf{A} \cdot \mathbf{B} = \mathbf{B} \cdot \mathbf{A}\)`?
+
+`$$\mathbf{A} \cdot \mathbf{B} =  \begin{bmatrix}
+2 &amp; 5\\
+4 &amp; 1
+\end{bmatrix} \cdot  \begin{bmatrix}
+4 &amp; 6\\
+5 &amp; 8
+\end{bmatrix} =  \begin{bmatrix}
+2 \cdot 4 + 5 \cdot 5 &amp; 2 \cdot 6 + 5 \cdot 8\\
+4 \cdot 4 + 1 \cdot 5 &amp; 4 \cdot 6 + 1 \cdot 8
+\end{bmatrix} = \begin{bmatrix}
+33 &amp; 52\\
+21 &amp; 32
+\end{bmatrix}$$`
+
+and 
+
+`$$\mathbf{B} \cdot \mathbf{A} =  \begin{bmatrix}
+4 &amp; 6\\
+5 &amp; 8
+\end{bmatrix} \cdot \begin{bmatrix}
+2 &amp; 5\\
+4 &amp; 1
+\end{bmatrix} =  \begin{bmatrix}
+4 \cdot 2 + 6 \cdot 4 &amp; 4 \cdot 5 + 6 \cdot 1\\
+5 \cdot 2 + 8 \cdot 4 &amp; 5 \cdot 5 + 8 \cdot 1
+\end{bmatrix} = \begin{bmatrix}
+32 &amp; 26\\
+42 &amp; 33
+\end{bmatrix}$$`
+
+---
+
+# Matrix Multiplication
+
+In order to multiply two matrices, the inner dimensions most agree
+
+let
+
+`$$\mathbf{A}_{\blue{m} \times \pink{n}} \cdot \mathbf{B}_{\pink{n} \times \orange{p}}$$`
+
+then
+
+`$$\mathbf{A} \cdot \mathbf{B} = \mathbf{C}_{\blue{m} \times \orange{p}}$$`
+
+---
+
+# Special Types of Matrices
+
+Symmetric
+
+If `\(\mathbf{A}^T = \mathbf{A}\)` then `\(\mathbf{A}\)` is symmetric
+
+Example
+
+`$$\begin{bmatrix}
+1 &amp; 2 &amp; 3\\
+2 &amp; 1 &amp; 2\\
+3 &amp; 2 &amp; 1
+\end{bmatrix}$$`
+
+---
+
+# Special Types of Matrices
+
+Diagonal
+
+A matrix that only have values in the diagonal
+
+`$$\begin{bmatrix}
+a_{11} &amp; 0 &amp; 0\\
+0 &amp; a_{22} &amp; 0\\
+0 &amp; 0 &amp; a_{33}
+\end{bmatrix}$$`
+
+---
+
+# Special Types of Matrices
+
+Identity
+
+`$$\mathbf{I} = \begin{bmatrix}
+1 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 1
+\end{bmatrix}$$`
+
+for any square matrix `\(\mathbf{A}\)` we have
+
+`$$\mathbf{A} \cdot \mathbf{I} = \mathbf{I} \cdot \mathbf{A} = \mathbf{A}$$`
+
+---
+
+# Special Types of Matrices
+
+Scalar matrix
+
+`$$\begin{bmatrix}
+4 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 4 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 4 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 4
+\end{bmatrix}$$`
+
+---
+
+# Linear Dependence
+
+Example
+
+`$$\mathbf{A} = \begin{bmatrix}
+1 &amp; 2 &amp; 5  &amp; 1\\
+2 &amp; 2 &amp; 10 &amp; 6\\
+3 &amp; 4 &amp; 15 &amp; 1
+\end{bmatrix}$$`
+
+Think of columns here as single vectors.
+
+We observe that
+
+`$$\begin{bmatrix}
+5\\
+10\\
+15
+\end{bmatrix} = 5 \cdot \begin{bmatrix}
+1\\
+2\\
+3
+\end{bmatrix}$$`
+
+---
+
+# Linear Dependence
+
+since
+
+`$$\begin{bmatrix}
+5\\
+10\\
+15
+\end{bmatrix} = 5 \cdot \begin{bmatrix}
+1\\
+2\\
+3
+\end{bmatrix}$$`
+
+we say that the columns of `\(\mathbf{A}\)` are linearly dependent
+
+In other words, they contain redundant information
+
+Vectors are linear dependent if one vector can be expressed as a linear combination of the others
+
+---
+
+# Rank of a matrix
+
+Is defined to be the maximum number of linearly independent columns in the matrix
+
+For `\(\mathbf{A}\)` on the last slide we have `\(\text{rank}(\mathbf{A}) = 3\)`
+
+For `\(\mathbf{C} = \mathbf{A} \cdot \mathbf{B}\)` then `\(\text{rank}(\mathbf{C}) \leq \text{min}(\text{rank}(\mathbf{A}), \text{rank}(\mathbf{B}))\)`
+
+---
+
+# Inverse of a matrix
+
+For a number `\(6\)`, the inverse is `\(\dfrac{1}{6}\)` such that `\(\dfrac{1}{6} \cdot 6 = 1\)`
+
+For square (invertible) matrices we have that
+
+`$$\mathbf{A}^{-1} \cdot \mathbf{A} = \mathbf{A} \cdot \mathbf{A}^{-1} = \mathbf{I}$$`
+
+---
+
+# The invertible matrix theorem
+
+.center[
+![:scale 100%](images/invertible.png)
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
