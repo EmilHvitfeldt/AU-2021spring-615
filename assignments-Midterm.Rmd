@@ -1,0 +1,48 @@
+---
+title: "Midterm"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exercise 1 (20 points)
+
+When asked o sate the simple linear regression model, a student wrote it as follows: $E\{Y_i\} = \beta_0 + beta_1+X_i + \varepsilon_i$. Do you agree? Explain your reasoning.
+
+# Exercise 2 (20 points)
+
+A student declared: "Regression is a very powerful tool. We can isolate fixed and variable costs by fitting a linear regression model, even when we have no data for small lot sizes when working with housing prices". Do you agree? Explain your reasoning.
+
+# Exercise 3 (20 points)
+
+For the linear model
+
+$$Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$$
+
+What is the implication for the regression function if $\beta_1 = 0$ so that the model is $Y_i = \beta_0 + \varepsilon_i$? How would the regression function plot on a graph?
+
+# Exercise 4 (20 points)
+
+For the linear model
+
+$$Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$$
+
+It was found that a observation $Y_i$ fell directly on the fitted regression line (i.e. $Y_i = \hat Y_i$). If this case was deleted, would the least squares regression line fitted to the remaining $n-1$ cases be changed? [Hint: What is the contribution to the error for this observation?]
+
+# Exercise 5 (20 points)
+
+In a test of the alternatives $H_0: \beta_1 \leq 0$ versus $H_{\alpha}: \beta_1 > 0$, an analyst concluded $H_0$. Does this conclusion imply that there is no linear association between $X$ and $Y$? Explain.
+
+# Exercise 6 (30 points)
+
+Derive the formula for *regression sum of squares*
+
+$$SSR = b_1^2 \sum \left(X_i - \bar X\right)^2$$
+given that we have
+
+$$SSR = \sum \left(\hat Y_i - \bar Y\right)^2$$
+
+# Exercise 7 (20 points)
+
+A student fitted a linear regression for a class assignment. The student plotted the residuals $e_i$ against $Y_i$ and found a positive relation. When the residuals where plotted against the fitted values $\hat Y_i$ the student found no relation. How could this arise? Which is the more meaningful plot?

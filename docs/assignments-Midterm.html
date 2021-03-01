@@ -85,29 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression</title>
+  <title>Regression: Midterm</title>
 
-  <meta property="description" itemprop="description" content="American University 615"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression"/>
+  <meta property="og:title" content="Regression: Midterm"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="American University 615"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression"/>
-  <meta property="twitter:description" content="American University 615"/>
+  <meta property="twitter:title" content="Regression: Midterm"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site"]}},"value":[{"type":"character","attributes":{},"value":["Regression"]},{"type":"character","attributes":{},"value":["American University 615\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Midterm"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2358,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Regression","description":"American University 615","authors":[]}
+{"title":"Midterm","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2426,6 +2423,7 @@ Assignments
 <a href="assignments-02.html">Assignment 2</a>
 <a href="assignments-03.html">Assignment 3</a>
 <a href="assignments-04.html">Assignment 4</a>
+<a href="assignments-05.html">Midterm 5</a>
 <a href="assignments-Midterm.html">Midterm</a>
 </div>
 </div>
@@ -2439,20 +2437,34 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Regression</h1>
+<h1>Midterm</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>American University 615</p></p>
+
 </div>
 
 
 <div class="d-article">
-<p>This website contains most of the information and material that will be used for one of the sections of the course <a href="https://catalog.american.edu/preview_course_nopop.php?catoid=6&amp;coid=27522">Regression</a> at <a href="https://www.american.edu/">American University</a>.</p>
-<p>The navigation bar contains information about the <a href="syllabus.html">syllabus</a>, <a href="schedule.html">schedule</a>, <a href="readings.html">readings</a>, <a href="labs.html">labs</a> and <a href="assignments.html">assignments</a>.</p>
-<h2 class="unnumbered" id="license">License</h2>
-<p><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />This online work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>. Visit <a href="https://github.com/EmilHvitfeldt/AU-2021spring-627">here</a> for more information about the license.</p>
-<h2 class="unnumbered" id="colophon">Colophon</h2>
-<p>This book was written in <a href="http://www.rstudio.com/ide/">RStudio</a> using <a href="https://rstudio.github.io/distill/">distill</a>. The complete source is available on <a href="">GitHub</a>. All packages versions are being handled with <a href="https://rstudio.github.io/renv/">renv</a>.</p>
+<h1 id="exercise-1-20-points">Exercise 1 (20 points)</h1>
+<p>When asked o sate the simple linear regression model, a student wrote it as follows: <span class="math inline">\(E\{Y_i\} = \beta_0 + beta_1+X_i + \varepsilon_i\)</span>. Do you agree? Explain your reasoning.</p>
+<h1 id="exercise-2-20-points">Exercise 2 (20 points)</h1>
+<p>A student declared: “Regression is a very powerful tool. We can isolate fixed and variable costs by fitting a linear regression model, even when we have no data for small lot sizes when working with housing prices”. Do you agree? Explain your reasoning.</p>
+<h1 id="exercise-3-20-points">Exercise 3 (20 points)</h1>
+<p>For the linear model</p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i\]</span></p>
+<p>What is the implication for the regression function if <span class="math inline">\(\beta_1 = 0\)</span> so that the model is <span class="math inline">\(Y_i = \beta_0 + \varepsilon_i\)</span>? How would the regression function plot on a graph?</p>
+<h1 id="exercise-4-20-points">Exercise 4 (20 points)</h1>
+<p>For the linear model</p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i\]</span></p>
+<p>It was found that a observation <span class="math inline">\(Y_i\)</span> fell directly on the fitted regression line (i.e. <span class="math inline">\(Y_i = \hat Y_i\)</span>). If this case was deleted, would the least squares regression line fitted to the remaining <span class="math inline">\(n-1\)</span> cases be changed? [Hint: What is the contribution to the error for this observation?]</p>
+<h1 id="exercise-5-20-points">Exercise 5 (20 points)</h1>
+<p>In a test of the alternatives <span class="math inline">\(H_0: \beta_1 \leq 0\)</span> versus <span class="math inline">\(H_{\alpha}: \beta_1 &gt; 0\)</span>, an analyst concluded <span class="math inline">\(H_0\)</span>. Does this conclusion imply that there is no linear association between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>? Explain.</p>
+<h1 id="exercise-6-30-points">Exercise 6 (30 points)</h1>
+<p>Derive the formula for <em>regression sum of squares</em></p>
+<p><span class="math display">\[SSR = b_1^2 \sum \left(X_i - \bar X\right)^2\]</span> given that we have</p>
+<p><span class="math display">\[SSR = \sum \left(\hat Y_i - \bar Y\right)^2\]</span></p>
+<h1 id="exercise-7-20-points">Exercise 7 (20 points)</h1>
+<p>A student fitted a linear regression for a class assignment. The student plotted the residuals <span class="math inline">\(e_i\)</span> against <span class="math inline">\(Y_i\)</span> and found a positive relation. When the residuals where plotted against the fitted values <span class="math inline">\(\hat Y_i\)</span> the student found no relation. How could this arise? Which is the more meaningful plot?</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2461,6 +2473,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
