@@ -1,0 +1,27 @@
+---
+title: "Lab 7"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exercise 1
+
+The director of admissions of a small college selected 120 students at random from the new freshman class in a study to determine whether a student’s grade point average (GPA) at the end of the freshman year (Y) can be predicted from the ACT test score (X). The full data set is available on our course blackboard site. To read text (ASCII) file, you can use an R command `read.table("CH01PR19.txt")`. Data set can be downloaded here [CH01PR19.txt](data/CH01PR19.txt).
+
+1. Obtain the least squares estimates of $\beta_0$ and $\beta_1$ and state the estimated regression function.
+2. Plot the estimated regression function and the data. Does the estimated regression function appear to fit the data well?
+3. Obtain a point estimate of the mean freshman GPA for students with ACT test score $X = 30$.
+4. What is the point estimate of the change in the mean response when the entrance test score increases
+by one point?
+5. Obtain the residuals $e_i$ and the sum of the squared residuals $\sum e_i^2$.
+6. Obtain point estimates of $\sigma^2$ and $\sigma$. In what units is each of them expressed?
+
+# Exercise 2
+
+1. Obtain a 99% confidence interval for $\beta_1$. Does it include zero? Why might the director of admissions be interested in whether the confidence interval includes zero?
+2. Test whether or not a linear association exists between student’s ACT score (X) and GPA at the end of the freshman year (Y). Use a level of significance of 0.01. State the alternatives, decision rule, and conclusion.
+3. Obtain a 95 percent confidence interval for the mean freshman GPA for students whose ACT test score is 28. Interpret your confidence interval.
+4. A student obtained a score of 28 on the ACT. Predict her freshman GPA using a 95 percent prediction interval. Interpret your prediction interval.
+5. On the same graph, plot the data, the least squares regression line for ACT scores, the 95 percent confidence band for the true regression line for ACT scores between 20 and 30. Does the confidence band suggest that the true regression relation has been precisely estimated? Discuss.
