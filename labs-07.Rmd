@@ -16,7 +16,7 @@ The director of admissions of a small college selected 120 students at random fr
 4. What is the point estimate of the change in the mean response when the entrance test score increases
 by one point?
 5. Obtain the residuals $e_i$ and the sum of the squared residuals $\sum e_i^2$.
-6. Obtain point estimates of $\sigma^2$ and $\sigma$. In what units is each of them expressed?
+6. ~~Obtain point estimates of $\sigma^2$ and $\sigma$. In what units is each of them expressed?~~
 
 # Exercise 2
 
