@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Readings - week 6</title>
+  <title>Regression: Week 9 lab</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Readings - week 6"/>
+  <meta property="og:title" content="Regression: Week 9 lab"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Readings - week 6"/>
+  <meta property="twitter:title" content="Regression: Week 9 lab"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 6"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Week 9 lab"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2336,7 +2336,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.6.4/header-attrs.js"></script>
-  <script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2356,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 6","authors":[]}
+{"title":"Week 9 lab","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2440,7 +2439,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 6</h1>
+<h1>Week 9 lab</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2448,15 +2447,13 @@ Assignments
 
 
 <div class="d-article">
-<p>Read chapter 5 of “Applied Linear Statistical Models”.</p>
-<h2 id="slides">Slides</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="shareagain" style="min-width:300px;margin:1em auto;">
-<iframe src="static/slides/06-week/index.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
-<script>fitvids('.shareagain', {players: 'iframe'});</script>
-</div>
-</div>
-<p><a href="static/slides/06-week/06-week.pdf">PDF download</a></p>
+<p>We will be looking at some regression diagnostics</p>
+<ol type="a">
+<li>Start by fitting a linear regression model using the <code>mtcars</code> data set. <code>mpg</code> as the response and <code>wt</code> as the predictor. Create a scatter plot of <code>mpg</code> and <code>wt</code> and plot the linear model fit on top. Explain how well you think the fit looks.</li>
+<li><code>plot()</code> the regression model you created to look at the diagnostic plots. Explain what you see.</li>
+<li>Use <code>rstudent()</code> to get the studentized residuals and plot them. Do you see any trends or outliers?</li>
+<li>Use the <code>shapiro.test()</code> to test for Normality of the studentized residuals. Comment on the results.</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

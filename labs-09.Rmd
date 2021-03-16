@@ -1,0 +1,14 @@
+---
+title: "Week 9 lab"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We will be looking at some regression diagnostics
+
+a. Start by fitting a linear regression model using the `mtcars` data set. `mpg` as the response and `wt` as the predictor. Create a scatter plot of `mpg` and `wt` and plot the linear model fit on top. Explain how well you think the fit looks.
+b. `plot()` the regression model you created to look at the diagnostic plots. Explain what you see.
+c. Use `rstudent()` to get the studentized residuals and plot them. Do you see any trends or outliers?
+d. Use the `shapiro.test()` to test for Normality of the studentized residuals. Comment on the results.

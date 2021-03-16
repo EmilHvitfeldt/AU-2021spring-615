@@ -1,0 +1,51 @@
+---
+title: "Assignment 5"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The number in the the starting parenthesis indicate the corresponding exercise number in "Applied Linear Statistical Models".
+
+1. (7 points) **(3.12)8** A student does not understand why the sum of squares SSPE is called a pure error sum of squares “since the formula looks like the one for an ordinary sum of squares”. Explain.
+
+2. (8 points) (Computer project, 3.3) Refer to the GPA data from the previous homework assignments.
+
+    a. Plot residuals e against the fitted values $\hat Y_i$. What departures from the standard regression assumptions can be detected from this plot?
+    a. Prepare a Normal Q-Q plot of the residuals and use it to comment on whether the data passes or fails the assumption of normality. Conduct the Shapiro-Wilk test for normality.
+    a. Test whether residuals in this regression analysis have the same variance.
+    a. Conduct the lack-of-fit test and state your conclusion.
+
+3. (8 points) (Computer project) Crime rate data set is available [here](data/crime.txt).
+A criminologist studies the relationship between level of education and crime rate in medium-sized U.S. counties. She collected data from a random sample of 84 counties; X is the percentage of individuals in the county having at least a high-school dipoma, and Y is the crime rate (crimes reported per 100,000 residents) last year.
+A linear regression of Y on X is then fit to these data. Test:
+    
+    a. normal distribution of residuals;
+    a. constant variance of residuals;
+    a. presence of outliers;
+    a. lack of fit.
+
+4. (12 points) For the “toy” example, consider a small data set
+
+    | X | 0 | 0 | 1 | 2 |
+    |---|---|---|---|---|
+    | Y | 0 | 2 | 2 | 3 |
+    
+    Try to do as much as you can by hand, without the use of a computer. The numbers are quite simple!
+    
+    (a) Plot these data and draw the least squares regression line, which has the expression y = 1 + x.
+    (b) Compute all the residuals.
+    (c) Compute all sums of squares by hand, from their definitions:
+    
+    $$SSTot = \sum_i (Y_i - \bar Y)^2$$
+    
+    $$SSReg = \sum_i (\hat y_i - \bar Y)^2$$
+    
+    $$SSErr = SSTot - SSReg = \sum_i (Y_i - \hat Y_i)^2$$
+    
+    $$SS_{PE} = \sum_j \sum_i (Y_{ij} - \bar Y)^2$$
+    
+    $$SS_{LOF} = SSErr - SS_{PE} = \sum_j \sum_i (\bar Y_j - \bar Y)^2$$
+    
+    Then conduct the lack-of-fit test. Explain the result.
