@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Multiple Regression</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emil Hvitfeldt" />
+    <meta name="date" content="2021-03-17" />
+    <script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# Multiple Regression
+## AU STAT-615
+### Emil Hvitfeldt
+### 2021-03-17
+
+---
+
+
+
+
+
+
+`$$\require{color}\definecolor{orange}{rgb}{1, 0.603921568627451, 0.301960784313725}$$`
+`$$\require{color}\definecolor{blue}{rgb}{0.301960784313725, 0.580392156862745, 1}$$`
+`$$\require{color}\definecolor{pink}{rgb}{0.976470588235294, 0.301960784313725, 1}$$`
+
+&lt;script type="text/x-mathjax-config"&gt;
+MathJax.Hub.Config({
+TeX: {
+  Macros: {
+    orange: ["{\\color{orange}{#1}}", 1],
+    blue: ["{\\color{blue}{#1}}", 1],
+    pink: ["{\\color{pink}{#1}}", 1]
+  },
+  loader: {load: ['[tex]/color']},
+  tex: {packages: {'[+]': ['color']}}
+}
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+.orange {color: #FF9A4D;}
+.blue {color: #4D94FF;}
+.pink {color: #F94DFF;}
+&lt;/style&gt;
+
+
+
+# Inferences about Regression Parameters
+
+The least squares and maximum likelihood estimators in `\(\mathbf{b}\)` are unbiased.
+
+Meaning
+
+`$$E\{\mathbf{b}\} = \boldsymbol\beta$$`
+
+---
+
+# Inferences about Regression Parameters
+
+The variance-covariance matrix is given by
+
+`$$V\{\mathbf{b}\}_{p \times p} = \sigma^2(\mathbf{X}^T\mathbf{X})^{-1}$$`
+
+and
+
+`$$S^2\{\mathbf{b}\}_{p \times p} = \text{MSE}(\mathbf{X}^T\mathbf{X})^{-1}$$`
+
+---
+
+# Inferences about Regression Parameters
+
+Interval estimation of `\(\beta_k\)`
+
+`$$\dfrac{b_k - \beta_k}{s\{b_k\}} \sim t(n-p)$$`
+
+hence the confidence limits for `\(\beta_k\)` with `\(1-\alpha\)` confidence are
+
+`$$b_k \pm t\left(1-\dfrac{\alpha}{2} ; n-p\right) \cdot\{b_k\}$$`
+
+---
+
+# Inferences about Regression Parameters
+
+Test
+
+`$$H_0: \beta_k = 0 \quad \text{against} \quad H_\alpha: \beta_k \neq0$$`
+
+The test statistic is
+
+`$$t^* = \dfrac{b_k}{s\{b_k\}}$$`
+
+if `\(|t^*| \leq \dfrac{b_k}{s\{b_k\}}\)` then we can conclude `\(H_0\)` else we conclude `\(H_\alpha\)`
+
+---
+
+# Interval Estimation of `\(E\{Y_h\}\)`
+
+For given values of `\(X_1, ..., X_{p-1}\)` denoted by `\(X_{h1}, X_{h2}, ..., X_{hp-1}\)` we denote `\(E\{Y_h\}\)` by
+
+`$$E\{Y_h\} = \mathbf{X}^T_h \mathbf{b}$$`
+
+where 
+
+`$$\mathbf{X}_h = \begin{bmatrix}
+1 \\
+X_{h1} \\
+\vdots \\
+X_{hp-1}
+\end{bmatrix}_{p \times 1} \qquad \text{and} \qquad \underset{1 \times 1}{\hat Y_h} = \underset{1 \times p}{\mathbf{X}^T_h} \cdot \underset{p \times 1}{\mathbf{b}}$$`
+
+---
+
+# Interval Estimation of `\(E\{Y_h\}\)`
+
+The estimator is unbiased, i.e. `\(E\{\hat Y_h \} = E\{Y_h\}\)`
+
+and the variance can be stated as follows
+
+`$$V\{\hat Y_h\} = \sigma^2 \mathbf{X}^T_h \cdot \left( \mathbf{X}^T \mathbf{X} \right)^{-1} \cdot \mathbf{X}_h$$`
+
+---
+
+# Interval Estimation of `\(E\{Y_h\}\)`
+
+But we have that 
+
+$$ \sigma^2 \cdot \left( \mathbf{X}^T \mathbf{X} \right)^{-1} = V\{\mathbf{b}\} $$
+
+so we get
+
+`$$V\{ \hat Y_h \} = \mathbf{X}^T_h \cdot V\{ \mathbf{b} \} \mathbf{X}_h$$`
+
+and
+
+`$$s^2\{ \hat Y_h \} = \mathbf{X}^T_h \cdot s^2\{\mathbf{b}\} \cdot \mathbf{X}_h$$`
+
+---
+
+# Interval Estimation of `\(E\{Y_h\}\)`
+
+The `\(1-alpha\)` confidence limits for `\(E\{Y_h\}\)` are
+
+`$$\hat Y_h \pm t\left(1-\dfrac{\alpha}{2}; n-p\right) \cdot s\{\hat Y_h\}$$`
+
+---
+
+# Confidence Region for Regression Surface
+
+The `\(1-\alpha\)` confidence region for entire regression surface is
+
+`$$\hat Y_h \pm W \cdot s\{\hat Y_h\}$$`
+
+with
+
+`$$W^2 = p \cdot F(1-\alpha; \quad p; \quad  n-p)$$`
+
+---
+
+# Prediction of `\(Y_{h(new)}\)`
+
+The `\(1-alpha\)` confidence limits for `\(Y_{h(new)}\)` are
+
+`$$\hat Y_h \pm t\left( 1 - \dfrac{\alpha}{2}; n - p \right) \cdot s\{\text{pred}\}$$`
+
+with
+
+$$
+`\begin{align}
+s^2 \{\text{pred}\} &amp;= \text{MSE} + s^2\{\hat Y_h\} \\
+&amp;= MSE + MSE \cdot \mathbf{X}^T_h \left(\mathbf{X}^T\mathbf{X}\right)^{-1} \mathbf{X}_h \\
+&amp;= MSE \left(1 + \mathbf{X}^T_h \left(\mathbf{X}^T\mathbf{X}\right)^{-1} \mathbf{X}_h\right)
+\end{align}`
+$$
+
+---
+
+# Different Decompositions
+
+We have that
+
+`$$SSTO = SSR(X_1) + SSE(X_1)$$`
+
+if `\(X_1\)` is the variable `\(X\)`(main variable). Now since
+
+`$$SSE(X_1) = SSR(X_2|X_1) + SSE(X_1, X_2)$$`
+
+Then we get
+
+`$$SSTO = SSR(X_1) + SSR(X_1|X_2) + SSE(X_1, X_2)$$`
+
+---
+
+# Different Decompositions
+
+Now since we also have that
+
+`$$SSTO = SSR(X_1, X_2) + SSE(X_1, X_2)$$`
+
+We can combine it with
+
+`$$SSTO = SSR(X_1) + SSR(X_1|X_2) + SSE(X_1, X_2)$$`
+
+that we derived earlier
+
+---
+
+# Different Decompositions
+
+Combing the two gives
+
+$$
+`\begin{align}
+SSR(X_1, X_2) + SSE(X_1, X_2) &amp;= SSR(X_1) + SSR(X_1|X_2) + SSE(X_1, X_2)\\
+SSR(X_1, X_2) &amp;= SSR(X_1) + SSR(X_1|X_2)\\
+\end{align}`
+$$
+
+---
+
+# ANOVA table for three predictors
+
+| Source of variation | SS                     | df        |
+|---------------------|------------------------|-----------|
+| Regression          | `\(SSR(X_1, X_2, X_3)\)`   | 3 ($p-1$) |
+| `\(X_1\)`               | `\(SSR(X_1)\)`             | 1         |
+| `\(X_2\mid X_1\)`       | `\(SSR(X_2 \mid X_1)\)`    | 1         |
+| `\(X_3\mid X_1,X_2\)`   | `\(SSR(X_3\mid X_1,X_2)\)` | 1         |
+| Error               | `\(SSE(X_1, X_2, X_3)\)`   | `\(n-4\)`     |
+| Total               | `\(SSTO\)`                 | `\(n-1\)`     |
+
+---
+
+### Uses of Extra Sums of Squares in Tests for regressiom coefficients
+
+When we wish to test whether the term `\(\beta_kX_k\)` can be dropped from a multiple regression model we are interested in
+
+$$
+`\begin{align}
+H_0 &amp;: \beta_k = 0 \\
+H_\alpha &amp;: \beta_k \neq 0
+\end{align}`
+$$
+
+---
+
+# Example
+
+In the case where we have `\(X_1, X_2, X_3\)` and we want to test `\(\beta_3 = 0\)` vs `\(\beta_3 \neq 0\)`
+
+we can use
+
+`$$SSR(X_3 | X_1, X_2) = SSE(X_1, X_2) - SSE(X_1, X_2, X_3)$$`
+
+---
+
+# Example
+
+Hence we get the test statistic
+
+$$
+`\begin{align}
+F^* &amp;= \dfrac{SSR(X_3 | X_1, X_2)}{1} \div \dfrac{SSE(X_1, X_2, X_3)}{n-4} \\
+&amp;= \dfrac{MSR(X_3 | X_1, X_2)}{MSE(X_1, X_2, X_3)}
+\end{align}`
+$$
+
+which we can think of as a marginal test
+
+---
+
+# Example
+
+When we wish to test whether several terms in the regression model can be dropped at the same time, we can construct a test in a similar way
+
+In the case where we wanted to check if we could remove `\(\beta_2X_2\)` and `\(\beta_3X_3\)`, we have
+
+$$
+`\begin{align}
+H_0 &amp;: \beta_2 = \beta_3 = 0 \\
+H_\alpha &amp;: \text{Not both are zero}
+\end{align}`
+$$
+
+---
+
+# Example
+
+Now the test statistic is
+
+$$
+`\begin{align}
+F^* &amp;= \dfrac{SSR(X_2, X_3 | X_1)}{2} \div \dfrac{SSE(X_1, X_2, X_3)}{n-4} \\
+&amp;= \dfrac{MSR(X_2, X_3 | X_1)}{MSE(X_1, X_2, X_3)}
+\end{align}`
+$$
+
+where
+
+`$$SSR(X_2, X_3 | X_1) = SSR(X_2 | X_1) + SSR(X_3 | X_1, X_2)$$`
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -7,3 +7,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Read chapter 7 and chapter 8, section 1 through 3 of "Applied Linear Statistical Models".
+
+```{r embed-xaringan, echo=FALSE, eval=TRUE}
+xaringanExtra::embed_xaringan(url = "static/slides/09-week/index.html", ratio = "16:9")
+```
+
+[PDF download](static/slides/09-week/09-week.pdf)
