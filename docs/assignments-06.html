@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Lab - week 5</title>
+  <title>Regression: Assignemnt 6</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Lab - week 5"/>
+  <meta property="og:title" content="Regression: Assignemnt 6"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Lab - week 5"/>
+  <meta property="twitter:title" content="Regression: Assignemnt 6"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Lab - week 5"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Assignemnt 6"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Lab - week 5","authors":[]}
+{"title":"Assignemnt 6","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2440,7 +2440,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Lab - week 5</h1>
+<h1>Assignemnt 6</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2448,41 +2448,49 @@ Assignments
 
 
 <div class="d-article">
-<p>Based on <strong>Applied Statistics with R</strong> by David Dalpiaz (<a href="https://github.com/daviddalpiaz/appliedstats" class="uri">https://github.com/daviddalpiaz/appliedstats</a>)</p>
-<h1 id="cars-example"><code>cars</code> Example</h1>
-<p>We will use the small dataset <code>cars</code> which comes with R and it availiable right away</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>cars</span>
-</code></pre>
-</div>
-</div>
-<p>We want too examine the relationship between the speed of a car (<code>speed</code>) and its stopping distance (<code>dist</code>).</p>
+<ol type="1">
+<li>(15 points) For the matrices below, obtain by hand (1) <span class="math inline">\(A + C\)</span>, (2) <span class="math inline">\(A - C\)</span>, (3) <span class="math inline">\(B&#39;A\)</span>, (4) <span class="math inline">\(AC&#39;\)</span>, (5) <span class="math inline">\(C&#39;A\)</span>.</li>
+</ol>
+<p><span class="math display">\[
+A = \begin{bmatrix}
+2 &amp; 1 \\
+3 &amp; 5 \\
+5 &amp; 7 \\
+4 &amp; 8
+\end{bmatrix}, \qquad
+B = \begin{bmatrix}
+6 \\
+9 \\
+3 \\
+1
+\end{bmatrix}, \qquad
+C = \begin{bmatrix}
+3 &amp; 8 \\
+8 &amp; 6 \\
+5 &amp; 1 \\
+2 &amp; 4
+\end{bmatrix}
+\]</span></p>
+<ol start="2" type="1">
+<li>(10 points) Find the inverse by hand of each of the following matrices</li>
+</ol>
+<p><span class="math display">\[
+A = \begin{bmatrix}
+2 &amp; 4 \\
+3 &amp; 1
+\end{bmatrix}, \qquad
+B = \begin{bmatrix}
+4 &amp; 3 \\
+6 &amp; 5
+\end{bmatrix}
+\]</span></p>
+<p>Check that these are correct inverse matrices by calculating <span class="math inline">\(AA^{-1}\)</span> and <span class="math inline">\(B^{-1}B\)</span>.</p>
+<ol start="3" type="1">
+<li>(10 points) Set up the <span class="math inline">\(X\)</span> matrix and <span class="math inline">\(\boldsymbol\beta\)</span> for each of the following regression models (that is, write the model as <span class="math inline">\(Y = X \boldsymbol\beta + \varepsilon\)</span> and write the vector <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> explicitly).</li>
+</ol>
 <ol type="a">
-<li>Start by creating a scatter plot of <code>dist</code> and <code>speed</code>. Describe what you see.</li>
-</ol>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dist</span> <span class='op'>~</span> <span class='va'>speed</span>, data <span class='op'>=</span> <span class='va'>cars</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<ol start="2" type="a">
-<li>Fit a simple linear regression model on <code>cars</code> with <code>dist</code> as the response variable and <code>speed</code> as the predictor variable. Plot it on top of the scatter plot. How does it fit?</li>
-</ol>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>stop_dist_model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>dist</span> <span class='op'>~</span> <span class='va'>speed</span>, data <span class='op'>=</span> <span class='va'>cars</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dist</span> <span class='op'>~</span> <span class='va'>speed</span>, data <span class='op'>=</span> <span class='va'>cars</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='va'>stop_dist_model</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<ol start="3" type="a">
-<li><p>Examine the model fit with <code>summary()</code>. Look at the different results from <code>summary()</code> using <code>names()</code>.</p></li>
-<li><p>Verify the value of the <span class="math inline">\(t\)</span> test statistic for <span class="math inline">\(\b_1\)</span> and the two-sided p-value associated with that test statistic.</p></li>
-<li><p>Use the <code>confint()</code> function to obain the confidence interval for <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.</p></li>
-<li><p>Verify the calculations that R is performing for the <span class="math inline">\(\beta_1\)</span> interval.</p></li>
+<li><span class="math inline">\(Y_i = \beta_1 X_{i1} + \beta_2 X_{i2} + \beta_3 X^2_{i1} + \varepsilon\)</span></li>
+<li><span class="math inline">\(\sqrt{Y_i} = \beta_0 + \beta_1 X_{i1} + \beta_2 \log X_{i2} + \varepsilon\)</span></li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

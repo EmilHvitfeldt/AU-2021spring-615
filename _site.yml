@@ -83,6 +83,8 @@ navbar:
           href: assignments-Midterm.html
         - text: "Assignment 5"
           href: assignments-05.html
+        - text: "Assignment 6"
+          href: assignments-06.html
     - text: "Reference"
       href: reference.html
 output: distill::distill_article
