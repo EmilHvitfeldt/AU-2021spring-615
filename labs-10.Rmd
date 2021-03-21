@@ -1,0 +1,28 @@
+---
+title: "Lab week 10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This lab is dedicated to working with matrices. The following matrix `B` can be used for exercises.
+
+```{r}
+B <- matrix(
+  c(1, 2, 3, 
+    4, 5, 6, 
+    7, 8, 9), 
+  nrow = 3, ncol = 3
+)
+
+B
+```
+
+1. Show examples of element-wise operations, matrix multiplication, transposition, joining and sub-setting.
+
+2. Try to find the inverse of B and find the determinant.
+
+3. Modify the first element in B such that the matrix is invertible and find the inverse.
+
+4. Define a matrix from the `mtcars` data set and build a regression model that predicts miles per gallon based on the number of cylinders, horsepower, axle ratio, weight and acceleration time.

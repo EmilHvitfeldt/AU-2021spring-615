@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Readings - week 8</title>
+  <title>Regression: Lab week 10</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Readings - week 8"/>
+  <meta property="og:title" content="Regression: Lab week 10"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Readings - week 8"/>
+  <meta property="twitter:title" content="Regression: Lab week 10"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 8"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Lab week 10"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 8","authors":[]}
+{"title":"Lab week 10","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2441,7 +2441,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 8</h1>
+<h1>Lab week 10</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2449,8 +2449,31 @@ Assignments
 
 
 <div class="d-article">
-<p>We are having <a href="https://www.american.edu/provost/communications/november-17-2020.cfm">Wellness Week</a>. There will be no required reading this week.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>This lab is dedicated to working with matrices. The following matrix <code>B</code> can be used for exercises.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>B</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, 
+    <span class='fl'>4</span>, <span class='fl'>5</span>, <span class='fl'>6</span>, 
+    <span class='fl'>7</span>, <span class='fl'>8</span>, <span class='fl'>9</span><span class='op'>)</span>, 
+  nrow <span class='op'>=</span> <span class='fl'>3</span>, ncol <span class='op'>=</span> <span class='fl'>3</span>
+<span class='op'>)</span>
+
+<span class='va'>B</span>
+</code></pre>
+</div>
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9</code></pre>
+</div>
+<ol type="1">
+<li><p>Show examples of element-wise operations, matrix multiplication, transposition, joining and sub-setting.</p></li>
+<li><p>Try to find the inverse of B and find the determinant.</p></li>
+<li><p>Modify the first element in B such that the matrix is invertible and find the inverse.</p></li>
+<li><p>Define a matrix from the <code>mtcars</code> data set and build a regression model that predicts miles per gallon based on the number of cylinders, horsepower, axle ratio, weight and acceleration time.</p></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
