@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Building The Regression Model Model Selection</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emil Hvitfeldt" />
+    <meta name="date" content="2021-03-24" />
+    <script src="libs/header-attrs-2.6.4/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# Building The Regression Model Model Selection
+## AU STAT-615
+### Emil Hvitfeldt
+### 2021-03-24
+
+---
+
+
+
+
+
+
+`$$\require{color}\definecolor{orange}{rgb}{1, 0.603921568627451, 0.301960784313725}$$`
+`$$\require{color}\definecolor{blue}{rgb}{0.301960784313725, 0.580392156862745, 1}$$`
+`$$\require{color}\definecolor{pink}{rgb}{0.976470588235294, 0.301960784313725, 1}$$`
+
+&lt;script type="text/x-mathjax-config"&gt;
+MathJax.Hub.Config({
+TeX: {
+  Macros: {
+    orange: ["{\\color{orange}{#1}}", 1],
+    blue: ["{\\color{blue}{#1}}", 1],
+    pink: ["{\\color{pink}{#1}}", 1]
+  },
+  loader: {load: ['[tex]/color']},
+  tex: {packages: {'[+]': ['color']}}
+}
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+.orange {color: #FF9A4D;}
+.blue {color: #4D94FF;}
+.pink {color: #F94DFF;}
+&lt;/style&gt;
+
+
+
+# Model Selection
+
+The goal of chapter 9 is to discuss methods for selecting predictor variables regarding an exploratory observational study
+
+---
+
+# Criteria for Model Selection
+
+.pull-left[
+In general for any set of `\(p-1\)` predictors, `\(2^{p-1}\)` alternative models can be constructed
+
+This becomes a very difficult talk as `\(p\)` increases
+]
+
+.pull-right[
+
+| p | possibilities |
+|---|---------------|
+| 1 | 2 |
+| 2 | 4 |
+| 3 | 8 |
+| 4 | 16 |
+| 5 | 32 |
+| 10 | 1024 |
+| 15 | 32768 |
+
+]
+
+---
+
+# Criteria for Model Selection
+
+We will focus on six criteria for comparing the regression models
+
+- `\(R^2_p\)`
+- `\(R^2_{\alpha,p}\)`
+- `\(C_p\)`
+- `\(AIC_p\)`
+- `\(SBC_p\)`
+- `\(PRESS_p\)`
+
+---
+
+# Notation
+
+- We denote the number of potential `\(X\)` variables by `\(P-1\)`
+- All regression models contain an intercept `\(\beta_0\)`
+- The number of `\(X\)` variables in a subset will be denoted by `\(p-1\)`. Thus we have `\(1 \leq p \leq P\)`
+- We assume that the number of observations exceeds the number of potential parameters
+
+`$$n &gt; P$$`
+
+---
+
+# `\(R^2_p\)` or `\(SSE_p\)`
+
+The `\(R^2_p\)` criterion is equivalent to using the error sum of squares `\(SSE_p\)` as the criterion
+
+With the `\(SSE_p\)` criterion subsets for which `\(SSE_p\)` is small are considered "good"
+
+The equivalence follows from
+
+`$$R^2_p = 1 - \dfrac{SSE_p}{SSTO}$$`
+
+since `\(SSTO\)` is constant for all possible regression models
+
+---
+
+# `\(R^2_p\)` or `\(SSE_p\)`
+
+Note:
+
+The intent in using the `\(R^2_p\)` criterion is to find the point where adding more `\(X\)` variables is not worthwhile because it leads to a very small increase in `\(R^2_p\)`
+
+---
+
+# `\(R^2_{\alpha, p}\)` or `\(MSE_p\)`
+
+The adjusted coefficient of multiple determination `\(R^2_{\alpha, p}\)` can be suggested as an alternative of `\(R^2_p\)`
+
+`$$R^2_{\alpha, p} = 1 - \dfrac{n-1}{n-p} \cdot \dfrac{SSE_p}{SSTO} = 1 - \dfrac{MSE_p}{\dfrac{SSTO}{n-1}}$$`
+
+it can be shown that `\(R^2_{\alpha, p}\)` increase if and only if `\(MSE_p\)` decreases since `\(\dfrac{SSTO}{n-1}\)` is fixed for any number of predictors
+
+---
+
+# Mallows' `\(C_p\)` Criterion
+
+The criterion is concerned with the total mean squared error of the `\(n\)` fitted values for each subset regression model
+
+The mean squared error concept involves the total error in each fitted value
+
+`$$\hat Y_i - \mu_i$$`
+
+---
+
+# Mallows' `\(C_p\)` Criterion
+
+This total error is made up of a bias component and a random error component
+
+### Bias component
+
+`$$E\{\hat Y_i\} - \mu_i$$`
+
+### Random error component
+
+`$$\hat Y_i - E\{\hat Y_i\}$$`
+
+---
+
+# Mallows' `\(C_p\)` Criterion
+
+It can be shown that
+
+`$$E\left\{\hat Y_i - \mu_i\right\}^2 = \left( E\{\hat Y_i\} - \mu_i \right)^2 + \sigma^2 \left\{\hat Y_i\right\}$$`
+
+therefore, the total mean squared error for all `\(n\)` fitted values is given by
+
+`$$\begin{align} \sum_{i=1}^2 \left\{ Y_i - \mu_i \right\}^2 &amp;= \sum_{i=1}^n \left[ \left( E\{\hat Y_i\} - \mu_i \right)^2 + \sigma^2 \left\{\hat Y_i\right\} \right] \\ &amp;= \sum_{i=1}^n \left( E\{\hat Y_i\} - \mu_i \right)^2 + \sum_{i=1} ^n\sigma^2 \left\{\hat Y_i\right\} \end{align}$$`
+
+---
+
+# Mallows' `\(C_p\)` Criterion
+
+The criterion measure, denoted by `\(\Gamma_p\)` is simply
+
+`$$\Gamma_p = \dfrac{1}{\sigma^2}\left[ \sum_{i=1}^n \left( E\{ \hat Y_i\} - \mu_i \right) ^2 + \sum_{i=1}^n \sigma^2\left\{ \hat Y_i \right\} \right]$$`
+
+The model which includes all `\(P-1\)` potential `\(X\)` variables is assumed to have been carefully chosen so that `\(MSE(X_1, X_2, ..., X_{P-1})\)` is an unbiased estimator of `\(\sigma^2\)`
+
+---
+
+# Mallows' `\(C_p\)` Criterion
+
+It can be shown that `\(C_p\)` is an estimator of `\(\Gamma_p\)`
+
+`$$C_p = \dfrac{SSE_p}{MSE(X_1, ..., X_{P-1})} - (n-2p)$$`
+
+---
+
+# Mallows' `\(C_p\)` Criterion
+
+Notes:
+
+When the `\(C_p\)` values for all possible regression models are plotted against `\(p\)`, those models with little bias will tend to fall near the line `\(C_p = p\)`
+
+Models with  substantial bias will tend to fall considerably above this line
+
+In using the `\(C_p\)` criterion, we seek to identify subsets of `\(X\)` variables for which the `\(C_p\)` value is small **and** the `\(C_p\)` value is near `\(p\)` (Bias of regression model is small)
+
+---
+
+# `\(AIC_p\)` and `\(SBC_p\)`
+
+Alternative criteria that provide penalties for adding predictors are Akaike's Information Criterion ($AIC_p$) and Schwarz' Bayesian Criterion ($SBC_p$)
+
+We search for models that have small values of `\(AIC_p\)` or `\(SBC_p\)`
+
+`$$\begin{align} AIC_p &amp;= n \ln(SSE_p) - n \ln(n) + 2p \\ SBC_p &amp;= n \ln(SSE_p) - n \ln(n) + \ln(n) p \end{align}$$`
+
+- `\(n \ln(n) SSE_p\)` decreases as `\(p\)` increases
+
+---
+
+# `\(PRESS_p\)` Criterion
+
+The `\(PRESS_p\)` criterion is a measure of how well the use of the fitted values for a subset model can predict the observed responses `\(Y_i\)`
+
+Note:
+
+The press measure differs from `\(SSE\)` in that each fitted value `\(\hat Y_i\)` for the `\(PRESS\)` criterion is obtained by deleting the ith case from the data set, estimating the regression function for the subset model from the remaining `\(n-1\)` cases, and then using the fitted regression function to obtain the predicted value `\(\hat Y_{i(i)}\)` for the ith case
+
+`$$PRESS_p = \sum_{i=1}^n\left( Y_i - \hat Y_{i(i)} \right)^2$$`
+
+models with small press values are considered good candidate models
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
