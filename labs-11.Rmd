@@ -1,0 +1,21 @@
+---
+title: "Lab week 11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We'll be predicting the home sales price based on various characteristics of the home. For most of our analysis, we can use the same commands as in the univariate regression, but notice that the interpretation may be different.
+
+The data set can be found [here](data/HOME_SALES.csv).
+
+Start by loading in the data set, and fit a multiple linear regression model with `SALE_PRICE` as the response and `FINISHED_AREA`, `BEDROOMS`, `BATHROOMS`, `GARAGE_SIZE` and `YEAR_BUILT` as predictors. Comment on your findings.
+
+Perform an Analysis of Variance using `anova()`. Comment on the results.
+
+Look at the residuals chart. Does it appear to be a good fit?
+
+Calculate the 90% confidence intervals for the slopes.
+
+Calculate the 90% confidence intervals for the slopes with Bonferroni adjustment.

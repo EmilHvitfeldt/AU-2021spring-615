@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Readings - week 10</title>
+  <title>Regression: Assignment 7</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Readings - week 10"/>
+  <meta property="og:title" content="Regression: Assignment 7"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Readings - week 10"/>
+  <meta property="twitter:title" content="Regression: Assignment 7"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 10"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Assignment 7"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2336,7 +2336,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.6.4/header-attrs.js"></script>
-  <script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2356,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 10","authors":[]}
+{"title":"Assignment 7","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2444,7 +2443,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 10</h1>
+<h1>Assignment 7</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2452,15 +2451,69 @@ Assignments
 
 
 <div class="d-article">
-<p>Read chapter 9 of “Applied Linear Statistical Models”.</p>
-<h2 id="slides">Slides</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="shareagain" style="min-width:300px;margin:1em auto;">
-<iframe src="static/slides/10-week/index.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
-<script>fitvids('.shareagain', {players: 'iframe'});</script>
-</div>
-</div>
-<p><a href="static/slides/10-week/10-week.pdf">PDF download</a></p>
+<h1 id="exercise-1-7-points">Exercise 1 (7 points)</h1>
+<p>A student stated: “Adding predictor variables to a regression model can never reduce <span class="math inline">\(R^2\)</span>, so we should include all available predictor variables in the model.” Comment.</p>
+<h1 id="exercise-2-7-points">Exercise 2 (7 points)</h1>
+<p>Why is it not meaningful to attach a sign to the coefficient of multiple correlation <span class="math inline">\(R\)</span>, although we do so for the coefficient of simple correlation <span class="math inline">\(r_{12}\)</span>?</p>
+<h1 id="exercise-3-7-points">Exercise 3 (7 points)</h1>
+<p>In a small-scale regression study, the following data were obtained,</p>
+<table>
+<thead>
+<tr class="header">
+<th>Y</th>
+<th><span class="math inline">\(X_1\)</span></th>
+<th><span class="math inline">\(X_2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>42.0</td>
+<td>7.0</td>
+<td>33.0</td>
+</tr>
+<tr class="even">
+<td>33.0</td>
+<td>4.0</td>
+<td>41.0</td>
+</tr>
+<tr class="odd">
+<td>75.0</td>
+<td>16.0</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td>28.0</td>
+<td>3.0</td>
+<td>49.0</td>
+</tr>
+<tr class="odd">
+<td>91.0</td>
+<td>21.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td>55.0</td>
+<td>8.0</td>
+<td>31.0</td>
+</tr>
+</tbody>
+</table>
+<p>Assume the standard multiple regression model with independent normal error terms. Compute <span class="math inline">\(\mathbf{b}\)</span>, <span class="math inline">\(\mathbf{e}\)</span>, <span class="math inline">\(\mathbf{H}\)</span>, SSErr, <span class="math inline">\(R^2\)</span>, <span class="math inline">\(s^2_{\mathbf{b}}\)</span>, <span class="math inline">\(\hat Y\)</span> for <span class="math inline">\(X_1 = 10\)</span>, <span class="math inline">\(X_2 = 30\)</span>. You can do the computations using software or by hand, although it would be lengthy to do them by hand.</p>
+<h1 id="exercise-4-14-points">Exercise 4 (14 points)</h1>
+<p>The data set “Brand preference” is available <a href="data/CH06PR05.txt">here</a>.</p>
+<p>It was collected to study thee relation between degree of brand liking (Y, first column) and moisture content (<span class="math inline">\(X_1\)</span>, second column) and sweetness (<span class="math inline">\(X_2\)</span>, third column) of the product.</p>
+<ol type="a">
+<li>Fit a regression model to these data and state the estimated regression function. Interpret <span class="math inline">\(b_1\)</span>.</li>
+<li>Obtain residual plots. What information do they provide? Plot residuals against fitted values, against each predictor, and against the product of predictors.</li>
+<li>Test homoscedasticity.</li>
+<li>Conduct a formal lack of fit test.</li>
+<li>test whether the proposed linear regression model is significant. What do the results of the ANOVA F-test imply about the slopes?</li>
+<li>Estimate both slopes simultaneously using the Bonferroni procedure with at least a 99 percent confidence level.</li>
+<li>Report <span class="math inline">\(R^2\)</span> and adjusted <span class="math inline">\(R^2\)</span>. How are they interpreted here?</li>
+<li>Calculate the squared correlation coefficient between <span class="math inline">\(Y_i\)</span> and <span class="math inline">\(\hat Y_i\)</span>. Compare with part g).</li>
+<li>Obtain a 99% confidence interval for <span class="math inline">\(E(Y)\)</span> when <span class="math inline">\(X_1 = 5\)</span> and <span class="math inline">\(X_2 = 4\)</span>. Interpret it.</li>
+<li>obtain a 99% prediction interval for a new observation <span class="math inline">\(Y\)</span> when <span class="math inline">\(X_1 = 5\)</span> ane <span class="math inline">\(X_2 = 4\)</span>.</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2469,6 +2522,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
