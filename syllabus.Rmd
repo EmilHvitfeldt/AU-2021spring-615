@@ -57,7 +57,9 @@ Labs (20%): 30-45 minute labs at the end of each class. Each lab covers the mate
 
 Midterm (15%): The midterm covers several chapters of the material and it is take home. You will have three days to complete the exam.
 
-Project (25%) (20% report 5% presentation): Each student will receive or choose a data set with data description, problem formulation, and instructions. Using sound statistical methods, you will do the necessary modeling and data analysis and write a report summarizing your results and answering specific questions of your project. A 10-minute presentation summarizing the report will be given to the class or submitted on Blackboard.
+~~Project (25%) (20% report 5% presentation): Each student will receive or choose a data set with data description, problem formulation, and instructions. Using sound statistical methods, you will do the necessary modeling and data analysis and write a report summarizing your results and answering specific questions of your project. A 10-minute presentation summarizing the report will be given to the class or submitted on Blackboard.~~
+
+Final Exam (25%): This exam will function in much the same way as the midterm, but with topics covering the whole class with a higher weight on the second half of the material.
 
 90 – 100 % = A  
 87 – 90 % = A-  
