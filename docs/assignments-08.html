@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Readings - week 3</title>
+  <title>Regression: Assignment 8</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Readings - week 3"/>
+  <meta property="og:title" content="Regression: Assignment 8"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Readings - week 3"/>
+  <meta property="twitter:title" content="Regression: Assignment 8"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 3"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Assignment 8"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2336,7 +2336,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.6.4/header-attrs.js"></script>
-  <script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2356,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 3","authors":[]}
+{"title":"Assignment 8","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2446,7 +2445,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 3</h1>
+<h1>Assignment 8</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2454,16 +2453,76 @@ Assignments
 
 
 <div class="d-article">
-<p>Start reading chapter 2 of “Applied Linear Statistical Models”. We will try to get at least halfway through the chapter this week.</p>
-<h2 id="slides">Slides</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="shareagain" style="min-width:300px;margin:1em auto;">
-<iframe src="static/slides/03-week/index.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
-<script>fitvids('.shareagain', {players: 'iframe'});</script>
-</div>
-</div>
-<p><a href="static/slides/03-week/03-week.pdf">PDF download</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h1 id="exercise-1-5-points">Exercise 1 (5 points)</h1>
+<p>State the number of degrees of freedom that are associated with each of the following extra sums of squares:</p>
+<ul>
+<li><span class="math inline">\(\text{SSReg}(X_1 | X_2)\)</span></li>
+<li><span class="math inline">\(\text{SSReg}(X_2 | X_1, X_3)\)</span></li>
+<li><span class="math inline">\(\text{SSReg}(X_1, X_2 | X_3, X_4)\)</span></li>
+<li><span class="math inline">\(\text{SSReg}(X_1, X_2, X_3 | X_4, X_5)\)</span></li>
+</ul>
+<p>Note on notation. <span class="math inline">\(\text{SSReg}(A | B)\)</span> is the extra sum of squares that appeared as a result of including variables <span class="math inline">\(A\)</span> into the regression model that already had variables <span class="math inline">\(B\)</span> in it. Thus it is used to compare the full model with both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> in it against the reduced model with only <span class="math inline">\(B\)</span>.</p>
+<h1 id="exercise-2-5-points">Exercise 2 (5 points)</h1>
+<p>Explain in what sense the regression sum of squares <span class="math inline">\(\text{SSReg}(X_1)\)</span> is an extra sum of squares.</p>
+<h1 id="exercise-3-5-points">Exercise 3 (5 points)</h1>
+<p>For a multiple regression model with five <span class="math inline">\(X\)</span> variables, what is the relevant extra sum of squares for testing</p>
+<ol type="a">
+<li>whether or not <span class="math inline">\(\beta_5 = 0\)</span></li>
+<li>whether or not <span class="math inline">\(\beta_2 = \beta_4 = 0\)</span></li>
+</ol>
+<h1 id="exercise-4-5-points">Exercise 4 (5 points)</h1>
+<p>Continue working with the <em>Brand preference</em> data, which is available <a href="data/CH06PR05.txt">here</a>.</p>
+<ol type="a">
+<li>Obtain the ANOVA table that decomposes the regression sum of squares into extra sum of squares associated with <span class="math inline">\(X_1\)</span> and with <span class="math inline">\(X_2\)</span>, given <span class="math inline">\(X_1\)</span>.</li>
+<li>Test whether <span class="math inline">\(X_2\)</span> can be dropped from the model while <span class="math inline">\(X_1\)</span> is retained.</li>
+<li>Fit first-order simple linear regression for relating brand liking ( <span class="math inline">\(Y\)</span> ) to moisture content ( <span class="math inline">\(X_1\)</span> ).</li>
+<li>Compare the estimated regression coefficient for <span class="math inline">\(X_1\)</span> with the corresponding coefficient obtained in (a).</li>
+<li>Does <span class="math inline">\(\text{SS}_{reg}(X_1)\)</span> equals <span class="math inline">\(\text{SS}_{reg}(X_1 | X_2)\)</span> here? Is the difference substantial?</li>
+<li>Regress <span class="math inline">\(Y\)</span> on <span class="math inline">\(X_2\)</span> and obtain the residuals. Regress <span class="math inline">\(X_1\)</span> on <span class="math inline">\(X_2\)</span> and obtain the residuals. Regress residuals from the “<span class="math inline">\(Y\)</span> on <span class="math inline">\(X_2\)</span>” on residuals from the model “<span class="math inline">\(X_1\)</span> on <span class="math inline">\(X_2\)</span>”; compare the estimated slope, error sum of squares with #1. What about <span class="math inline">\(R^2\)</span>.</li>
+</ol>
+<h1 id="exercise-5-5-points">Exercise 5 (5 points)</h1>
+<p>Consider a regression model <span class="math inline">\(Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \varepsilon\)</span>, where <span class="math inline">\(X_1\)</span> is a numerical variable and <span class="math inline">\(X_2\)</span> is a dummy variable. Sketch the response curves (the graphs of <span class="math inline">\(E(Y)\)</span> as a function of <span class="math inline">\(X_1\)</span> for different values of <span class="math inline">\(X_2\)</span>), if <span class="math inline">\(\eta_0 - 25\)</span>, <span class="math inline">\(\beta_1 = 0.2\)</span>, and <span class="math inline">\(\beta_2 = -12\)</span>.</p>
+<h1 id="exercise-6-5-points">Exercise 6 (5 points)</h1>
+<p>Continue the previous exercise. Sketch the response curves for the model with interaction, <span class="math inline">\(Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2 + \varepsilon\)</span>, given that <span class="math inline">\(\beta_3 = -0.2\)</span>.</p>
+<h1 id="exercise-7-5-points">Exercise 7 (5 points)</h1>
+<p>In a regression study, three types of banks were involved, namely, (1) commercial, (2) mutual savings, and (3) saving and loan. Consider the following dummy variables fr the types of bank:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Type of Bank</th>
+<th><span class="math inline">\(X_1\)</span></th>
+<th><span class="math inline">\(X_2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Commercial</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Mutual saving</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Saving and loan</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li>Develop the first-order linear regression model (no interactions) for relating last year’s profit or loss ( <span class="math inline">\(Y\)</span> ) to size of bank ( <span class="math inline">\(X_1\)</span> ) and type of bank ( <span class="math inline">\(X_2, X_3\)</span> ).</li>
+<li>State the response function for the three types of banks.</li>
+<li>Interpret each of the following quantities:
+<ol type="1">
+<li><span class="math inline">\(\beta_2\)</span></li>
+<li><span class="math inline">\(\beta_3\)</span></li>
+<li><span class="math inline">\(\beta_2 - \beta_3\)</span></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div></li>
+</ol>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2471,6 +2530,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

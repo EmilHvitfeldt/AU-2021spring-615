@@ -1,0 +1,65 @@
+---
+title: "Assignment 8"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exercise 1 (5 points)
+
+State the number of  degrees of freedom that are associated with each of the following extra sums of squares:
+
+- $\text{SSReg}(X_1 | X_2)$
+- $\text{SSReg}(X_2 | X_1, X_3)$
+- $\text{SSReg}(X_1, X_2 | X_3, X_4)$
+- $\text{SSReg}(X_1, X_2, X_3 | X_4, X_5)$
+
+Note on notation. $\text{SSReg}(A | B)$ is the extra sum of squares that appeared as a result of including variables $A$ into the regression model that already had variables $B$ in it. Thus it is used to compare the full model with both $A$ and $B$ in it against the reduced model with only $B$.
+
+# Exercise 2 (5 points)
+
+Explain in what sense the regression sum of squares $\text{SSReg}(X_1)$ is an extra sum of squares.
+
+# Exercise 3 (5 points)
+
+For a multiple regression model with five $X$ variables, what is the relevant extra sum of squares for testing
+
+a. whether or not $\beta_5 = 0$
+b. whether or not $\beta_2 = \beta_4 = 0$
+
+# Exercise 4 (5 points)
+
+Continue working with the *Brand preference* data, which is available [here](data/CH06PR05.txt).
+
+a. Obtain the ANOVA table that decomposes the regression sum of squares into extra sum of squares associated with $X_1$ and with $X_2$, given $X_1$.
+b. Test whether $X_2$ can be dropped from the model while $X_1$ is retained.
+c. Fit first-order simple linear regression for relating brand liking ( $Y$ ) to moisture content ( $X_1$ ).
+d. Compare the estimated regression coefficient for $X_1$ with the corresponding coefficient obtained in (a).
+e. Does $\text{SS}_{reg}(X_1)$ equals  $\text{SS}_{reg}(X_1 | X_2)$ here? Is the difference substantial?
+f. Regress $Y$ on $X_2$ and obtain the residuals. Regress $X_1$ on $X_2$ and obtain the residuals. Regress residuals from the "$Y$ on $X_2$" on residuals from the model "$X_1$ on $X_2$"; compare the estimated slope, error sum of squares with #1. What about $R^2$.
+
+# Exercise 5 (5 points)
+
+Consider a regression model $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \varepsilon$, where $X_1$ is a numerical variable and $X_2$ is a dummy variable. Sketch the response curves (the graphs of $E(Y)$ as a function of $X_1$ for different values of $X_2$), if $\eta_0 - 25$, $\beta_1 = 0.2$, and $\beta_2 = -12$.
+
+# Exercise 6 (5 points)
+
+Continue the previous exercise. Sketch the response curves for the model with interaction, $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2 + \varepsilon$, given that $\beta_3 = -0.2$.
+
+# Exercise 7 (5 points)
+
+In a regression study, three types of banks were involved, namely, (1) commercial, (2) mutual savings, and (3) saving and loan. Consider the following dummy variables fr the types of bank:
+
+| Type of Bank    | $X_1$ | $X_2$ |
+|-----------------|-------|-------|
+| Commercial      | 1     | 0     |
+| Mutual saving   | 0     | 1     |
+| Saving and loan | 0     | 0     |
+
+a. Develop the first-order linear regression model (no interactions) for relating last year's profit or loss ( $Y$ ) to size of bank ( $X_1$ ) and type of bank ( $X_2, X_3$ ).
+b. State the response function for the three types of banks.
+c. Interpret each of the following quantities:
+    1. $\beta_2$
+    2. $\beta_3$
+    3. $\beta_2 - \beta_3$

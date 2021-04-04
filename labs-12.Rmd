@@ -1,0 +1,17 @@
+---
+title: "Lab 12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We will use the `mtcars` data set to explore how to deal with Dummy variables.
+
+We will be interested in three of the variables `mpg`, `hp`, and `am`.
+
+1. Start by plotting the data, find a way to visualize the `am` variable alongside `mpg` and `hp`.
+
+2. Fit the simple linear regression model where $Y$ is `mpg`, $X$ is `hp`. Plot the fitted line along with the data.
+
+3. Fit the multiple linear regression model where both `hp` and `am` is included as predictors. Plot the regression lines for `am == 0` and `am == 1`.

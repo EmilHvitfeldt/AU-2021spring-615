@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Readings - week 3</title>
+  <title>Regression: Lab 12</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Readings - week 3"/>
+  <meta property="og:title" content="Regression: Lab 12"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Readings - week 3"/>
+  <meta property="twitter:title" content="Regression: Lab 12"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 3"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Lab 12"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2336,7 +2336,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.6.4/header-attrs.js"></script>
-  <script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2356,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 3","authors":[]}
+{"title":"Lab 12","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2446,7 +2445,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 3</h1>
+<h1>Lab 12</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2454,15 +2453,13 @@ Assignments
 
 
 <div class="d-article">
-<p>Start reading chapter 2 of “Applied Linear Statistical Models”. We will try to get at least halfway through the chapter this week.</p>
-<h2 id="slides">Slides</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="shareagain" style="min-width:300px;margin:1em auto;">
-<iframe src="static/slides/03-week/index.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
-<script>fitvids('.shareagain', {players: 'iframe'});</script>
-</div>
-</div>
-<p><a href="static/slides/03-week/03-week.pdf">PDF download</a></p>
+<p>We will use the <code>mtcars</code> data set to explore how to deal with Dummy variables.</p>
+<p>We will be interested in three of the variables <code>mpg</code>, <code>hp</code>, and <code>am</code>.</p>
+<ol type="1">
+<li><p>Start by plotting the data, find a way to visualize the <code>am</code> variable alongside <code>mpg</code> and <code>hp</code>.</p></li>
+<li><p>Fit the simple linear regression model where <span class="math inline">\(Y\)</span> is <code>mpg</code>, <span class="math inline">\(X\)</span> is <code>hp</code>. Plot the fitted line along with the data.</p></li>
+<li><p>Fit the multiple linear regression model where both <code>hp</code> and <code>am</code> is included as predictors. Plot the regression lines for <code>am == 0</code> and <code>am == 1</code>.</p></li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2471,6 +2468,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
