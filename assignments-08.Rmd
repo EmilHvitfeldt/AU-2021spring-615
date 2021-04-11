@@ -41,7 +41,7 @@ f. Regress $Y$ on $X_2$ and obtain the residuals. Regress $X_1$ on $X_2$ and obt
 
 # Exercise 5 (5 points)
 
-Consider a regression model $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \varepsilon$, where $X_1$ is a numerical variable and $X_2$ is a dummy variable. Sketch the response curves (the graphs of $E(Y)$ as a function of $X_1$ for different values of $X_2$), if $\eta_0 - 25$, $\beta_1 = 0.2$, and $\beta_2 = -12$.
+Consider a regression model $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \varepsilon$, where $X_1$ is a numerical variable and $X_2$ is a dummy variable. Sketch the response curves (the graphs of $E(Y)$ as a function of $X_1$ for different values of $X_2$), if $\beta_0 = 25$, $\beta_1 = 0.2$, and $\beta_2 = -12$.
 
 # Exercise 6 (5 points)
 
