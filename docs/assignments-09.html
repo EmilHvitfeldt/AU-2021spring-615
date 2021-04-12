@@ -85,26 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression: Readings - week 12</title>
+  <title>Regression: assignment 9</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression: Readings - week 12"/>
+  <meta property="og:title" content="Regression: assignment 9"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression: Readings - week 12"/>
+  <meta property="twitter:title" content="Regression: assignment 9"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Readings - week 12"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["assignment 9"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2336,7 +2336,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.6.4/header-attrs.js"></script>
-  <script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2356,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Readings - week 12","authors":[]}
+{"title":"assignment 9","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2447,7 +2446,7 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Readings - week 12</h1>
+<h1>assignment 9</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2455,15 +2454,65 @@ Assignments
 
 
 <div class="d-article">
-<p>Finish reading chapter 10 of “Applied Linear Statistical Models”.</p>
-<h2 id="slides">Slides</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="shareagain" style="min-width:300px;margin:1em auto;">
-<iframe src="static/slides/12-week/index.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
-<script>fitvids('.shareagain', {players: 'iframe'});</script>
-</div>
-</div>
-<p><a href="static/slides/12-week/12-week.pdf">PDF download</a></p>
+<h1 id="exercise-1">Exercise 1</h1>
+<p>A speaker stated: “In well-designed experiments involving quantitative explanatory variables, a procedure for reducing the number of explanatory variables after the data are obtained is not necessary.” Do you agree? Discuss.</p>
+<h1 id="exercise-2">Exercise 2</h1>
+<p>In forward stepwise regression, what advantage is there in using a relatively small <span class="math inline">\(\alpha\)</span>-to-enter value for adding variables? What advantage is there in using a larger <span class="math inline">\(\alpha\)</span>-to-enter value?</p>
+<h1 id="exercise-3">Exercise 3</h1>
+<p>In a small-scale regression study, the following data were obtained</p>
+<table>
+<thead>
+<tr class="header">
+<th>Y</th>
+<th>X1</th>
+<th>X2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>42.0</td>
+<td>7.0</td>
+<td>33.0</td>
+</tr>
+<tr class="even">
+<td>33.0</td>
+<td>4.0</td>
+<td>41.0</td>
+</tr>
+<tr class="odd">
+<td>75.0</td>
+<td>16.0</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td>28.0</td>
+<td>3.0</td>
+<td>49.0</td>
+</tr>
+<tr class="odd">
+<td>91.0</td>
+<td>21.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td>55.0</td>
+<td>8.0</td>
+<td>31.0</td>
+</tr>
+</tbody>
+</table>
+<p>Select the best regression equation using different model selection methods.</p>
+<h1 id="exercise-4">Exercise 4</h1>
+<p>A personnel officer in a governmental agency administered four newly developed aptitude tests to each of 25 applicants for entry-level clerical positions in the agency. For purpose of the study, all 25 applicants were accepted for positions irrespective of their test scores. After a probationary period, each applicant was rated for proficiency on the job, and scores of the four tests <span class="math inline">\((X_1, X_2, X_3, X_4)\)</span> and the job proficiency score <span class="math inline">\((Y)\)</span> were recorded.</p>
+<p>The resulting data set is available <a href="data/4590152.txt">here</a>.</p>
+<ol type="a">
+<li>Obtain the scatter plot matrix of these data. What does the scatter plot suggest about the nature of the functional relationship between the response variable and each of the predictor variables? Do you notice any serious multicollinearity problems?</li>
+<li>Fit the multiple regression function containing all four predictor variables as first-order (linear) terms. Does it appear that all predictor variables should be retained?</li>
+<li>Using only first-order terms for the predictor variables in the pool of potential X-variables, find the best regression models according to different criteria - adjusted <span class="math inline">\(R^2\)</span>, <span class="math inline">\(C_p\)</span>, and BIC.</li>
+<li>Using forward stepwise selection, find the best subset of predictor variables to predict job proficiency. Use the <span class="math inline">\(\alpha\)</span>-to-enter limit of 0.05.</li>
+<li>Repeat the previous question using the backward elimination method and the <span class="math inline">\(\alpha\)</span>-to-remove limit of 0.10.</li>
+<li>To assess and compare internally the predictive ability of our models, split the data into training and testing subsets and estimate the mean squared prediction error MSPE for all regression models identified in (b–e).</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2472,6 +2521,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

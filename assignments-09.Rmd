@@ -1,0 +1,43 @@
+---
+title: "assignment 9"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exercise 1
+
+A speaker stated: “In well-designed experiments involving quantitative explanatory variables, a procedure for reducing the number of explanatory variables after the data are obtained is not necessary.” Do you agree? Discuss.
+
+# Exercise 2
+
+In forward stepwise regression, what advantage is there in using a relatively small $\alpha$-to-enter value for adding variables? What advantage is there in using a larger $\alpha$-to-enter value?
+
+# Exercise 3
+
+In a small-scale regression study, the following data were obtained
+
+| Y    | X1   | X2   |
+|------|------|------|
+| 42.0 |  7.0 | 33.0 |
+| 33.0 |  4.0 | 41.0 |
+| 75.0 | 16.0 |  7.0 |
+| 28.0 |  3.0 | 49.0 |
+| 91.0 | 21.0 |  5.0 |
+| 55.0 |  8.0 | 31.0 |
+
+Select the best regression equation using different model selection methods.
+
+# Exercise 4
+
+A personnel officer in a governmental agency administered four newly developed aptitude tests to each of 25 applicants for entry-level clerical positions in the agency. For purpose of the study, all 25 applicants were accepted for positions irrespective of their test scores. After a probationary period, each applicant was rated for proficiency on the job, and scores of the four tests $(X_1, X_2, X_3, X_4)$ and the job proficiency score $(Y)$ were recorded.
+
+The resulting data set is available [here](data/4590152.txt).
+
+a. Obtain the scatter plot matrix of these data. What does the scatter plot suggest about the nature of the functional relationship between the response variable and each of the predictor variables? Do you notice any serious multicollinearity problems?
+b. Fit the multiple regression function containing all four predictor variables as first-order (linear) terms. Does it appear that all predictor variables should be retained?
+c. Using only first-order terms for the predictor variables in the pool of potential X-variables, find the best regression models according to different criteria - adjusted $R^2$, $C_p$, and BIC.
+d. Using forward stepwise selection, find the best subset of predictor variables to predict job proficiency. Use the $\alpha$-to-enter limit of 0.05.
+e. Repeat the previous question using the backward elimination method and the $\alpha$-to-remove limit of 0.10.
+f. To assess and compare internally the predictive ability of our models, split the data into training and testing subsets and estimate the mean squared prediction error MSPE for all regression models identified in (b–e).
