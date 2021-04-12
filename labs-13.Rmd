@@ -1,0 +1,11 @@
+---
+title: "Lab week 13"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We will explore variable selection in this lab. We will start by using a data set called Auto which you can download [here](data/Auto.csv).
+
+We will be trying a couple of different ways of performing forward and backward variable selection using both `regsubsets()` from the **leaps** package and using the `step()` function.
