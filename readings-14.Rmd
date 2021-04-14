@@ -6,5 +6,5 @@ title: "Readings - week 14"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Read chapter 12 of "Applied Linear Statistical Models".
-This chapter talk about autocorrelation in time series data.
+~~Read chapter 12 of "Applied Linear Statistical Models".~~  
+~~This chapter talk about autocorrelation in time series data.~~
