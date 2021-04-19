@@ -1,0 +1,115 @@
+---
+title: "Final Exam"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This Final Exam is worth 250 points in total!
+
+# Exercise 1 (25 points)
+
+In a small-scale regression study, five observations on $Y$ were obtained corresponding to $X = 1, 4, 10, 11, 14$. Assume that $\sigma = 0.6$, $\beta_0=5$, and $\beta_1 = 3$.
+
+a. What are the expected values of $MSR$ and $MSE$ here?
+b. For determining whether or not a regression relation exists, would it have been better or worse to have made the five observations at $X = 6, 7, 8, 9, 10$? Why? Would the same answer apply if the principal purpose were to estimate the mean response for $X = 8$? Discuss.
+
+# Exercise 2 (25 points)
+
+Draw a residual plot for each of the following cases
+
+a. Error variance decreases with $X$.
+b. True regression function is U-shaped, but a linear regression function is fitted.
+
+# Exercise 3 (25 points)
+
+An economist studying the relation between household electricity consumption (Y) and the number of rooms in the home (X) employed a simple linear regression model. The following residuals were obtained
+
+| $X_i$ | $e_i$ |
+|-------|-------|
+|     2 |   3.2 |
+|     3 |   2.9 |
+|     4 |  -1.7 |
+|     5 |  -2.0 |
+|     6 |  -2.3 |
+|     7 |  -1.2 |
+|     8 |  -0.9 |
+|     9 |   0.8 |
+|    10 |   0.7 |
+|    11 |   0.5 |
+
+Plot the residuals $e_i$ against $X_i$. What problem appears to be present here? Might a transformation alleviate this problem?
+
+# Exercise 4 (25 points)
+
+A behavioral scientist said, "I am never sure whether the regression line goes through the origin. Hence, I will not use such a model". Comment.
+
+# Exercise 5 (30 points)
+
+Shown below are the number of galleys for a manuscript (X) and the total dollar cost of correcting typographical errors (Y) in a random sample of recent orders handled by a firm specializing in technical manuscripts. Since $Y$ involves variable costs only, an analyst wished to determine whether the regression-through-the-origin model (4.10) is appropriate for studying the relation between the two variables.
+
+| $X_i$ | $Y_i$ |
+|-------|-------|
+|     7 |   128 |
+|    12 |   213 |
+|    10 |   191 |
+|    10 |   178 |
+|    14 |   250 |
+|    25 |   446 |
+|    30 |   540 |
+|    25 |   457 |
+|    18 |   324 |
+|    10 |   177 |
+|     4 |    75 |
+|     6 |   107 |
+
+a. Fit a regression model (4.10) and state the estimated regression function.
+b. Plot the estimated regression function and the data. Does a linear regression function through the origin appear to provide a good fit here? Comment.
+c. In estimating costs of handling prospective orders, management has used a standard of \$17.50 per galley for the cost of correcting typographical errors. Test whether or not this standard should be revised; use $\alpha = 0.02$. State the alternatives, decision rules, and conclusion.
+d. Obtain a prediction interval for the correction cost on a forthcoming job involving 10 galleys. Use a confidence coefficient of 98 percent.
+
+# Exercise 6 (30 points)
+
+For each of the following regression models, indicate whether it is a general linear regression model. If it is not, state whether it can be expressed in the form of (6.7) by a suitable transformation
+
+a. $Y_i = \beta_0 + \beta_1X_{i1} + \beta_2 \log_{10} X_{i2} + \beta_3 X_{i1}^2 + \varepsilon_i$
+b. $Y_i = \varepsilon_i \exp\left( \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2}^2 \right)$
+c. $Y_i = \log_{10} (\beta_1 X_{i1}) + \beta_2 X_{i2} + \varepsilon_i$
+d. $Y_i = \beta_0 \exp(\beta_1 X_{i1}) + \varepsilon_i$
+e. $Y_i = \left[ 1 + \exp(\beta_0 + \beta_1 X_{i1} + \varepsilon_i) \right]^{-1}$
+
+# Exercise 7 (30 points)
+
+An analyst wanted to fit the regression model $Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \beta_3 X_{i3} + \varepsilon_i, i = 1, ..., n$, by the method of least squares when it is known that $\beta_2 = 4$. How can the analyst obtain the desired fit by using a multiple regression computer program?
+
+# Exercise 8 (30 points)
+
+The following regression model is being considered in a market research study:
+
+$$Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \beta_3 X_{i1}^2 + \varepsilon_i$$
+
+State the reduced model for testing whether or not
+
+a. $\beta_1 = \beta_3 = 0$
+b. $\beta_0 = 0$
+c. $\beta_3 = 5$
+d. $\beta_0 = 10$
+e. $\beta_1 = \beta_2$
+
+# Exercise 9 (30 points)
+
+In a regression study, three types of banks were involved, namely, commercial, mutual savings, and savings and loans. Consider the following system of indicator variables for types of bank
+
+| Type of Bank     | $X_2$ | $X_3$ |
+|------------------|-------|-------|
+| Commercial       |     1 |     0 |
+| Mutual savings   |     0 |     1 |
+| Saving and loans |    -1 |    -1 |
+
+a. Develop a first-order linear regression model for relating last year's profit or loss (Y) to the size of the bank (X_1) and type of bank (X_2, X_3).
+b. State the response function for the three types of banks.
+c. Interpret each of the following quantities.
+    1. $\beta_2$
+    1. $\beta_3$
+    1. $-\beta_2 -\beta_3$

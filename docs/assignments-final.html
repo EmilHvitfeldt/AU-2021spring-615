@@ -85,29 +85,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Regression</title>
+  <title>Regression: Final Exam</title>
 
-  <meta property="description" itemprop="description" content="American University 615"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Regression"/>
+  <meta property="og:title" content="Regression: Final Exam"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="American University 615"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Regression"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Regression"/>
-  <meta property="twitter:description" content="American University 615"/>
+  <meta property="twitter:title" content="Regression: Final Exam"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site"]}},"value":[{"type":"character","attributes":{},"value":["Regression"]},{"type":"character","attributes":{},"value":["American University 615\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Final Exam"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2358,7 +2355,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Regression","description":"American University 615","authors":[]}
+{"title":"Final Exam","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2451,21 +2448,209 @@ Assignments
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Regression</h1>
+<h1>Final Exam</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>American University 615</p></p>
+
 </div>
 
 
 <div class="d-article">
-<p>This website contains most of the information and material that will be used for one of the sections of the course <a href="https://catalog.american.edu/preview_course_nopop.php?catoid=6&amp;coid=27522">Regression</a> at <a href="https://www.american.edu/">American University</a>.</p>
-<p>The navigation bar contains information about the <a href="syllabus.html">syllabus</a>, <a href="schedule.html">schedule</a>, <a href="readings.html">readings</a>, <a href="labs.html">labs</a> and <a href="assignments.html">assignments</a>.</p>
-<h2 class="unnumbered" id="license">License</h2>
-<p><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />This online work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>. Visit <a href="https://github.com/EmilHvitfeldt/AU-2021spring-627">here</a> for more information about the license.</p>
-<h2 class="unnumbered" id="colophon">Colophon</h2>
-<p>This book was written in <a href="http://www.rstudio.com/ide/">RStudio</a> using <a href="https://rstudio.github.io/distill/">distill</a>. The complete source is available on <a href="">GitHub</a>. All packages versions are being handled with <a href="https://rstudio.github.io/renv/">renv</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>This Final Exam is worth 250 points in total!</p>
+<h1 id="exercise-1-25-points">Exercise 1 (25 points)</h1>
+<p>In a small-scale regression study, five observations on <span class="math inline">\(Y\)</span> were obtained corresponding to <span class="math inline">\(X = 1, 4, 10, 11, 14\)</span>. Assume that <span class="math inline">\(\sigma = 0.6\)</span>, <span class="math inline">\(\beta_0=5\)</span>, and <span class="math inline">\(\beta_1 = 3\)</span>.</p>
+<ol type="a">
+<li>What are the expected values of <span class="math inline">\(MSR\)</span> and <span class="math inline">\(MSE\)</span> here?</li>
+<li>For determining whether or not a regression relation exists, would it have been better or worse to have made the five observations at <span class="math inline">\(X = 6, 7, 8, 9, 10\)</span>? Why? Would the same answer apply if the principal purpose were to estimate the mean response for <span class="math inline">\(X = 8\)</span>? Discuss.</li>
+</ol>
+<h1 id="exercise-2-25-points">Exercise 2 (25 points)</h1>
+<p>Draw a residual plot for each of the following cases</p>
+<ol type="a">
+<li>Error variance decreases with <span class="math inline">\(X\)</span>.</li>
+<li>True regression function is U-shaped, but a linear regression function is fitted.</li>
+</ol>
+<h1 id="exercise-3-25-points">Exercise 3 (25 points)</h1>
+<p>An economist studying the relation between household electricity consumption (Y) and the number of rooms in the home (X) employed a simple linear regression model. The following residuals were obtained</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(X_i\)</span></th>
+<th><span class="math inline">\(e_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>3.2</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2.9</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>-1.7</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>-2.0</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>-2.3</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>-1.2</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>-0.9</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>0.8</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>0.7</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>0.5</td>
+</tr>
+</tbody>
+</table>
+<p>Plot the residuals <span class="math inline">\(e_i\)</span> against <span class="math inline">\(X_i\)</span>. What problem appears to be present here? Might a transformation alleviate this problem?</p>
+<h1 id="exercise-4-25-points">Exercise 4 (25 points)</h1>
+<p>A behavioral scientist said, “I am never sure whether the regression line goes through the origin. Hence, I will not use such a model”. Comment.</p>
+<h1 id="exercise-5-30-points">Exercise 5 (30 points)</h1>
+<p>Shown below are the number of galleys for a manuscript (X) and the total dollar cost of correcting typographical errors (Y) in a random sample of recent orders handled by a firm specializing in technical manuscripts. Since <span class="math inline">\(Y\)</span> involves variable costs only, an analyst wished to determine whether the regression-through-the-origin model (4.10) is appropriate for studying the relation between the two variables.</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(X_i\)</span></th>
+<th><span class="math inline">\(Y_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>7</td>
+<td>128</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>213</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>191</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>178</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>250</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>446</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>540</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>457</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>324</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>177</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>75</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>107</td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li>Fit a regression model (4.10) and state the estimated regression function.</li>
+<li>Plot the estimated regression function and the data. Does a linear regression function through the origin appear to provide a good fit here? Comment.</li>
+<li>In estimating costs of handling prospective orders, management has used a standard of $17.50 per galley for the cost of correcting typographical errors. Test whether or not this standard should be revised; use <span class="math inline">\(\alpha = 0.02\)</span>. State the alternatives, decision rules, and conclusion.</li>
+<li>Obtain a prediction interval for the correction cost on a forthcoming job involving 10 galleys. Use a confidence coefficient of 98 percent.</li>
+</ol>
+<h1 id="exercise-6-30-points">Exercise 6 (30 points)</h1>
+<p>For each of the following regression models, indicate whether it is a general linear regression model. If it is not, state whether it can be expressed in the form of (6.7) by a suitable transformation</p>
+<ol type="a">
+<li><span class="math inline">\(Y_i = \beta_0 + \beta_1X_{i1} + \beta_2 \log_{10} X_{i2} + \beta_3 X_{i1}^2 + \varepsilon_i\)</span></li>
+<li><span class="math inline">\(Y_i = \varepsilon_i \exp\left( \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2}^2 \right)\)</span></li>
+<li><span class="math inline">\(Y_i = \log_{10} (\beta_1 X_{i1}) + \beta_2 X_{i2} + \varepsilon_i\)</span></li>
+<li><span class="math inline">\(Y_i = \beta_0 \exp(\beta_1 X_{i1}) + \varepsilon_i\)</span></li>
+<li><span class="math inline">\(Y_i = \left[ 1 + \exp(\beta_0 + \beta_1 X_{i1} + \varepsilon_i) \right]^{-1}\)</span></li>
+</ol>
+<h1 id="exercise-7-30-points">Exercise 7 (30 points)</h1>
+<p>An analyst wanted to fit the regression model <span class="math inline">\(Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \beta_3 X_{i3} + \varepsilon_i, i = 1, ..., n\)</span>, by the method of least squares when it is known that <span class="math inline">\(\beta_2 = 4\)</span>. How can the analyst obtain the desired fit by using a multiple regression computer program?</p>
+<h1 id="exercise-8-30-points">Exercise 8 (30 points)</h1>
+<p>The following regression model is being considered in a market research study:</p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \beta_3 X_{i1}^2 + \varepsilon_i\]</span></p>
+<p>State the reduced model for testing whether or not</p>
+<ol type="a">
+<li><span class="math inline">\(\beta_1 = \beta_3 = 0\)</span></li>
+<li><span class="math inline">\(\beta_0 = 0\)</span></li>
+<li><span class="math inline">\(\beta_3 = 5\)</span></li>
+<li><span class="math inline">\(\beta_0 = 10\)</span></li>
+<li><span class="math inline">\(\beta_1 = \beta_2\)</span></li>
+</ol>
+<h1 id="exercise-9-30-points">Exercise 9 (30 points)</h1>
+<p>In a regression study, three types of banks were involved, namely, commercial, mutual savings, and savings and loans. Consider the following system of indicator variables for types of bank</p>
+<table>
+<thead>
+<tr class="header">
+<th>Type of Bank</th>
+<th><span class="math inline">\(X_2\)</span></th>
+<th><span class="math inline">\(X_3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Commercial</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Mutual savings</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Saving and loans</td>
+<td>-1</td>
+<td>-1</td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li>Develop a first-order linear regression model for relating last year’s profit or loss (Y) to the size of the bank (X_1) and type of bank (X_2, X_3).</li>
+<li>State the response function for the three types of banks.</li>
+<li>Interpret each of the following quantities.
+<ol type="1">
+<li><span class="math inline">\(\beta_2\)</span></li>
+<li><span class="math inline">\(\beta_3\)</span></li>
+<li><span class="math inline">\(-\beta_2 -\beta_3\)</span></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div></li>
+</ol>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2473,6 +2658,15 @@ Assignments
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
